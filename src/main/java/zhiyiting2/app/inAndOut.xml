@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="智易停">
+
+
+<!-- 添加完设备，开始做出入库 -->
+	<test name="设备管理" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.test.deviceManagement.DeviceList">
+				<methods>
+					<include name="reportIn" />
+					<include name="uploadDeviceFile" />
+					<include name="reportOut" />
+					<include name="uploadDeviceOutFile" />
+					<include name="testaaa" />
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	
+
+
+
+
+	<listeners>
+		<!-- class-name的值填写为时间创建的监听器的路径 -->
+		<listener
+			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
+	</listeners>
+
+	<!-- <listeners> testng的XML配置文件中添加这些内容 <listener class-name="org.uncommons.reportng.HTMLReporter"/> 
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/> </listeners> -->
+	<!-- Default test -->
+
+
+</suite>
+
+
+
+
+

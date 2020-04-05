@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="智易停">
+ 	<!-- <groups>
+        <run>
+            <include name="creat"/>筛选driver组的方法来执行
+            <include name="test"/>筛选driver组的方法来执行
+        </run>
+    </groups> -->
+   
+	<!-- Default suite -->
+	<test name="Default test" verbose="2">
+		<classes>
+			<class name="zhiyiting2.test.CreatRoad">
+				<methods>
+					<include name="login" description="登录" />
+				</methods>
+			</class>
+			<!-- <class name="zhiyiting2.test.chargeStandardManagement.DiscountsChargeStandard">
+				<methods>
+					<include name="addMarketingPlan" description="新增优惠策略" />
+					<include name="editMarketingPlan" description="编辑优惠策略" />
+				</methods>
+			</class> -->
+			<class name="zhiyiting2.test.parkingManagement.SpecialVehicle">
+				<methods>
+					<include name="addSpecialCar" description="新增免费车辆" />
+					<include name="updateSpecialCar" description="编辑免费车辆" />
+					<include name="deleteSpecialCar" description="删除免费车辆" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="app" verbose="2">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="sendVerifyCode" />
+					<include name="getVerifyCodeByUuid" />
+					<include name="appRegister" />
+					<include name="appLogin" />
+					<include name="myCar" />
+					<include name="bindCar" />
+
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<listeners>
+		<!-- class-name的值填写为时间创建的监听器的路径 -->
+		<listener
+			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
+	</listeners>
+
+	<!-- <listeners> testng的XML配置文件中添加这些内容 <listener class-name="org.uncommons.reportng.HTMLReporter"/> 
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/> </listeners> -->
+	<!-- Default test -->
+
+
+</suite>

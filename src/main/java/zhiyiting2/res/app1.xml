@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="智易停">
+
+	<test name="数据初始化" preserve-order="true" verbose="2">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="appLogin" />
+				</methods>
+			</class>
+			 <class name="zhiyiting2.test.CreatRoad">
+				<methods>
+					<include name="login" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	  <test name="行驶证审核" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="auditBindApply" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	<test name="有未支付账单不允许解绑车辆" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="assertUnbindCar" />
+				</methods>
+			</class>
+		</classes>
+	</test>   
+	
+	<!-- <test name="绑定车辆送优惠券" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="" />
+				</methods>
+			</class>
+		</classes>
+	</test>    -->
+	
+	
+	<listeners>
+		<!-- class-name的值填写为时间创建的监听器的路径 -->
+		<listener
+			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
+	</listeners>
+
+
+</suite>
+
+
+
+
+

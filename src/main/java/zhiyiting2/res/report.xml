@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="智易停">
+
+	<!-- <test name="app" verbose="2"> <classes> <class name="zhiyiting2.test.userManagement.UserList"> 
+		<methods> <include name="appSendVerifyCode" /> <include name="getVerifyCodeByMobile" 
+		/> <include name="register" /> </methods> </class> </classes> </test> -->
+
+	
+
+
+	<test name="登录" verbose="2">
+		<classes>
+			<class name="zhiyiting2.test.CreatRoad">
+				<methods>
+					<include name="login" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="免费车辆" verbose="2">
+		<classes>
+			<class name="zhiyiting2.test.parkingManagement.SpecialVehicle">
+				<methods>
+					<include name="addSpecialCar" description="新增免费车辆" />
+					<include name="updateSpecialCar" description="编辑免费车辆" />
+					<include name="deleteSpecialCar" description="删除免费车辆" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+	<test name="运营商管理" verbose="2">
+		<classes>
+			<class name="zhiyiting2.test.operatorManagement.OperatorList">
+				<methods>
+					<include name="maintainOperatorInfo" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="优惠策略" verbose="2">
+		<classes>
+			<class
+				name="zhiyiting2.test.chargeStandardManagement.DiscountsChargeStandard">
+				<methods>
+					<include name="addMarketingPlan" />
+					<!-- <include name="editMarketingPlan" /> -->
+					<!-- <include name="deleteMarketingPlanById" /> -->
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="app" verbose="2">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="sendVerifyCode" />
+					<include name="getVerifyCodeByUuid" />
+					<include name="appRegister" />
+					<include name="appLogin" />
+					<include name="myCar" />
+					<include name="bindCar" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="路边车位管理" verbose="2" preserve-order="true">
+		<classes>
+			<class
+				name="zhiyiting2.test.chargeStandardManagement.MaintainChargeStandard">
+				<methods>
+					<include name="addChargeStandardMultipleInfo" />
+				</methods>
+			</class>
+			<class name="zhiyiting2.test.parkingManagement.ParkingRoad">
+				<methods>
+					<include name="creatRoad" />
+					<include name="batchChangeParkingRoadStatus" />
+					<include name="batchUpdateParkRoadOperationStatus" />
+					<include name="addParkPlaces" />
+					<include name="batchAuditParkPlace" />
+				</methods>
+			</class>
+			<class name="zhiyiting2.test.parkingManagement.ParkingList">
+				<methods>
+					<include name="createNewWorkOrder" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="收费规则管理" verbose="2">
+		<classes>
+
+			<class
+				name="zhiyiting2.test.chargeStandardManagement.MonthlyChargeStandard">
+				<methods>
+					<include name="addPeriodRuleItem" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+
+
+	<test name="施工管理" verbose="2">
+		<classes>
+			<class name="zhiyiting2.test.workerManagement.WorkerList">
+				<methods>
+					<include name="maintainWorkerInfo" />
+				</methods>
+			</class>
+			<class name="zhiyiting2.test.workerManagement.WorkOrderList">
+				<methods>
+					<include name="querySingleWorkOrderDetail" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="施工人员绑定运营商,路段绑定施工人员" verbose="2">
+		<groups>
+			<run>
+				<include name="installNewDevice" />
+			</run>
+		</groups>
+		<classes>
+			<class name="zhiyiting2.test.operatorManagement.OperatorList">
+			</class>
+			<class name="zhiyiting2.test.parkingManagement.ParkingRoad">
+			</class>
+			<class name="zhiyiting2.test.workerManagement.WorkOrderList">
+			</class>
+		</classes>
+	</test>
+
+	<!-- 添加完设备，开始做出入库 -->
+	<test name="设备管理" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.test.deviceManagement.DeviceList">
+				<methods>
+					<include name="reportIn" />
+					<include name="uploadDeviceFile" />
+					<include name="reportOut" />
+					<include name="uploadDeviceOutFile" />
+					<include name="deviceSelfTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="复核" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.test.parkingManagement.ParkingList">
+				<methods>
+					<include name="getAuditId" />
+					<include name="manualHandleAudit" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="查询账单Bill" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.test.parkingManagement.ParkingList">
+				<methods>
+					<include name="getBillIdByPlaceId" />
+					<include name="reviseInOutRecordTime" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<test name="支付" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="walletToMonthPurchase" />
+					<include name="getUserIdByMobile" />
+					<include name="updateUserBalance" />
+					<include name="getBillMoneyByBillId" />
+					<include name="loadBillInfo"/>
+					<include name="payBill" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+
+
+
+	<test name="清除测试数据" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.test.CreatRoad">
+				<methods>
+					<include name="deleteTestData" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<listeners>
+		<!-- class-name的值填写为时间创建的监听器的路径 -->
+		<listener
+			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
+	</listeners>
+
+
+
+</suite>
+
+
+
+
+

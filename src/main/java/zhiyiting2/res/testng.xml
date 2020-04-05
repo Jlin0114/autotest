@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="-">
+
+   <listeners>
+		<!-- class-name的值填写为时间创建的监听器的路径 -->
+		<listener
+			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
+	</listeners>
+
+    <suite-files >
+        <!--模块1-->
+        <suite-file path="test.xml"></suite-file>
+
+        <!--模块2-->
+        <suite-file path="report.xml"></suite-file>
+
+    </suite-files>
+
+</suite>

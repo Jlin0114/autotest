@@ -1,0 +1,3900 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	
+		<link href='http://extentreports.com/resx/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>智易停自动化测试报告</title>
+
+	<style type='text/css'>
+		.node.level-1  ul{ display:none;} .node.level-1.active ul{display:block;}
+	</style>
+</head>
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>智易停自动化测试报告</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<a href='#!'>
+				<span class='label suite-start-time'>Mar 31, 2020 5:55:02 PM</span>
+			</a>
+			<a href='#!'>
+				<span class='label'>v3.0.3</span>
+			</a>
+		</ul>
+	</div>
+</nav>
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>智易停</a></li>
+					<li><a href='#'>app</a></li>
+					<li><a href='#'>登录</a></li>
+					<li><a href='#'>免费车辆</a></li>
+					<li><a href='#'>运营商管理</a></li>
+					<li><a href='#'>优惠策略</a></li>
+					<li><a href='#'>路边车位管理</a></li>
+					<li><a href='#'>收费规则管理</a></li>
+					<li><a href='#'>施工管理</a></li>
+					<li><a href='#'>施工人员绑定运营商,路段绑定施工人员</a></li>
+					<li><a href='#'>installNewDevice</a></li>
+					<li><a href='#'>设备管理</a></li>
+					<li><a href='#'>复核</a></li>
+					<li><a href='#'>查询账单Bill</a></li>
+					<li><a href='#'>支付</a></li>
+					<li><a href='#'>清除测试数据</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span><span class='strong'>46</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong'>1</span> test(s) failed, <span class='strong'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span><span class='strong'>46</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong'>1</span> step(s) failed, <span class='strong'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h3>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : app</span>
+						<span class='test-time'>Mar 31, 2020 5:55:02 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:02 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+280ms</span>
+</div>
+	<div class='test-desc'>Pass: 6 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>app</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<div class='node-name'>注册发送验证码:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:03 PM</span>
+						<span class='node-duration'>0h 0m 59s+801ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>app</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"mobile":"13812341234"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","uuid":"1032eab3-4cd7-453d-b30b-e64d57ae9efd","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='3'>
+					<div class='collapsible-header'>
+						<div class='node-name'>getVerifyCodeByUuid</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:03 PM</span>
+						<span class='node-duration'>0h 0m 59s+333ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>app</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<div class='node-name'>app注册:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:04 PM</span>
+						<span class='node-duration'>0h 0m 58s+399ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>app</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"password":"9fcefc0080d894e83ca7d360ce5ccd9ead2c5d8a80a10f9fa9698510aaba865a","verifyCode":"421962","mobile":"13812341234","uuid":"1032eab3-4cd7-453d-b30b-e64d57ae9efd"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='5'>
+					<div class='collapsible-header'>
+						<div class='node-name'>app登录:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:04 PM</span>
+						<span class='node-duration'>0h 0m 58s+316ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>app</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"password":"9fcefc0080d894e83ca7d360ce5ccd9ead2c5d8a80a10f9fa9698510aaba865a","mobile":"13812341234","deviceTokenType":"IOS","deviceToken":"324e21e59f669b668526a32cf7a9107cd42f5245092fb457fb3bf2ef06602992"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='6'>
+					<div class='collapsible-header'>
+						<div class='node-name'>我的车辆列表:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:04 PM</span>
+						<span class='node-duration'>0h 0m 58s+256ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>app</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"total":0,"code":"0","message":"OK","list":[],"rows":0}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='7'>
+					<div class='collapsible-header'>
+						<div class='node-name'>绑定车辆:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 58s+180ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>app</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉A12334"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":true,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='8'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 登录</span>
+						<span class='test-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+179ms</span>
+</div>
+	<div class='test-desc'>Pass: 2 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>登录</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='9'>
+					<div class='collapsible-header'>
+						<div class='node-name'>用户名错误</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+956ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>登录</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"managerCode":"admin","managerPassword":"123456"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='10'>
+					<div class='collapsible-header'>
+						<div class='node-name'>账号密码正确</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+891ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>登录</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"managerCode":"zhaoming","managerPassword":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 免费车辆</span>
+						<span class='test-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+236ms</span>
+</div>
+	<div class='test-desc'>Pass: 3 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>免费车辆</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='12'>
+					<div class='collapsible-header'>
+						<div class='node-name'>新增路边免费车辆:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+770ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>免费车辆</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉AKJ500","validStart":"2020-03-30","validEnd":"2020-05-30","isEnable":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":23,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='13'>
+					<div class='collapsible-header'>
+						<div class='node-name'>编辑路边免费车辆:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+683ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>免费车辆</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉AKJ500","validStart":"2020-03-30","validEnd":"2020-05-30","id":23,"isEnable":0}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='14'>
+					<div class='collapsible-header'>
+						<div class='node-name'>删除路边免费车辆:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+623ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>免费车辆</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"id":23}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 运营商管理</span>
+						<span class='test-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+92ms</span>
+</div>
+	<div class='test-desc'>Pass: 1 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>运营商管理</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='16'>
+					<div class='collapsible-header'>
+						<div class='node-name'>增加运营商:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+538ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>运营商管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"districtId":"","name":"自动化测试运营商","cityId":"450100","type":"insert","provinceId":"450000"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":192,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 优惠策略</span>
+						<span class='test-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:05 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+279ms</span>
+</div>
+	<div class='test-desc'>Pass: 3 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>优惠策略</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='18'>
+					<div class='collapsible-header'>
+						<div class='node-name'>新增优惠策略:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+445ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>优惠策略</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"allowancaAmount":"","briefIntroduction":"app描述","cashMinAmount":"10","conditionAmount":"0.01","count":"5","couponType":"CASH","description":"测试","discountMaxAmount":"","groupCode":"888","id":0,"moneyAmount":"3","name":"绑定车辆送优惠券","operatorId":192,"type":"COUPON","userOrderType":"RECHARGE","validDays":"2","validEnd":"2020-04-30","validStart":"2020-03-30"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":61,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='19'>
+					<div class='collapsible-header'>
+						<div class='node-name'>编辑优惠策略:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+329ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>优惠策略</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"allowancaAmount":"","briefIntroduction":"app描述","cashMinAmount":"12","conditionAmount":"0.01","count":"5","couponType":"CASH","description":"测试","discountMaxAmount":"","groupCode":"888","id":61,"moneyAmount":"3","name":"绑定车辆送优惠券","operatorId":192,"type":"COUPON","userOrderType":"RECHARGE","validDays":"2","validEnd":"2020-05-30","validStart":"2020-03-30"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='20'>
+					<div class='collapsible-header'>
+						<div class='node-name'>删除优惠策略:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:05 PM</span>
+						<span class='node-duration'>0h 0m 57s+242ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>优惠策略</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"id":61,"type":"delete"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 路边车位管理</span>
+						<span class='test-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:06 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+736ms</span>
+</div>
+	<div class='test-desc'>Pass: 9 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>路边车位管理</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='22'>
+					<div class='collapsible-header'>
+						<div class='node-name'>新增收费规则:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 57s+149ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"chargeSort":20,"chargeStandardName":"自动化测试收费规则","areaType":"ONE_LEVEL","distVehicleType":false,"cityId":450100,"newEnergyDiscount":1,"dayChargeStandardList":[{"freeMinutesMode":0,"smallCarChargeCap":35,"smallCarFreeMinutes":1,"chargeCapMode":0},{"chargeCycleMinutes":30,"chargeType":3,"startTime":"08:00","endTime":"20:00","smallCarRate":"1"},{"chargeType":0,"startTime":"20:00","endTime":"08:00"}],"provinceId":450000,"distNotWorkDay":false}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":209,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='23'>
+					<div class='collapsible-header'>
+						<div class='node-name'>添加路段成功</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 57s+70ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"regionId":"450103001","recognizeConfig":"Y","latitude":"22.52105806825077","chargeStandardId":"209","watermarkConfig":"Y","roadName":"自动化测试1","longitude":"113.92140212087071"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":234,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='24'>
+					<div class='collapsible-header'>
+						<div class='node-name'>添加车位(成功):</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+994ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"latitude":"22.520949566160184","gradNo":"1","parkingRoadId":234,"gridNo":"1","longitude":"113.9297159383628"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":271,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='25'>
+					<div class='collapsible-header'>
+						<div class='node-name'>路段上线:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+873ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"roadIds":[234],"status":"0"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='26'>
+					<div class='collapsible-header'>
+						<div class='node-name'>路段下线:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+806ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"roadIds":[234],"status":"1"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='27'>
+					<div class='collapsible-header'>
+						<div class='node-name'>路段修改为正式运营:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+745ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"operationStatus":"FORMAL","roadId":234}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='28'>
+					<div class='collapsible-header'>
+						<div class='node-name'>车位下线:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+670ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"ids":[271],"status":"VETO"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='29'>
+					<div class='collapsible-header'>
+						<div class='node-name'>车位上线:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+601ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"ids":[271],"status":"PASS"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='30'>
+					<div class='collapsible-header'>
+						<div class='node-name'>派发新工单:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+522ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>路边车位管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"parkingPlaceId":271}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":309,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='31'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 收费规则管理</span>
+						<span class='test-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:06 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:06 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+82ms</span>
+</div>
+	<div class='test-desc'>Pass: 1 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>收费规则管理</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='32'>
+					<div class='collapsible-header'>
+						<div class='node-name'>新增包月规则:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+426ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>收费规则管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"month":1,"containParkingRoad":0,"price":0.01,"enable":true,"containParkingLot":0,"cityId":450100,"operatorId":192,"parkingRoadIds":[234],"supportMutual":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":139,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 施工管理</span>
+						<span class='test-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:06 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+131ms</span>
+</div>
+	<div class='test-desc'>Pass: 2 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>施工管理</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='34'>
+					<div class='collapsible-header'>
+						<div class='node-name'>增加施工人员:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+340ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>施工管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"password":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92","name":"自动化","mobile":"18943940155","type":"insert","pws":"123456"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":336,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='35'>
+					<div class='collapsible-header'>
+						<div class='node-name'>工单列表查看详情:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:06 PM</span>
+						<span class='node-duration'>0h 0m 56s+266ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>施工管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"id":309}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","id":309,"parkingPlaceId":271,"deviceId":null,"workOrderStatus":"PROCESSING","workOrderType":"NEW","cleanWorkOrderSubType":null,"remark":null,"workOrderSpecificationId":null,"currentWorkerId":null,"provinceName":"广西壮族自治区","cityName":"南宁市","districtName":"青秀区","streetName":"新竹街道","roadName":"自动化测试1","roadCode":"234","placeCode":"271","gradNo":1,"gridNo":"1","deviceNo":null,"longitude":"113.9297159383628","latitude":"22.520949566160184","ownerOrganizationName":null,"currentOrganizationName":null,"currentWorkerMobile":null,"plateNo":null,"recordId":null,"billRecordId":null,"createDateTime":"2020-03-31 17:55:07","signDateTime":"2020-03-31 17:55:07","backFillDateTime":null,"activities":[{"id":925,"createDateTime":"2020-03-31 17:55:07","updateDateTime":"2020-03-31 17:55:06","version":4,"description":null,"workOrderId":309,"isFirst":true,"isLast":false,"sort":1,"previousActivityId":null,"nextActivityId":926,"remark":null,"workOrderActivitySpecificationType":"START","workOrderActivitySpecificationId":1,"workOrderActivityStatus":"END","processDateTime":"2020-03-31 17:55:07","workerId":null,"workerMobile":null,"workerName":null},{"id":926,"createDateTime":"2020-03-31 17:55:07","updateDateTime":"2020-03-31 17:55:06","version":3,"description":null,"workOrderId":309,"isFirst":false,"isLast":false,"sort":2,"previousActivityId":925,"nextActivityId":927,"remark":null,"workOrderActivitySpecificationType":"DISTRIBUTE","workOrderActivitySpecificationId":2,"workOrderActivityStatus":"END","processDateTime":"2020-03-31 17:55:07","workerId":null,"workerMobile":null,"workerName":null},{"id":927,"createDateTime":"2020-03-31 17:55:07","updateDateTime":"2020-03-31 17:55:06","version":2,"description":null,"workOrderId":309,"isFirst":false,"isLast":true,"sort":3,"previousActivityId":926,"nextActivityId":null,"remark":null,"workOrderActivitySpecificationType":"NEW","workOrderActivitySpecificationId":3,"workOrderActivityStatus":"PROCESSING","processDateTime":null,"workerId":null,"workerMobile":null,"workerName":null}],"workerName":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='36'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 施工人员绑定运营商,路段绑定施工人员</span>
+						<span class='test-time'>Mar 31, 2020 5:55:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:07 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+251ms</span>
+</div>
+	<div class='test-desc'>Pass: 3 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>施工人员绑定运营商,路段绑定施工人员</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='37'>
+					<div class='collapsible-header'>
+						<div class='node-name'>施工人员绑定运营商:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:07 PM</span>
+						<span class='node-duration'>0h 0m 56s+210ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>施工人员绑定运营商,路段绑定施工人员</span>
+											<span class='category label white-text'>installNewDevice</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"workerIds":[336],"id":192}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='38'>
+					<div class='collapsible-header'>
+						<div class='node-name'>路段绑定施工人员:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:07 PM</span>
+						<span class='node-duration'>0h 0m 56s+132ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>施工人员绑定运营商,路段绑定施工人员</span>
+											<span class='category label white-text'>installNewDevice</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"workerInfos":[{"workerId":336}],"parkingRoadIds":[234]}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='39'>
+					<div class='collapsible-header'>
+						<div class='node-name'>派发新装单回填:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:07 PM</span>
+						<span class='node-duration'>0h 0m 56s+61ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>施工人员绑定运营商,路段绑定施工人员</span>
+											<span class='category label white-text'>installNewDevice</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='40'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 设备管理</span>
+						<span class='test-time'>Mar 31, 2020 5:55:07 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:07 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+422ms</span>
+</div>
+	<div class='test-desc'>Pass: 6 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>设备管理</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='41'>
+					<div class='collapsible-header'>
+						<div class='node-name'>设备入库:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:07 PM</span>
+						<span class='node-duration'>0h 0m 55s+956ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>设备管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":25,"serialId":1585648507,"deviceNo":999033,"devicePower":12,"type":"PREPARE","deviceTimestamp":1585648507}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-03-31 17:55:17","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='42'>
+					<div class='collapsible-header'>
+						<div class='node-name'>设备自检:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:17 PM</span>
+						<span class='node-duration'>0h 0m 45s+866ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>设备管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":21,"distance":51,"v":"T015","deviceNo":999033,"devicePower":25,"v2":22,"m":"460042508706819"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","fileId":23017,"enableLog":1,"mode":0,"rainMinutes":15,"retryMinute":"15","selfTestMinute":"60","selfTestHour":"0","dataStatus":null,"dataVersion":null,"dataFilename":null,"dataURL":null,"evidenceFileId":[],"evidenceSerialId":[],"deviceNewVersion":null,"deviceNewVersionCheckNum":null,"deviceNewVersionURL":null,"deviceMCUNewVersion":null,"deviceMCUNewVersionCheckNum":null,"deviceMCUNewVersionURL":null,"lowpowerStartTime":null,"lowpowerEndTime":null,"deviceDistance":250,"evidenceMinutes":15,"placeId":271,"success":true,"LedOnOff":"1","LPT":"60","TUT":"10","DT":"80","PT":"2","ST":"10","WT":"1","UDT":"7","VERSION":"3"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='43'>
+					<div class='collapsible-header'>
+						<div class='node-name'>设备入库上传图片:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:17 PM</span>
+						<span class='node-duration'>0h 0m 45s+710ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>设备管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1585648507,"devicePower":61,"deviceNo":999033,"deviceTimestamp":1585648517,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","plateNo":null,"fileId":23018,"action":null,"enableLog":1,"existCar":0,"mode":0,"rainMinutes":15,"placeId":271,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='44'>
+					<div class='collapsible-header'>
+						<div class='node-name'>设备入库上传图片:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:27 PM</span>
+						<span class='node-duration'>0h 0m 35s+446ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>设备管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1585648507,"devicePower":61,"deviceNo":999033,"deviceTimestamp":1585648517,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","plateNo":null,"fileId":23019,"action":null,"enableLog":1,"existCar":0,"mode":0,"rainMinutes":15,"placeId":271,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='45'>
+					<div class='collapsible-header'>
+						<div class='node-name'>设备出库:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:38 PM</span>
+						<span class='node-duration'>0h 0m 25s+134ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>设备管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":21,"serialId":1585648507,"lowPowerMode":false,"deviceNo":999033,"devicePower":62,"type":"OUT","deviceTimestamp":1585648538}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-03-31 17:55:48","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='46'>
+					<div class='collapsible-header'>
+						<div class='node-name'>设备出库上传图片:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:48 PM</span>
+						<span class='node-duration'>0h 0m 14s+715ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>设备管理</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1585648507,"devicePower":62,"deviceNo":999033,"deviceTimestamp":1585648548,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='47'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 复核</span>
+						<span class='test-time'>Mar 31, 2020 5:55:48 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:48 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:49 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+914ms</span>
+</div>
+	<div class='test-desc'>Pass: 2 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>复核</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='48'>
+					<div class='collapsible-header'>
+						<div class='node-name'>getAuditId</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:48 PM</span>
+						<span class='node-duration'>0h 0m 14s+530ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>复核</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='49'>
+					<div class='collapsible-header'>
+						<div class='node-name'>入库复核:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:49 PM</span>
+						<span class='node-duration'>0h 0m 13s+825ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>复核</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"auditId":2855,"plateNo":"吉A12334","newEnergy":false,"specialCar":false,"auditHandleType":"IN","vehicleType":"SMALL"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='50'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 查询账单Bill</span>
+						<span class='test-time'>Mar 31, 2020 5:55:49 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:49 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:50 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+100ms</span>
+</div>
+	<div class='test-desc'>Pass: 2 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>查询账单Bill</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='51'>
+					<div class='collapsible-header'>
+						<div class='node-name'>getBillIdByPlaceId</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:49 PM</span>
+						<span class='node-duration'>0h 0m 13s+608ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>查询账单Bill</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='52'>
+					<div class='collapsible-header'>
+						<div class='node-name'>修改出入库时间:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:50 PM</span>
+						<span class='node-duration'>0h 0m 12s+585ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>查询账单Bill</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"billRecordId":414,"reviseOutTime":"2020-03-21 12:00:00","reviseInTime":"2020-03-21 10:00:00"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='53'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 支付</span>
+						<span class='test-time'>Mar 31, 2020 5:55:50 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:50 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:55:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+487ms</span>
+</div>
+	<div class='test-desc'>Pass: 5 ; Fail: 1 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>支付</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='54'>
+					<div class='collapsible-header'>
+						<div class='node-name'>办理路段包月:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:50 PM</span>
+						<span class='node-duration'>0h 0m 12s+510ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>支付</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"parkingType":"PARKING_ROAD","count":1,"operatorPeriodRuleId":139,"parkingRoadId":234,"carId":null}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":500, "message":"{RechargeToMonthPurchaseVo.carId.isNull}"}</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'><pre>java.lang.AssertionError: expected [OK] but found [{RechargeToMonthPurchaseVo.carId.isNull}]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at zhiyiting2.app.AppTest.walletToMonthPurchase(AppTest.java:251)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:205)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:217)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:641)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='55'>
+					<div class='collapsible-header'>
+						<div class='node-name'>getUserIdByMobile</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:50 PM</span>
+						<span class='node-duration'>0h 0m 12s+389ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>支付</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='56'>
+					<div class='collapsible-header'>
+						<div class='node-name'>updateUserBalance</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:51 PM</span>
+						<span class='node-duration'>0h 0m 11s+983ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>支付</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='57'>
+					<div class='collapsible-header'>
+						<div class='node-name'>getBillMoneyByBillId</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:51 PM</span>
+						<span class='node-duration'>0h 0m 11s+602ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>支付</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='58'>
+					<div class='collapsible-header'>
+						<div class='node-name'>账单列表--未支付:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:52 PM</span>
+						<span class='node-duration'>0h 0m 11s+207ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>支付</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"currPage":"1","pageSize":"20","payStatusList":["UNPAID","TAIL"]}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"total":1,"code":"0","message":"OK","list":[{"id":402,"createDateTime":"2020-03-31 17:55:48","updateDateTime":"2020-03-31 17:55:50","version":2,"description":"","carId":5930,"operatorId":153,"billRecordId":null,"payChannel":null,"money":"4.00","settleMoney":null,"freeSpecialMoney":"0.00","payStatus":"UNPAID","plateNo":"吉A12334","billSeconds":"7200","seconds":"7200","roadCode":"234","roadName":null,"placeCode":"271","mobileToken":null,"payTotalMoney":"0.00","shareCouponMoney":"0.00","refundTotalMoney":"0.00","isRevise":null,"operationStatus":"FORMAL","billStatus":null,"parkingType":"PARKING_ROAD","isDivided":"0","isAutoPay":"0","successDateTime":null,"inDateTime":"2020-03-21 10:00:00","outDateTime":"2020-03-21 12:00:00","startChargeTime":"2020-03-21 10:00:00","endChargeTime":"2020-03-21 12:00:00","evidenceStatus":"0","appealId":null,"isAppeal":"0"}],"rows":1}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='59'>
+					<div class='collapsible-header'>
+						<div class='node-name'>支付:</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:52 PM</span>
+						<span class='node-duration'>0h 0m 11s+147ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>支付</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>请求参数:{"billIds":[402],"totalMoney":4,"walletPayMoney":4}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"支付成功","orderNo":"20200331175552402472972","payChannel":"MULTIPLE","timestamp":1585648552,"resp":null,"wechatSign":null,"paid":true,"success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='60'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 清除测试数据</span>
+						<span class='test-time'>Mar 31, 2020 5:55:52 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Mar 31, 2020 5:55:52 PM</span>
+	<span class='label end-time'>Mar 31, 2020 5:56:03 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+766ms</span>
+</div>
+	<div class='test-desc'>Pass: 1 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>清除测试数据</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='61'>
+					<div class='collapsible-header'>
+						<div class='node-name'>deleteTestData</div>						
+						<span class='node-time'>Mar 31, 2020 5:55:52 PM</span>
+						<span class='node-duration'>0h 0m 11s+22ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>清除测试数据</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>5:56:03 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view --><div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>智易停</span>
+						<span class='category-status right'>
+							<span class='label pass'>59</span>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 59</span>
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:02 PM</td>
+										<td class='linked' test-id='1'>app</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:03 PM</td>
+										<td class='linked' test-id='2'>app.注册发送验证码:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:03 PM</td>
+										<td class='linked' test-id='3'>app.getVerifyCodeByUuid</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:04 PM</td>
+										<td class='linked' test-id='4'>app.app注册:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:04 PM</td>
+										<td class='linked' test-id='5'>app.app登录:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:04 PM</td>
+										<td class='linked' test-id='6'>app.我的车辆列表:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='7'>app.绑定车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='8'>登录</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='9'>登录.用户名错误</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='10'>登录.账号密码正确</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='11'>免费车辆</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='12'>免费车辆.新增路边免费车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='13'>免费车辆.编辑路边免费车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='14'>免费车辆.删除路边免费车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='15'>运营商管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='16'>运营商管理.增加运营商:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='17'>优惠策略</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='18'>优惠策略.新增优惠策略:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='19'>优惠策略.编辑优惠策略:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='20'>优惠策略.删除优惠策略:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='21'>路边车位管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='22'>路边车位管理.新增收费规则:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='23'>路边车位管理.添加路段成功</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='24'>路边车位管理.添加车位(成功):</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='25'>路边车位管理.路段上线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='26'>路边车位管理.路段下线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='27'>路边车位管理.路段修改为正式运营:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='28'>路边车位管理.车位下线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='29'>路边车位管理.车位上线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='30'>路边车位管理.派发新工单:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='31'>收费规则管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='32'>收费规则管理.新增包月规则:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='33'>施工管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='34'>施工管理.增加施工人员:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='35'>施工管理.工单列表查看详情:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='36'>施工人员绑定运营商,路段绑定施工人员</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='37'>施工人员绑定运营商,路段绑定施工人员.施工人员绑定运营商:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='38'>施工人员绑定运营商,路段绑定施工人员.路段绑定施工人员:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='39'>施工人员绑定运营商,路段绑定施工人员.派发新装单回填:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='40'>设备管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='41'>设备管理.设备入库:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:17 PM</td>
+										<td class='linked' test-id='42'>设备管理.设备自检:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:17 PM</td>
+										<td class='linked' test-id='43'>设备管理.设备入库上传图片:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:27 PM</td>
+										<td class='linked' test-id='44'>设备管理.设备入库上传图片:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:38 PM</td>
+										<td class='linked' test-id='45'>设备管理.设备出库:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:48 PM</td>
+										<td class='linked' test-id='46'>设备管理.设备出库上传图片:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:48 PM</td>
+										<td class='linked' test-id='47'>复核</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:48 PM</td>
+										<td class='linked' test-id='48'>复核.getAuditId</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:49 PM</td>
+										<td class='linked' test-id='49'>复核.入库复核:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:49 PM</td>
+										<td class='linked' test-id='50'>查询账单Bill</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:49 PM</td>
+										<td class='linked' test-id='51'>查询账单Bill.getBillIdByPlaceId</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='52'>查询账单Bill.修改出入库时间:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='53'>支付</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='54'>支付.办理路段包月:</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='55'>支付.getUserIdByMobile</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:51 PM</td>
+										<td class='linked' test-id='56'>支付.updateUserBalance</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:51 PM</td>
+										<td class='linked' test-id='57'>支付.getBillMoneyByBillId</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='58'>支付.账单列表--未支付:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='59'>支付.支付:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='60'>清除测试数据</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='61'>清除测试数据.deleteTestData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>app</span>
+						<span class='category-status right'>
+							<span class='label pass'>7</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 7</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:02 PM</td>
+										<td class='linked' test-id='1'>app</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:03 PM</td>
+										<td class='linked' test-id='2'>app.注册发送验证码:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:03 PM</td>
+										<td class='linked' test-id='3'>app.getVerifyCodeByUuid</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:04 PM</td>
+										<td class='linked' test-id='4'>app.app注册:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:04 PM</td>
+										<td class='linked' test-id='5'>app.app登录:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:04 PM</td>
+										<td class='linked' test-id='6'>app.我的车辆列表:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='7'>app.绑定车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>登录</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='8'>登录</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='9'>登录.用户名错误</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='10'>登录.账号密码正确</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>免费车辆</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='11'>免费车辆</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='12'>免费车辆.新增路边免费车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='13'>免费车辆.编辑路边免费车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='14'>免费车辆.删除路边免费车辆:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>运营商管理</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='15'>运营商管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='16'>运营商管理.增加运营商:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>优惠策略</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='17'>优惠策略</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='18'>优惠策略.新增优惠策略:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='19'>优惠策略.编辑优惠策略:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:05 PM</td>
+										<td class='linked' test-id='20'>优惠策略.删除优惠策略:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>路边车位管理</span>
+						<span class='category-status right'>
+							<span class='label pass'>10</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 10</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='21'>路边车位管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='22'>路边车位管理.新增收费规则:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='23'>路边车位管理.添加路段成功</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='24'>路边车位管理.添加车位(成功):</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='25'>路边车位管理.路段上线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='26'>路边车位管理.路段下线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='27'>路边车位管理.路段修改为正式运营:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='28'>路边车位管理.车位下线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='29'>路边车位管理.车位上线:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='30'>路边车位管理.派发新工单:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>收费规则管理</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='31'>收费规则管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='32'>收费规则管理.新增包月规则:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>施工管理</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='33'>施工管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='34'>施工管理.增加施工人员:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:06 PM</td>
+										<td class='linked' test-id='35'>施工管理.工单列表查看详情:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>施工人员绑定运营商,路段绑定施工人员</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='36'>施工人员绑定运营商,路段绑定施工人员</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='37'>施工人员绑定运营商,路段绑定施工人员.施工人员绑定运营商:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='38'>施工人员绑定运营商,路段绑定施工人员.路段绑定施工人员:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='39'>施工人员绑定运营商,路段绑定施工人员.派发新装单回填:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>installNewDevice</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='37'>施工人员绑定运营商,路段绑定施工人员.施工人员绑定运营商:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='38'>施工人员绑定运营商,路段绑定施工人员.路段绑定施工人员:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='39'>施工人员绑定运营商,路段绑定施工人员.派发新装单回填:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>设备管理</span>
+						<span class='category-status right'>
+							<span class='label pass'>7</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 7</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='40'>设备管理</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:07 PM</td>
+										<td class='linked' test-id='41'>设备管理.设备入库:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:17 PM</td>
+										<td class='linked' test-id='42'>设备管理.设备自检:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:17 PM</td>
+										<td class='linked' test-id='43'>设备管理.设备入库上传图片:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:27 PM</td>
+										<td class='linked' test-id='44'>设备管理.设备入库上传图片:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:38 PM</td>
+										<td class='linked' test-id='45'>设备管理.设备出库:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:48 PM</td>
+										<td class='linked' test-id='46'>设备管理.设备出库上传图片:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>复核</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:48 PM</td>
+										<td class='linked' test-id='47'>复核</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:48 PM</td>
+										<td class='linked' test-id='48'>复核.getAuditId</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:49 PM</td>
+										<td class='linked' test-id='49'>复核.入库复核:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>查询账单Bill</span>
+						<span class='category-status right'>
+							<span class='label pass'>3</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 3</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:49 PM</td>
+										<td class='linked' test-id='50'>查询账单Bill</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:49 PM</td>
+										<td class='linked' test-id='51'>查询账单Bill.getBillIdByPlaceId</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='52'>查询账单Bill.修改出入库时间:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>支付</span>
+						<span class='category-status right'>
+							<span class='label pass'>5</span>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 5</span>
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='53'>支付</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='54'>支付.办理路段包月:</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='55'>支付.getUserIdByMobile</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:51 PM</td>
+										<td class='linked' test-id='56'>支付.updateUserBalance</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:51 PM</td>
+										<td class='linked' test-id='57'>支付.getBillMoneyByBillId</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='58'>支付.账单列表--未支付:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='59'>支付.支付:</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>清除测试数据</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='60'>清除测试数据</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Mar 31, 2020 5:55:52 PM</td>
+										<td class='linked' test-id='61'>清除测试数据.deleteTestData</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><div id='exception-view' class='view hide'>
+	
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Exceptions</h3>
+			<ul id='exception-collection' class='exception-collection'>
+				
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>java.lang.AssertionError</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>	
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mar 31, 2020 5:55:50 PM</td>
+										<td class='linked' test-id='54'>支付.办理路段包月:</td>
+										<td><pre><pre>java.lang.AssertionError: expected [OK] but found [{RechargeToMonthPurchaseVo.carId.isNull}]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:513)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:135)
+	at org.testng.Assert.assertEquals(Assert.java:116)
+	at org.testng.Assert.assertEquals(Assert.java:190)
+	at org.testng.Assert.assertEquals(Assert.java:200)
+	at zhiyiting2.app.AppTest.walletToMonthPurchase(AppTest.java:251)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:205)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:217)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:641)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>47</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>47</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Mar 31, 2020 5:55:02 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Mar 31, 2020 5:56:03 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>60,322ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>智易停</td>
+							<td>59</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>app</td>
+							<td>7</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>登录</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>免费车辆</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>运营商管理</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>优惠策略</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>路边车位管理</td>
+							<td>10</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>收费规则管理</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>施工管理</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>施工人员绑定运营商,路段绑定施工人员</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>installNewDevice</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>设备管理</td>
+							<td>7</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>复核</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>查询账单Bill</td>
+							<td>3</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>支付</td>
+							<td>5</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>清除测试数据</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view --><!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 46,
+				failParent: 1,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 1,
+				
+				passChild: 46,
+				failChild: 1,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 77,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='http://extentreports.com/resx/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+	</body>
+	
+</html>

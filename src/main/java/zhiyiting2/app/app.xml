@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="智易停">
+
+	<!-- <test name="app" verbose="2">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="sendVerifyCode" />
+					<include name="getVerifyCodeByUuid" />
+					<include name="appRegister" />
+					<include name="appLogin" />
+					<include name="myCar" />
+					<include name="bindCar" />
+					
+					<include name="appRecharge" />
+				</methods>
+			</class>
+		</classes>
+	</test> -->
+	<test name="使用优惠券" verbose="2">
+		<classes>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="appLogin"/>
+					<include name="loadBillInfo"/>
+<!--					<include name="appealBill"/>-->
+					<include name="loadUserCouponList"/>
+					<include name="loadBillInfo"/>
+					<include name="payBillWithCoupon"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<!-- 登录  注册  绑定车牌  设备上传 复核 -->
+<!--	<test name="修改密码" verbose="2" preserve-order="true">-->
+<!--		<classes>-->
+<!--			<class name="zhiyiting2.app.AppTest">-->
+<!--				<methods>-->
+<!--					<include name="appLogin"/>-->
+<!--&lt;!&ndash;					<include name="getVerifyCodeByUuid"/>&ndash;&gt;-->
+<!--&lt;!&ndash;					<include name="appRegister"/>&ndash;&gt;-->
+<!--					<include name="logOut"/>-->
+<!--				</methods>-->
+<!--			</class>-->
+<!--		</classes>-->
+<!--	</test>-->
+
+	
+
+
+
+
+	<listeners>
+		<!-- class-name的值填写为时间创建的监听器的路径 -->
+		<listener
+			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
+	</listeners>
+
+	<!-- <listeners> testng的XML配置文件中添加这些内容 <listener class-name="org.uncommons.reportng.HTMLReporter"/> 
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter"/> </listeners> -->
+	<!-- Default test -->
+
+
+</suite>
+
+
+
+
+
