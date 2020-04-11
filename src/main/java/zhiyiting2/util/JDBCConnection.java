@@ -21,7 +21,7 @@ import zhiyiting2.model.ResponseModel;
 @Component
 public class JDBCConnection {
 
-	public String executeUpdate(String[] str) {
+	public String executeUpdate(String[] str) throws Exception{
 		Connection con;
 		String driver = "com.mysql.jdbc.Driver";
 		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";

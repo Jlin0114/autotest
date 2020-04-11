@@ -18,7 +18,7 @@ import zhiyiting2.util.URLConnection;
 public class WorkerServiceImpl implements WorkerService{
 	@Autowired
 	URLConnection urlConnection;
-	public ResponseModel maintainWorkerInfo(String testName,String name,String mobile,String pws,String type,String password) throws Exception {
+	public ResponseModel maintainWorkerInfo(String name,String mobile,String pws,String type,String password) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", name);
 		map.put("mobile",mobile);
@@ -37,7 +37,7 @@ public class WorkerServiceImpl implements WorkerService{
 	}
 	
 	//工单列表查看详情   获取到回填需要的工单activityId
-	public ResponseModel querySingleWorkOrderDetail(String testname, Integer workorderId) throws Exception {
+	public ResponseModel querySingleWorkOrderDetail(Integer workorderId) throws Exception {
 		Map map = new HashMap();
 		map.put("id", workorderId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
@@ -52,7 +52,7 @@ public class WorkerServiceImpl implements WorkerService{
 	}
 	
 	//回填
-	public void backfillConstructWorkOrderActivity(String testName,String activityId,String newDeviceNo,String loadWorkerId) throws Exception {
+	public void backfillConstructWorkOrderActivity(String activityId,String newDeviceNo,String loadWorkerId) throws Exception {
 		Map map = new HashMap();
 		map.put("activityId", activityId);
 		map.put("newDeviceNo", newDeviceNo);

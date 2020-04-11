@@ -1,13 +1,12 @@
 package zhiyiting2.app;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.jdbc.Sql;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -23,7 +22,9 @@ import zhiyiting2.test.ZTest;
 import zhiyiting2.test.chargeStandardManagement.service.ChargeStandardService;
 import zhiyiting2.test.deviceManagement.service.DeviceService;
 import zhiyiting2.test.operatorManagement.service.OperatorService;
+import zhiyiting2.test.parkingManagement.service.ParkingRoadService;
 import zhiyiting2.test.parkingManagement.service.ParkingService;
+import zhiyiting2.test.workerManagement.service.WorkerService;
 import zhiyiting2.util.JDBCConnection;
 import zhiyiting2.util.URLConnection;
 
@@ -37,9 +38,13 @@ public class AppTest extends ZTest {
 	@Autowired
 	OperatorService operatorService;
 	@Autowired
+	ParkingRoadService parkingRoadService;
+	@Autowired
 	URLConnection uRLConnection;
 	@Autowired
 	AppService appService;
+	@Autowired
+	WorkerService workerService;
 	@Autowired
 	JDBCConnection jdbconn;
 	public static String cookie;
@@ -50,39 +55,113 @@ public class AppTest extends ZTest {
 	public static Integer userId;
 	public static List<Map> bills;
 	public static List<Map> coupons;
-	public static Integer deviceNo=999012;//999033
+	public static Integer deviceNo = 999012;// 999033
 	public static Map<String, Integer> carIds = new HashMap<String, Integer>();
 	public static String[] plateNos = { "吉A12567", "云N12345" };
 	public static String[] unbindCarTestPlateNos = { "吉M12345", "吉M23456", "吉M34567" };
-	public static Integer placeId = 12;
+	public static Integer placeId=0;
+	public static Integer operatorId=0;
+	public static Integer chargeStandardId=0;
+	public static Integer roadId=0;
+	public static Integer workerId=0;
 	@BeforeSuite
-	public void deleteTestData() throws Exception {
+	public void deleteTestData() {
 		JDBCConnection jdbc = new JDBCConnection();
-		String[] str= {
-				"delete c from car c where c.plate_no in('"+plateNos[0]+"','"+plateNos[1]+"',"
-						+ "'"+unbindCarTestPlateNos[0]+"','"+unbindCarTestPlateNos[1]+"','"+unbindCarTestPlateNos[2]+"')",
-				"delete b,br from bill b left join bill_record br on b.id=br.bill_id where b.place_code='"+this.placeId+"'",
-				"delete a from audit a where a.device_no='"+this.deviceNo+"'"
-		};
-		jdbc.executeUpdate(str);
+		String[] str = { "delete c from car c where c.plate_no in('" + plateNos[0] + "','" + plateNos[1] + "'," + "'"
+				+ unbindCarTestPlateNos[0] + "','" + unbindCarTestPlateNos[1] + "','" + unbindCarTestPlateNos[2] + "')",
+				"delete b,br from bill b left join bill_record br on b.id=br.bill_id where b.place_code='"
+						+ this.placeId + "'",
+				"delete a from audit a where a.device_no='" + this.deviceNo + "'" ,
+				"delete o from operator o where o.name='自动化测试运营商'",
+				"delete c from charge_standard c where c.charge_standard_name='自动化测试收费规则' ",
+				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='自动化测试1')",
+				"delete p from parking_road p where p.road_name='自动化测试1'",
+				"delete w from worker w where w.name='自动化测试施工人员' "};
+		try {
+			jdbc.executeUpdate(str);
+			
+		} catch (Exception e) {
+			//不处理
+		}
 	}
-	//初始化测试数据
-	@BeforeSuite
+
+	// 初始化测试数据
+	@Test(testName="testDataInit",description="数据初始化")
 	public void testDataInit(){
 		try {
-//			//创建运营商
-//			operatorService.maintainOperatorInfo(testName, name, provinceId, cityId, districtId, type)
-//			//创建优惠策略
-//			chargeStandardService.addMarketingPlan(mp);
-//			//创建施工人员
+			//创建运营商
+			String provinceId="450000";//广西省
+			String cityId="450100";//南宁市
+			ResponseModel resp = new ResponseModel();
+			resp = operatorService.maintainOperatorInfo("自动化测试运营商", provinceId, cityId, null, "insert");
+			this.operatorId = resp.getId();
+			//创建收费规则
+			Object[] dayChargeStandardList = new Object[3];
+			Map m0 = new HashMap();
+			m0.put("freeMinutesMode", 0);
+			m0.put("smallCarFreeMinutes", 1);
+			m0.put("chargeCapMode", 0);	
+			m0.put("smallCarChargeCap", 35);	
+			dayChargeStandardList[0]=m0;
+			Map m1 = new HashMap();
+			m1.put("startTime", "08:00");
+			m1.put("endTime", "20:00");
+			m1.put("chargeType", 3);	
+			m1.put("chargeCycleMinutes", 30);
+			m1.put("smallCarRate", "1");
+			dayChargeStandardList[1]=m1;
+			Map m2 = new HashMap();
+			m2.put("startTime","20:00");	
+			m2.put("endTime", "08:00");
+			m2.put("chargeType",0);
+			dayChargeStandardList[2]=m2;
+			resp=chargeStandardService.addChargeStandardMultipleInfo(Integer.valueOf(provinceId), 
+					Integer.valueOf(cityId), "自动化测试收费规则","ONE_LEVEL",20,1,false,false,dayChargeStandardList);
+			chargeStandardId = resp.getId();
+			//创建路段
+			resp=parkingRoadService.creatRoad("108.333866", "22.812051", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y");
+			roadId = resp.getId();
+			//创建车位
+			parkingRoadService.addParkPlaces(roadId,"108.334009","22.812682","1","1");
+			//查询车位id
+			List<Object> list = jdbconn.query("select p.id from parking_place p where "
+					+ "p.road_id='"+roadId+"' and p.grad_no='1'", SqlModel.class);
+			placeId = SqlModel.class.cast(list.get(0)).getId();
+			//派发工单
+			parkingService.createNewWorkOrder(placeId);
+			//创建施工人员
+			resp=workerService.maintainWorkerInfo("自动化测试施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
+			workerId = resp.getId();
+			int[] workerIds = new int[1];
+			workerIds[0]=workerId;
+			//施工人员绑定运营商
+			operatorService.maintainOperatorRelWorkerInfo(workerIds, operatorId);
+//			//施工人员绑定路段
+			int[] parkingRoadIds = new int[1];
+			parkingRoadIds[0]=roadId;
+			Object[] workerInfos = new Object[1];
+			Map<String,Integer> map = new HashMap<String, Integer>();
+			map.put("workerId", workerId);
+			workerInfos[0]=map;
+			parkingRoadService.batchBindParkingRoadAndWorker(workerInfos, parkingRoadIds);
+			List<Object> activity = jdbconn.query("select woa.id from work_order_activity woa "
+					+ "left join work_order wo on wo.id=woa.work_order_id where "
+					+ "wo.parking_place_id='"+placeId+"' order by woa.id desc", SqlModel.class);
+			String activityId = String.valueOf(SqlModel.class.cast(activity.get(0)).getId());
+//			//设备入库
+//			resp = deviceService.uploadDeviceFile();
+//			String fileId = resp.getFileId();
+//			deviceService.importDeviceFile(fileId);
+//			//工单回填
+			workerService.backfillConstructWorkOrderActivity(activityId, "987654321", String.valueOf(workerId));
 		} catch (Exception e) {
+			e.printStackTrace();
 			//如果初始化数据失败了，后边的case不需要执行 程序停止
 			System.out.println("初始化数据异常,进程终止！");
 			System.exit(0);
 		}
 		
 	}
-	
 
 	// app登录
 	@Test(testName = "appLogin", description = "app登录111", dataProvider = "appLogin", dataProviderClass = AppData.class)
@@ -116,13 +195,14 @@ public class AppTest extends ZTest {
 		Assert.assertEquals(resp.getCode(), "0");
 
 	}
-	// 行驶证审核  创建两辆车  一个审核   一个驳回
+
+	// 行驶证审核 创建两辆车 一个审核 一个驳回
 	@Test(testName = "auditBindApply", description = "行驶证审核", dataProvider = "auditBindApply", dataProviderClass = AppData.class)
 	public void auditBindApply(String testname, String[] statuses, int type) throws Exception {
 		ResponseModel re = new ResponseModel();
 		for (int i = 0; i < this.plateNos.length; i++) {
-			//绑定车辆
-			re=appService.bindCar(plateNos[i]);
+			// 绑定车辆
+			re = appService.bindCar(plateNos[i]);
 			carIds.put(plateNos[i], re.getCarId());
 			// 提交行驶证审核
 			appService.bindApply(this.plateNos[i], "456789");
@@ -161,7 +241,6 @@ public class AppTest extends ZTest {
 
 	}
 
-
 //	 绑定车辆校验是否送优惠券
 //	@Test(testName = "断言绑定车辆送优惠券")
 //	public void assertBindCarSendCoupon() throws Exception {
@@ -185,18 +264,16 @@ public class AppTest extends ZTest {
 	public void assertUnbindCar() throws Exception {
 		// 绑定三辆车，做三笔账单，一笔停车中，一笔未支付，一笔已支付，停车中的和未支付的都不可以解绑车辆
 		for (int i = 0; i < unbindCarTestPlateNos.length; i++) {
-			//绑定车辆
+			// 绑定车辆
 			appService.bindCar(unbindCarTestPlateNos[i]);
 			// 设备入库
 			Long serialId = System.currentTimeMillis() / 1000;
-			deviceService.reportIn(this.deviceNo, "PREPARE", 12, 25, serialId,
-					System.currentTimeMillis() / 1000);
+			deviceService.reportIn(this.deviceNo, "PREPARE", 12, 25, serialId, System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, this.deviceNo, serialId,
 					System.currentTimeMillis() / 1000);
 			// 设备出库
-			deviceService.reportOut(this.deviceNo, "OUT", 62, 21, false, serialId,
-					System.currentTimeMillis() / 1000);
+			deviceService.reportOut(this.deviceNo, "OUT", 62, 21, false, serialId, System.currentTimeMillis() / 1000);
 			List<Object> obj = jdbconn.query("select a.id from audit a where a.audit_type='IN' and a.serial_id='"
 					+ serialId.intValue() + "' order by id desc", SqlModel.class);
 			if (obj != null && obj.size() > 0) {
@@ -217,7 +294,8 @@ public class AppTest extends ZTest {
 					if (billRecord != null && billRecord.size() > 0) {
 						Integer billRecordId = SqlModel.class.cast(billRecord.get(0)).getId();
 						// 调整出入库时间
-						parkingService.reviseInOutRecordTime(billRecordId, "2020-03-21 10:00:00", "2020-03-21 12:00:00");
+						parkingService.reviseInOutRecordTime(billRecordId, "2020-03-21 10:00:00",
+								"2020-03-21 12:00:00");
 					}
 
 					if (i == 0) {
@@ -258,8 +336,6 @@ public class AppTest extends ZTest {
 		}
 
 	}
-	
-	
 
 	@Test(testName = "loadBillInfo", description = "账单列表", dataProvider = "loadBillInfo", dataProviderClass = AppData.class)
 	public void loadBillInfo(String testname, String pageSize, String currPage, String status) throws Exception {
@@ -295,7 +371,6 @@ public class AppTest extends ZTest {
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
 	}
-
 
 	// 账户修改钱包余额
 //	@Test(testName = "updateUserBalance", description = "修改账户钱包余额")
@@ -333,8 +408,6 @@ public class AppTest extends ZTest {
 		Assert.assertEquals(resp.getCode(), "0");
 	}
 
-	
-
 	// 修改密码
 	@Test(testName = "modifyPassword", description = "修改密码", dataProvider = "modifyPassword", dataProviderClass = AppData.class)
 	public void modifyPassword(String testname, String mobile, String newPassword, String uuid, String verifyCode)
@@ -354,7 +427,5 @@ public class AppTest extends ZTest {
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
 	}
-
-	
 
 }

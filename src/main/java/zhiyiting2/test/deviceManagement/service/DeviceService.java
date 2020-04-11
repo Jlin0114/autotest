@@ -1,5 +1,7 @@
 package zhiyiting2.test.deviceManagement.service;
 
+import zhiyiting2.model.ResponseModel;
+
 public interface DeviceService {
 	public void reportIn(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
 			Long serialId) throws Exception;
@@ -22,9 +24,9 @@ public interface DeviceService {
 	public void deviceSelfTest(String testName, Integer deviceNo, Integer distance, Integer deviceSignal,
 			Integer devicePower, String v, Integer v2, String m) throws Exception ;
 	
+	public ResponseModel uploadDeviceFile() throws Exception ;
 	
-	
-	
+	public ResponseModel importDeviceFile(String fileId) throws Exception;
 	
 	
 	

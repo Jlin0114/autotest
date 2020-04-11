@@ -6,19 +6,20 @@
 
 	<test name="数据初始化" preserve-order="true" verbose="2">
 		<classes>
-			<class name="zhiyiting2.app.AppTest">
-				<methods>
-					<include name="appLogin" />
-				</methods>
-			</class>
 			 <class name="zhiyiting2.test.CreatRoad">
 				<methods>
 					<include name="login" />
 				</methods>
 			</class>
+			<class name="zhiyiting2.app.AppTest">
+				<methods>
+					<include name="appLogin" />
+					<include name="testDataInit" />
+				</methods>
+			</class>
 		</classes>
 	</test>
-	  <test name="行驶证审核" verbose="2" preserve-order="true">
+	  <!-- <test name="行驶证审核" verbose="2" preserve-order="true">
 		<classes>
 			<class name="zhiyiting2.app.AppTest">
 				<methods>
@@ -35,7 +36,7 @@
 				</methods>
 			</class>
 		</classes>
-	</test>   
+	</test>    -->
 	
 	<!-- <test name="绑定车辆送优惠券" verbose="2" preserve-order="true">
 		<classes>

@@ -19,7 +19,7 @@ public class ParkingServiceImpl implements ParkingService{
 	@Autowired
 	URLConnection urlConnection;
 	
-	public ResponseModel createNewWorkOrder(String testname, Integer placeId) throws Exception {
+	public ResponseModel createNewWorkOrder(Integer placeId) throws Exception {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("parkingPlaceId", placeId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
@@ -33,7 +33,7 @@ public class ParkingServiceImpl implements ParkingService{
 		return resp;
 	}
 	
-	public void createCleanWorkOrder(String testname, String placeCode,String remark,String cleanWorkOrderSubType) throws Exception {
+	public void createCleanWorkOrder(String placeCode,String remark,String cleanWorkOrderSubType) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("placeCode", placeCode);
 		map.put("remark", remark);
@@ -48,7 +48,7 @@ public class ParkingServiceImpl implements ParkingService{
 		Assert.assertEquals(resp.getCode(), "0");
 
 	}
-	public void createReplaceWorkOrder(String testname, String placeCode,String remark) throws Exception {
+	public void createReplaceWorkOrder( String placeCode,String remark) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("placeCode", placeCode);
 		map.put("remark", remark);
@@ -64,7 +64,7 @@ public class ParkingServiceImpl implements ParkingService{
 	}
 	
 	// 车位列表----停车记录--调账
-	public void reviseBillMoney(String testname, Integer id, Double money, String reviseMoney, String reason)
+	public void reviseBillMoney( Integer id, Double money, String reviseMoney, String reason)
 			throws Exception {
 			Map map = new HashMap();
 			map.put("id", id);// 账单ID
@@ -83,7 +83,7 @@ public class ParkingServiceImpl implements ParkingService{
 	}
 
 	// 车位列表----停车记录--修改车牌
-	public void modifyPlateNoByRecord(String testname, Integer billRecordId, String plateNo) throws Exception {
+	public void modifyPlateNoByRecord(Integer billRecordId, String plateNo) throws Exception {
 		Map map = new HashMap();
 		map.put("billRecordId", billRecordId);// 账单ID
 		map.put("plateNo", plateNo);// 车牌
@@ -117,7 +117,7 @@ public class ParkingServiceImpl implements ParkingService{
 		Assert.assertEquals(resp.getCode(), "0");
 
 	}
-	public void deviceEvidence(String testname, Integer billRecordId) throws Exception {
+	public void deviceEvidence( Integer billRecordId) throws Exception {
 		Map map = new HashMap();
 		map.put("billRecordId", billRecordId);// 账单ID
 		JSONObject jsonObject = JSONObject.fromObject(map);

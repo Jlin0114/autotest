@@ -35,8 +35,8 @@ body {
 </style>
 <body>
 	<form id="creatAudit">
-		<input name=deviceNo type="text" /> <br />
+		<span>设备号</span> <input name=deviceNo type="text" />
+		<button id="submit">设备上传出入库信息</button>
 	</form>
-	<button id="submit">设备上传出入库信息</button>
 </body>
 </html>
