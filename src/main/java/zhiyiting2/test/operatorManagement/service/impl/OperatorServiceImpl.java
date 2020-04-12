@@ -26,6 +26,7 @@ public class OperatorServiceImpl implements OperatorService{
 		map.put("districtId", districtId);
 		map.put("type", type);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("添加运营商");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.maintainOperatorInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
@@ -39,6 +40,7 @@ public class OperatorServiceImpl implements OperatorService{
 		map.put("id", operatorId);
 		map.put("workerIds",workerIds);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("运营商绑定施工人员");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.maintainOperatorRelWorkerInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);

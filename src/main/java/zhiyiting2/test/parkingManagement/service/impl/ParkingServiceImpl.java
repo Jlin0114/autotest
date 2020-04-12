@@ -23,6 +23,7 @@ public class ParkingServiceImpl implements ParkingService{
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("parkingPlaceId", placeId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("派发工单");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ParkingListConstant.createNewWorkOrder_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);

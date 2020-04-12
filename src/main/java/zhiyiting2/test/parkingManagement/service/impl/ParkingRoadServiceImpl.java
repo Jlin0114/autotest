@@ -33,6 +33,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("recognizeConfig", recognizeConfig);
 		map.put("watermarkConfig", watermarkConfig);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("添加路段");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.addLoadUrl, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
@@ -83,6 +84,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("ids", ids);
 		map.put("enableOutAudit", enableOutAudit);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("车位开启出入库审核");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ParkingRoadConstant.auditParkPlaceOut_Url,
 				jsonObject.toString());
@@ -197,6 +199,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("gradNo", gradNo);
 		map.put("gridNo", gridNo);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("添加车位");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.addParkPlace_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
@@ -214,6 +217,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("workerInfos", workerInfos);
 		map.put("parkingRoadIds", parkingRoadIds);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("路段绑定施工人员");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.batchBindParkingRoadAndWorker_Url,
 				jsonObject.toString());

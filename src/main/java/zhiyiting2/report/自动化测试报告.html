@@ -32,7 +32,9 @@
 		<!-- slideout menu -->
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
-						<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
 		</ul>
 
 		<!-- report name -->
@@ -44,7 +46,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-				<span class='label suite-start-time'>Apr 11, 2020 11:12:53 AM</span>
+				<span class='label suite-start-time'>Apr 12, 2020 7:14:27 PM</span>
 			</a>
 			<a href='#!'>
 				<span class='label'>v3.0.3</span>
@@ -66,6 +68,7 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -73,6 +76,20 @@
 			<!-- test toggle -->
 
 			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>智易停</a></li>
+					<li><a href='#'>数据初始化</a></li>
+					<li><a href='#'>行驶证审核</a></li>
+					<li><a href='#'>免费车辆停车免费</a></li>
+					<li><a href='#'>有未支付账单不允许解绑车辆</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
 			<!-- category toggle -->
 
 			<!-- clear filters -->
@@ -116,10 +133,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span><span class='strong'>3</span> test(s) passed</span>
+					<span><span class='strong'>5</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong'>0</span> test(s) failed, <span class='strong'>0</span> others
+					<span class='strong'>1</span> test(s) failed, <span class='strong'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -131,10 +148,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span><span class='strong'>3</span> step(s) passed</span>
+					<span><span class='strong'>5</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong'>0</span> step(s) failed, <span class='strong'>0</span> others
+					<span class='strong'>1</span> step(s) failed, <span class='strong'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -149,204 +166,1098 @@
 			<ul id='test-collection' class='test-collection'>
 				
 				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
-						<span class='test-name'>登录</span>
-						<span class='test-time'>Apr 11, 2020 11:12:53 AM</span>
+						<span class='test-name'>智易停 : 数据初始化</span>
+						<span class='test-time'>Apr 12, 2020 7:14:27 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 11, 2020 11:12:53 AM</span>
-	<span class='label end-time'>Apr 11, 2020 11:12:53 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+396ms</span>
+	<span class='label start-time'>Apr 12, 2020 7:14:27 PM</span>
+	<span class='label end-time'>Apr 12, 2020 7:14:30 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 2s+571ms</span>
 </div>
-	<div class='test-steps'>
-		<table class='bordered table-results'>
-			<thead>
-				<tr>
-					<th>Status</th>
-					<th>Timestamp</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"managerCode":"zhaoming","managerPassword":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"}</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>Test passed</td>
-				</tr>
-			</tbody>
-		</table>
+	<div class='test-desc'>Pass: 3 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>数据初始化</span>
+			</div>
 	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='2'>
+					<div class='collapsible-header'>
+						<div class='node-name'>登录</div>						
+						<span class='node-time'>Apr 12, 2020 7:14:27 PM</span>
+						<span class='node-duration'>0h 1m 12s+952ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>数据初始化</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"managerCode":"zhaoming","managerPassword":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='3'>
+					<div class='collapsible-header'>
+						<div class='node-name'>app登录111</div>						
+						<span class='node-time'>Apr 12, 2020 7:14:28 PM</span>
+						<span class='node-duration'>0h 1m 12s+207ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>数据初始化</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>登录</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"password":"9626c7444717aab7a3bbdd509bcafa35a7491e9478d421b38e539a621f695edd","mobile":"13712341234","deviceTokenType":"IOS","deviceToken":"324e21e59f669b668526a32cf7a9107cd42f5245092fb457fb3bf2ef06602992"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+				<li class='node level-1 leaf pass' status='pass' test-id='4'>
+					<div class='collapsible-header'>
+						<div class='node-name'>数据初始化</div>						
+						<span class='node-time'>Apr 12, 2020 7:14:28 PM</span>
+						<span class='node-duration'>0h 1m 12s+153ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>数据初始化</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>添加运营商</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"districtId":null,"name":"自动化测试运营商","cityId":"450100","type":"insert","provinceId":"450000"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":277,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>新增收费规则</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"chargeSort":20,"chargeStandardName":"自动化测试收费规则","areaType":"ONE_LEVEL","distVehicleType":false,"cityId":450100,"newEnergyDiscount":1,"dayChargeStandardList":[{"freeMinutesMode":0,"smallCarChargeCap":35,"smallCarFreeMinutes":1,"chargeCapMode":0},{"chargeCycleMinutes":30,"chargeType":3,"startTime":"08:00","endTime":"20:00","smallCarRate":"1"},{"chargeType":0,"startTime":"20:00","endTime":"08:00"}],"provinceId":450000,"distNotWorkDay":false}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":260,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>添加路段</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"regionId":"450103001","recognizeConfig":"Y","latitude":"22.812051","chargeStandardId":"260","watermarkConfig":"Y","roadName":"自动化测试1","longitude":"108.333866"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":290,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>添加车位</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"latitude":"22.812682","gradNo":"1","parkingRoadId":290,"gridNo":"1","longitude":"108.334009"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":351,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>派发工单</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"parkingPlaceId":351}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":399,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>添加施工人员</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"password":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92","name":"自动化测试施工人员","mobile":"18834563456","type":"insert","pws":"123456"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":376,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>运营商绑定施工人员</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"workerIds":[376],"id":277}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>路段绑定施工人员</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"workerInfos":[{"workerId":376}],"parkingRoadIds":[290]}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>工单回填</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"activityId":"1197","newDeviceNo":"987654321","workerId":"376"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"roadIds":[290],"status":"0"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"operationStatus":"FORMAL","roadId":290}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>车位开启出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"enableOutAudit":"PASS","ids":[351]}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
 					</div>
 				</li>
 				
 				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='5'>
 					<div class='test-heading'>
-						<span class='test-name'>app登录111</span>
-						<span class='test-time'>Apr 11, 2020 11:12:53 AM</span>
+						<span class='test-name'>智易停 : 行驶证审核</span>
+						<span class='test-time'>Apr 12, 2020 7:14:30 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 11, 2020 11:12:53 AM</span>
-	<span class='label end-time'>Apr 11, 2020 11:12:53 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+53ms</span>
+	<span class='label start-time'>Apr 12, 2020 7:14:30 PM</span>
+	<span class='label end-time'>Apr 12, 2020 7:14:31 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+0ms</span>
 </div>
-	<div class='test-steps'>
-		<table class='bordered table-results'>
-			<thead>
-				<tr>
-					<th>Status</th>
-					<th>Timestamp</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>登录</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"password":"9626c7444717aab7a3bbdd509bcafa35a7491e9478d421b38e539a621f695edd","mobile":"13712341234","deviceTokenType":"IOS","deviceToken":"324e21e59f669b668526a32cf7a9107cd42f5245092fb457fb3bf2ef06602992"}</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>Test passed</td>
-				</tr>
-			</tbody>
-		</table>
+	<div class='test-desc'>Pass: 1 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>行驶证审核</span>
+			</div>
 	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='6'>
+					<div class='collapsible-header'>
+						<div class='node-name'>行驶证审核</div>						
+						<span class='node-time'>Apr 12, 2020 7:14:30 PM</span>
+						<span class='node-duration'>0h 1m 10s+388ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>行驶证审核</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定车辆</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉A12567"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":true,"carId":6186,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定行驶证上传图片</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"type":"driver_license_front_file"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","fileId":527,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定行驶证提交</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉A12567","vehicleLicenseFileId":527,"vehicleLicenseNo":"456789"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":false,"carId":6186,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定车辆</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"云N12345"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":true,"carId":6187,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定行驶证上传图片</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"type":"driver_license_front_file"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","fileId":528,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定行驶证提交</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"云N12345","vehicleLicenseFileId":528,"vehicleLicenseNo":"456789"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":false,"carId":6187,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>查询认证列表</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"currPage":1,"pageSize":20,"type":"BIND_CAR_APPLY","bindOrderType":"BIND_VEHICLE_LICENSE"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"total":29,"code":"0","message":"OK","list":[{"id":935,"createDateTime":"2020-04-12 19:14:32","updateDateTime":"2020-04-12 19:14:32","version":1,"description":null,"userId":135,"itemId":935,"userOrderId":935,"managerId":null,"carId":6187,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":528,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"INPUT","mobileSource":null,"plateNo":"云N12345","itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-12 19:14:31","itemUpdateDateTime":"2020-04-12 19:14:31","itemVersion":1,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":932,"createDateTime":"2020-04-12 19:14:31","updateDateTime":"2020-04-12 19:14:31","version":1,"description":null,"userId":135,"itemId":932,"userOrderId":932,"managerId":null,"carId":6186,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":527,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"INPUT","mobileSource":null,"plateNo":"吉A12567","itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-12 19:14:31","itemUpdateDateTime":"2020-04-12 19:14:31","itemVersion":1,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":925,"createDateTime":"2020-04-12 19:11:49","updateDateTime":"2020-04-12 19:11:49","version":1,"description":null,"userId":135,"itemId":925,"userOrderId":925,"managerId":271,"carId":6182,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":526,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-12 19:11:48","itemUpdateDateTime":"2020-04-12 19:11:48","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":922,"createDateTime":"2020-04-12 19:11:48","updateDateTime":"2020-04-12 19:11:48","version":1,"description":null,"userId":135,"itemId":922,"userOrderId":922,"managerId":271,"carId":6181,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":525,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-12 19:11:48","itemUpdateDateTime":"2020-04-12 19:11:48","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":913,"createDateTime":"2020-04-12 18:59:00","updateDateTime":"2020-04-12 18:59:00","version":1,"description":null,"userId":135,"itemId":913,"userOrderId":913,"managerId":271,"carId":6178,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":524,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-12 18:59:00","itemUpdateDateTime":"2020-04-12 18:59:00","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":910,"createDateTime":"2020-04-12 18:59:00","updateDateTime":"2020-04-12 18:59:00","version":1,"description":null,"userId":135,"itemId":910,"userOrderId":910,"managerId":271,"carId":6177,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":523,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-12 18:58:59","itemUpdateDateTime":"2020-04-12 18:59:00","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":903,"createDateTime":"2020-04-12 18:55:07","updateDateTime":"2020-04-12 18:55:07","version":1,"description":null,"userId":135,"itemId":903,"userOrderId":903,"managerId":271,"carId":6174,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":522,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-12 18:55:06","itemUpdateDateTime":"2020-04-12 18:55:07","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":900,"createDateTime":"2020-04-12 18:55:06","updateDateTime":"2020-04-12 18:55:06","version":1,"description":null,"userId":135,"itemId":900,"userOrderId":900,"managerId":271,"carId":6173,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":521,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-12 18:55:06","itemUpdateDateTime":"2020-04-12 18:55:07","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":896,"createDateTime":"2020-04-11 19:00:54","updateDateTime":"2020-04-11 19:00:54","version":1,"description":null,"userId":135,"itemId":896,"userOrderId":896,"managerId":271,"carId":6170,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":520,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-11 19:00:53","itemUpdateDateTime":"2020-04-11 19:00:54","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":893,"createDateTime":"2020-04-11 19:00:53","updateDateTime":"2020-04-11 19:00:53","version":1,"description":null,"userId":135,"itemId":893,"userOrderId":893,"managerId":271,"carId":6169,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":519,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-11 19:00:53","itemUpdateDateTime":"2020-04-11 19:00:54","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":886,"createDateTime":"2020-04-11 10:47:10","updateDateTime":"2020-04-11 10:47:10","version":1,"description":null,"userId":135,"itemId":886,"userOrderId":886,"managerId":271,"carId":6164,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":516,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-11 10:47:09","itemUpdateDateTime":"2020-04-11 19:00:19","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":883,"createDateTime":"2020-04-11 10:47:09","updateDateTime":"2020-04-11 10:47:09","version":1,"description":null,"userId":135,"itemId":883,"userOrderId":883,"managerId":271,"carId":6163,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":515,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-11 10:47:09","itemUpdateDateTime":"2020-04-11 19:00:21","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":875,"createDateTime":"2020-04-07 11:07:19","updateDateTime":"2020-04-07 11:07:19","version":1,"description":null,"userId":135,"itemId":875,"userOrderId":875,"managerId":271,"carId":6140,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":511,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"37374773","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉M23456","itemCreateDateTime":"2020-04-07 11:07:18","itemUpdateDateTime":"2020-04-11 19:00:23","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":860,"createDateTime":"2020-04-05 15:58:02","updateDateTime":"2020-04-05 15:58:02","version":1,"description":null,"userId":135,"itemId":860,"userOrderId":860,"managerId":271,"carId":6142,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":509,"vehicleLicenseNo":"456789","itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":"娴滄厸12345","itemPlateNo":"娴滄厸12345","itemCreateDateTime":"2020-04-05 15:58:01","itemUpdateDateTime":"2020-04-05 15:58:02","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":857,"createDateTime":"2020-04-05 15:58:02","updateDateTime":"2020-04-05 15:58:02","version":1,"description":null,"userId":135,"itemId":857,"userOrderId":857,"managerId":271,"carId":6141,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":508,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":"閸氬牽12567","itemPlateNo":"閸氬牽12567","itemCreateDateTime":"2020-04-05 15:58:01","itemUpdateDateTime":"2020-04-05 15:58:02","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":850,"createDateTime":"2020-04-05 13:31:39","updateDateTime":"2020-04-05 13:31:39","version":1,"description":null,"userId":135,"itemId":850,"userOrderId":850,"managerId":271,"carId":6137,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":507,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-05 13:31:38","itemUpdateDateTime":"2020-04-05 13:31:38","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":847,"createDateTime":"2020-04-05 13:31:38","updateDateTime":"2020-04-05 13:31:38","version":1,"description":null,"userId":135,"itemId":847,"userOrderId":847,"managerId":271,"carId":6136,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":506,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-05 13:31:38","itemUpdateDateTime":"2020-04-05 13:31:38","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":837,"createDateTime":"2020-04-04 18:23:02","updateDateTime":"2020-04-04 18:23:02","version":1,"description":null,"userId":135,"itemId":837,"userOrderId":837,"managerId":271,"carId":6130,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":505,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-04 18:23:01","itemUpdateDateTime":"2020-04-04 18:23:01","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"},{"id":834,"createDateTime":"2020-04-04 18:23:02","updateDateTime":"2020-04-04 18:23:02","version":1,"description":null,"userId":135,"itemId":834,"userOrderId":834,"managerId":271,"carId":6129,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":504,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"VETO","mobileSource":null,"plateNo":null,"itemPlateNo":"吉A12567","itemCreateDateTime":"2020-04-04 18:23:01","itemUpdateDateTime":"2020-04-04 18:23:02","itemVersion":2,"itemDescription":"","certified_TYPE":"NO_CERTIFIED"},{"id":830,"createDateTime":"2020-04-04 18:19:03","updateDateTime":"2020-04-04 18:19:03","version":1,"description":null,"userId":135,"itemId":830,"userOrderId":830,"managerId":271,"carId":6127,"driverLicenseFileId":null,"driverLicenseNo":null,"itemDriverLicenseNo":null,"vehicleLicenseFileId":503,"vehicleLicenseNo":null,"itemVehicleLicenseNo":"456789","type":"BIND_VEHICLE_LICENSE","status":"PASS","mobileSource":null,"plateNo":null,"itemPlateNo":"云N12345","itemCreateDateTime":"2020-04-04 18:19:02","itemUpdateDateTime":"2020-04-04 18:19:03","itemVersion":3,"itemDescription":"","certified_TYPE":"SELF_CERTIFIED"}],"rows":20}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>后台审核行驶证</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"ids":[935],"statuses":["INPUT"],"type":2,"status":"PASS"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>后台审核行驶证</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"ids":[932],"statuses":["INPUT"],"type":2,"status":"VETO"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
 					</div>
 				</li>
 				
 				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='7'>
 					<div class='test-heading'>
-						<span class='test-name'>数据初始化</span>
-						<span class='test-time'>Apr 11, 2020 11:12:53 AM</span>
+						<span class='test-name'>智易停 : 免费车辆停车免费</span>
+						<span class='test-time'>Apr 12, 2020 7:14:31 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Apr 12, 2020 7:14:31 PM</span>
+	<span class='label end-time'>Apr 12, 2020 7:14:48 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 17s+818ms</span>
+</div>
+	<div class='test-desc'>Pass: 0 ; Fail: 1 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>免费车辆停车免费</span>
+			</div>
+	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='8'>
+					<div class='collapsible-header'>
+						<div class='node-name'>免费车辆停车免费</div>						
+						<span class='node-time'>Apr 12, 2020 7:14:31 PM</span>
+						<span class='node-duration'>0h 1m 9s+386ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>免费车辆停车免费</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备入库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":25,"serialId":1586690071,"deviceNo":987654321,"devicePower":12,"type":"PREPARE","deviceTimestamp":1586690071}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:14:36","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备上传图片</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1586690071,"devicePower":61,"deviceNo":987654321,"deviceTimestamp":1586690076,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","plateNo":null,"fileId":23977,"action":null,"enableLog":1,"existCar":0,"mode":0,"rainMinutes":15,"placeId":351,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备出库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":21,"serialId":1586690071,"lowPowerMode":false,"deviceNo":987654321,"devicePower":62,"type":"OUT","deviceTimestamp":1586690081}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:14:47","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>新增路边免费车辆</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉AKJ500","validStart":"2020-03-30","validEnd":"2020-05-30","isEnable":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":0,"id":29,"message":"OK"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3300,"appShowImageFileId":null,"plateNo":"吉AKJ500","newEnergy":false,"specialCar":false,"auditHandleType":"IN","vehicleType":"SMALL"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3301,"appShowImageFileId":null,"plateNo":null,"newEnergy":null,"specialCar":null,"auditHandleType":"OUT","vehicleType":null}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>调整出入库时间</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"billRecordId":582,"reviseOutTime":"2020-03-21 12:00:00","reviseInTime":"2020-03-21 10:00:00"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'><pre>zhiyiting2.test.TestAssertException: 有效期内的启用状态免费车辆不应该收费！
+	at zhiyiting2.test.HomeTest.assertSpecialVehicle(HomeTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:205)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:217)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:641)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>智易停 : 有未支付账单不允许解绑车辆</span>
+						<span class='test-time'>Apr 12, 2020 7:14:48 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Apr 11, 2020 11:12:53 AM</span>
-	<span class='label end-time'>Apr 11, 2020 11:12:55 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+556ms</span>
+	<span class='label start-time'>Apr 12, 2020 7:14:48 PM</span>
+	<span class='label end-time'>Apr 12, 2020 7:15:40 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 51s+459ms</span>
 </div>
-	<div class='test-steps'>
-		<table class='bordered table-results'>
-			<thead>
-				<tr>
-					<th>Status</th>
-					<th>Timestamp</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"districtId":null,"name":"自动化测试运营商","cityId":"450100","type":"insert","provinceId":"450000"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":0,"id":267,"message":"OK"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"chargeSort":20,"chargeStandardName":"自动化测试收费规则","areaType":"ONE_LEVEL","distVehicleType":false,"cityId":450100,"newEnergyDiscount":1,"dayChargeStandardList":[{"freeMinutesMode":0,"smallCarChargeCap":35,"smallCarFreeMinutes":1,"chargeCapMode":0},{"chargeCycleMinutes":30,"chargeType":3,"startTime":"08:00","endTime":"20:00","smallCarRate":"1"},{"chargeType":0,"startTime":"20:00","endTime":"08:00"}],"provinceId":450000,"distNotWorkDay":false}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":0,"id":250,"message":"OK"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"regionId":"450103001","recognizeConfig":"Y","latitude":"22.812051","chargeStandardId":"250","watermarkConfig":"Y","roadName":"自动化测试1","longitude":"108.333866"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":0,"id":278,"message":"OK"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"latitude":"22.812682","gradNo":"1","parkingRoadId":278,"gridNo":"1","longitude":"108.334009"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":0,"id":336,"message":"OK"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"parkingPlaceId":336}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":0,"id":384,"message":"OK"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"password":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92","name":"自动化测试施工人员","mobile":"18834563456","type":"insert","pws":"123456"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":0,"id":365,"message":"OK"}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"workerIds":[365],"id":267}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>请求参数:{"workerInfos":[{"workerId":365}],"parkingRoadIds":[278]}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
-				</tr>
-				<tr class='log' status='debug'>
-					<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>11:12:55 AM</td>
-					<td class='step-details'>Test passed</td>
-				</tr>
-			</tbody>
-		</table>
+	<div class='test-desc'>Pass: 1 ; Fail: 0 ; Skip: 0 ; </div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>智易停</span>
+				<span class='category label white-text'>有未支付账单不允许解绑车辆</span>
+			</div>
 	</div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='10'>
+					<div class='collapsible-header'>
+						<div class='node-name'>解绑车辆限制条件验证</div>						
+						<span class='node-time'>Apr 12, 2020 7:14:48 PM</span>
+						<span class='node-duration'>0h 0m 51s+572ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+									<div class='category-list right'>
+											<span class='category label white-text'>智易停</span>
+											<span class='category label white-text'>有未支付账单不允许解绑车辆</span>
+									</div>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定车辆</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉M12345"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":true,"carId":6188,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备入库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":25,"serialId":1586690089,"deviceNo":987654321,"devicePower":12,"type":"PREPARE","deviceTimestamp":1586690089}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:14:54","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备上传图片</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1586690089,"devicePower":61,"deviceNo":987654321,"deviceTimestamp":1586690094,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","plateNo":null,"fileId":23978,"action":null,"enableLog":1,"existCar":0,"mode":0,"rainMinutes":15,"placeId":351,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备出库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":21,"serialId":1586690089,"lowPowerMode":false,"deviceNo":987654321,"devicePower":62,"type":"OUT","deviceTimestamp":1586690099}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:15:05","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3302,"appShowImageFileId":null,"plateNo":"吉M12345","newEnergy":false,"specialCar":false,"auditHandleType":"IN","vehicleType":"SMALL"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3303,"appShowImageFileId":null,"plateNo":null,"newEnergy":null,"specialCar":null,"auditHandleType":"OUT","vehicleType":null}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>调整出入库时间</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"billRecordId":583,"reviseOutTime":"2020-03-21 12:00:00","reviseInTime":"2020-03-21 10:00:00"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>支付</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"billIds":[564],"totalMoney":4,"walletPayMoney":4}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"支付成功","orderNo":"20200412191507564774578","payChannel":"MULTIPLE","timestamp":1586690107,"resp":null,"wechatSign":null,"paid":true,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>车辆解绑</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉M12345"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定车辆</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉M23456"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":true,"carId":6189,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备入库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":25,"serialId":1586690106,"deviceNo":987654321,"devicePower":12,"type":"PREPARE","deviceTimestamp":1586690106}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:15:12","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备上传图片</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1586690106,"devicePower":61,"deviceNo":987654321,"deviceTimestamp":1586690111,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","plateNo":null,"fileId":23979,"action":null,"enableLog":1,"existCar":0,"mode":0,"rainMinutes":15,"placeId":351,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备出库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":21,"serialId":1586690106,"lowPowerMode":false,"deviceNo":987654321,"devicePower":62,"type":"OUT","deviceTimestamp":1586690117}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:15:23","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3304,"appShowImageFileId":null,"plateNo":"吉M23456","newEnergy":false,"specialCar":false,"auditHandleType":"IN","vehicleType":"SMALL"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3305,"appShowImageFileId":null,"plateNo":null,"newEnergy":null,"specialCar":null,"auditHandleType":"OUT","vehicleType":null}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>调整出入库时间</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"billRecordId":584,"reviseOutTime":"2020-03-21 12:00:00","reviseInTime":"2020-03-21 10:00:00"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>车辆解绑</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉M23456"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":500, "message":"吉M23456还有1笔未支付账单，请先完成支付再解绑"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>绑定车辆</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉M34567"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","receivedCoupon":true,"carId":6190,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备入库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":25,"serialId":1586690124,"deviceNo":987654321,"devicePower":12,"type":"PREPARE","deviceTimestamp":1586690124}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:15:29","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备上传图片</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":20,"total":8,"distance":35,"serialId":1586690124,"devicePower":61,"deviceNo":987654321,"deviceTimestamp":1586690129,"serialNo":1}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","plateNo":null,"fileId":23980,"action":null,"enableLog":1,"existCar":0,"mode":0,"rainMinutes":15,"placeId":351,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>设备出库</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"deviceSignal":21,"serialId":1586690124,"lowPowerMode":false,"deviceNo":987654321,"devicePower":62,"type":"OUT","deviceTimestamp":1586690134}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","enableLog":1,"enableWork":1,"mode":0,"rainMinutes":15,"dateTime":"2020-04-12 19:15:40","lowpowerStartTime":null,"lowpowerEndTime":null,"success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>出入库审核</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"auditId":3306,"appShowImageFileId":null,"plateNo":"吉M34567","newEnergy":false,"specialCar":false,"auditHandleType":"IN","vehicleType":"SMALL"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":"0","message":"OK","success":true}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>车辆解绑</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>请求参数:{"plateNo":"吉M34567"}</td>
+												</tr>
+												<tr class='log' status='debug'>
+													<td class='status debug' title='debug' alt='debug'><i class='material-icons'>low_priority</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>返回参数:{"code":500, "message":"吉M34567正在停车中，请结束停车后再解绑"}</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:15:40 PM</td>
+													<td class='step-details'>Test passed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
 					</div>
 				</li>
 			</ul>
@@ -373,7 +1284,380 @@
 	<!-- subview right -->
 
 </div>
-<!-- test view --><!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- test view --><div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>智易停</span>
+						<span class='category-status right'>
+							<span class='label pass'>8</span>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 8</span>
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 12, 2020 7:14:27 PM</td>
+										<td class='linked' test-id='1'>数据初始化</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:27 PM</td>
+										<td class='linked' test-id='2'>数据初始化.登录</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:28 PM</td>
+										<td class='linked' test-id='3'>数据初始化.app登录111</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:28 PM</td>
+										<td class='linked' test-id='4'>数据初始化.数据初始化</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:30 PM</td>
+										<td class='linked' test-id='5'>行驶证审核</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:30 PM</td>
+										<td class='linked' test-id='6'>行驶证审核.行驶证审核</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:31 PM</td>
+										<td class='linked' test-id='7'>免费车辆停车免费</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:31 PM</td>
+										<td class='linked' test-id='8'>免费车辆停车免费.免费车辆停车免费</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:48 PM</td>
+										<td class='linked' test-id='9'>有未支付账单不允许解绑车辆</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:48 PM</td>
+										<td class='linked' test-id='10'>有未支付账单不允许解绑车辆.解绑车辆限制条件验证</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>数据初始化</span>
+						<span class='category-status right'>
+							<span class='label pass'>4</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 4</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 12, 2020 7:14:27 PM</td>
+										<td class='linked' test-id='1'>数据初始化</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:27 PM</td>
+										<td class='linked' test-id='2'>数据初始化.登录</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:28 PM</td>
+										<td class='linked' test-id='3'>数据初始化.app登录111</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:28 PM</td>
+										<td class='linked' test-id='4'>数据初始化.数据初始化</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>行驶证审核</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 12, 2020 7:14:30 PM</td>
+										<td class='linked' test-id='5'>行驶证审核</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:30 PM</td>
+										<td class='linked' test-id='6'>行驶证审核.行驶证审核</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>免费车辆停车免费</span>
+						<span class='category-status right'>
+							<span class='label fail'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 2</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 12, 2020 7:14:31 PM</td>
+										<td class='linked' test-id='7'>免费车辆停车免费</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:31 PM</td>
+										<td class='linked' test-id='8'>免费车辆停车免费.免费车辆停车免费</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>有未支付账单不允许解绑车辆</span>
+						<span class='category-status right'>
+							<span class='label pass'>2</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 2</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 12, 2020 7:14:48 PM</td>
+										<td class='linked' test-id='9'>有未支付账单不允许解绑车辆</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+									<tr>
+										<td>Apr 12, 2020 7:14:48 PM</td>
+										<td class='linked' test-id='10'>有未支付账单不允许解绑车辆.解绑车辆限制条件验证</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view --><div id='exception-view' class='view hide'>
+	
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Exceptions</h3>
+			<ul id='exception-collection' class='exception-collection'>
+				
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>zhiyiting2.test.TestAssertException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>1</span></span>
+					</div>
+					<div class='exception-content hide'>	
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Apr 12, 2020 7:14:31 PM</td>
+										<td class='linked' test-id='8'>免费车辆停车免费.免费车辆停车免费</td>
+										<td><pre><pre>zhiyiting2.test.TestAssertException: 有效期内的启用状态免费车辆不应该收费！
+	at zhiyiting2.test.HomeTest.assertSpecialVehicle(HomeTest.java:83)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:104)
+	at org.testng.internal.MethodInvocationHelper$1.runTestMethod(MethodInvocationHelper.java:205)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.run(AbstractTestNGSpringContextTests.java:180)
+	at org.testng.internal.MethodInvocationHelper.invokeHookable(MethodInvocationHelper.java:217)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:641)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:851)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1177)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)
+	at org.testng.TestRunner.privateRun(TestRunner.java:756)
+	at org.testng.TestRunner.run(TestRunner.java:610)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:387)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:382)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1293)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1218)
+	at org.testng.TestNG.runSuites(TestNG.java:1133)
+	at org.testng.TestNG.run(TestNG.java:1104)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></pre></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -381,31 +1665,75 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>6</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>6</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Apr 11, 2020 11:12:53 AM</div>
+					<div class='panel-lead'>Apr 12, 2020 7:14:27 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Apr 11, 2020 11:12:55 AM</div>
+			 		<div class='panel-lead'>Apr 12, 2020 7:15:40 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>2,595ms</div>
+					<div class='panel-lead'>72,995ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+						</tr>
+						<tr>
+							<td>智易停</td>
+							<td>8</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>数据初始化</td>
+							<td>4</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>行驶证审核</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>免费车辆停车免费</td>
+							<td>0</td>
+							<td>2</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>有未支付账单不允许解绑车辆</td>
+							<td>2</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>
@@ -417,22 +1745,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 3,
-				failParent: 0,
+				passParent: 5,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				
-				passChild: 3,
-				failChild: 0,
+				passChild: 5,
+				failChild: 1,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
-				exceptionsChild: 20,
+				exceptionsChild: 155,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,

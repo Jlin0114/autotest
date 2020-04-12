@@ -55,11 +55,9 @@ public class AppTest extends ZTest {
 	public static Integer userId;
 	public static List<Map> bills;
 	public static List<Map> coupons;
-	public static Integer deviceNo = 999012;// 999033
 	public static Map<String, Integer> carIds = new HashMap<String, Integer>();
 	public static String[] plateNos = { "吉A12567", "云N12345" };
 	public static String[] unbindCarTestPlateNos = { "吉M12345", "吉M23456", "吉M34567" };
-	public static Integer placeId=0;
 	public static Integer operatorId=0;
 	public static Integer chargeStandardId=0;
 	public static Integer roadId=0;
@@ -76,7 +74,10 @@ public class AppTest extends ZTest {
 				"delete c from charge_standard c where c.charge_standard_name='自动化测试收费规则' ",
 				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='自动化测试1')",
 				"delete p from parking_road p where p.road_name='自动化测试1'",
-				"delete w from worker w where w.name='自动化测试施工人员' "};
+				"delete w from worker w where w.name='自动化测试施工人员' ",
+				"delete s from special_car s where s.plate_no in('"
+						+assertSpecialVehicleTestplateNos[0]+"','"+assertSpecialVehicleTestplateNos[1]+
+						"','"+assertSpecialVehicleTestplateNos[2]+"')"};
 		try {
 			jdbc.executeUpdate(str);
 			
@@ -154,6 +155,17 @@ public class AppTest extends ZTest {
 //			deviceService.importDeviceFile(fileId);
 //			//工单回填
 			workerService.backfillConstructWorkOrderActivity(activityId, "987654321", String.valueOf(workerId));
+			//路段上线
+			int roadIds[] = new int[1];
+			roadIds[0]=this.roadId;
+			parkingRoadService.batchChangeParkingRoadStatus(roadIds, "0");
+			
+			parkingRoadService.batchUpdateParkRoadOperationStatus(roadId, "FORMAL");
+			//开启出库审核
+			int[] ids = new int[1];
+			ids[0]=this.placeId;
+			//车位上线
+			parkingRoadService.auditParkPlaceOut(ids, "PASS");
 		} catch (Exception e) {
 			e.printStackTrace();
 			//如果初始化数据失败了，后边的case不需要执行 程序停止

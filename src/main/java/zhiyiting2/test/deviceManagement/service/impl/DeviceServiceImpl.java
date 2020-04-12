@@ -55,7 +55,7 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
 		Map<String, String> fileMap = new HashMap<String, String>();
-		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p6.jpg");
+		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("设备上传图片");
 		Reporter.log("请求参数:" + jsonObject.toString());

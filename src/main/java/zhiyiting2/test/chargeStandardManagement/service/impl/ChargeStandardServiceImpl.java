@@ -85,6 +85,7 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 		map.put("distVehicleType",distVehicleType );
 		map.put("dayChargeStandardList", dayChargeStandardList);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("新增收费规则");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ChargeStandardConstant.addChargeStandardMultipleInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);

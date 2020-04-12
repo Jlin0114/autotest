@@ -26,6 +26,7 @@ public class WorkerServiceImpl implements WorkerService{
 		map.put("type", type);
 		map.put("password",password);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("添加施工人员");
 		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.WorkingListConstant.maintainWorkerInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
@@ -58,6 +59,8 @@ public class WorkerServiceImpl implements WorkerService{
 		map.put("newDeviceNo", newDeviceNo);
 		map.put("workerId", loadWorkerId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("工单回填");
+		Reporter.log("请求参数:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.backfillConstructWorkOrderActivity_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();

@@ -19,7 +19,7 @@
 			</class>
 		</classes>
 	</test>
-	  <!-- <test name="行驶证审核" verbose="2" preserve-order="true">
+	 <test name="行驶证审核" verbose="2" preserve-order="true">
 		<classes>
 			<class name="zhiyiting2.app.AppTest">
 				<methods>
@@ -28,6 +28,16 @@
 			</class>
 		</classes>
 	</test> 
+	<test name="免费车辆停车免费" verbose="2" preserve-order="true">
+		<classes>
+			<class name="zhiyiting2.test.HomeTest">
+				<methods>
+					<include name="assertUnbindCar" />
+				</methods>
+			</class>
+		</classes>
+	</test> 
+	
 	<test name="有未支付账单不允许解绑车辆" verbose="2" preserve-order="true">
 		<classes>
 			<class name="zhiyiting2.app.AppTest">
@@ -36,7 +46,9 @@
 				</methods>
 			</class>
 		</classes>
-	</test>    -->
+	</test>     
+	
+	
 	
 	<!-- <test name="绑定车辆送优惠券" verbose="2" preserve-order="true">
 		<classes>
