@@ -20,9 +20,9 @@ public class DeviceServiceImpl implements DeviceService {
 	@Autowired
 	URLConnection urlConnection;
 
-	public void reportIn(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
+	public ResponseModel reportIn(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
 			Long serialId) throws Exception {
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		Map map = new HashMap();
 		map.put("deviceNo", deviceNo);
 		map.put("type", type);
@@ -38,13 +38,13 @@ public class DeviceServiceImpl implements DeviceService {
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
-
+		return resp;
 	}
 
 	// 设备入库上传图片
-	public void uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
+	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
 			Integer total, Integer deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		Map map = new HashMap();
 		map.put("distance", 35);
 		map.put("deviceSignal", 20);
@@ -65,7 +65,7 @@ public class DeviceServiceImpl implements DeviceService {
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
-
+		return resp;
 	}
 	//导入设备
 	public ResponseModel uploadDeviceFile() throws Exception {
@@ -87,7 +87,7 @@ public class DeviceServiceImpl implements DeviceService {
 	// 设备出库
 	public void reportOut(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal,
 			boolean lowPowerMode, Long serialId, Long deviceTimestamp) throws Exception {
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		Map map = new HashMap();
 		map.put("deviceNo", deviceNo);
 		map.put("type", type);

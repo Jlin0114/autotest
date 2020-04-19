@@ -3,10 +3,10 @@ package zhiyiting2.test.deviceManagement.service;
 import zhiyiting2.model.ResponseModel;
 
 public interface DeviceService {
-	public void reportIn(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
+	public ResponseModel reportIn(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
 			Long serialId) throws Exception;
 
-	public void uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
+	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
 			Integer total, Integer deviceNo, Long serialId, Long deviceTimestamp) throws Exception;
 
 	public void reportOut(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal,
