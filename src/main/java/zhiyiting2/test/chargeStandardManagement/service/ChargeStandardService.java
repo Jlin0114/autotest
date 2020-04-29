@@ -10,9 +10,10 @@ public interface ChargeStandardService {
 
 	public void deleteMarketingPlanById(Integer marketingPlanId, String type) throws Exception;
 
-	public ResponseModel addChargeStandardMultipleInfo(Integer provinceId, Integer cityId, String chargeStandardName,
-			String areaType, Integer chargeSort, Integer newEnergyDiscount, Boolean distNotWorkDay,
-			Boolean distVehicleType, Object[] dayChargeStandardList) throws Exception;
+	public ResponseModel addChargeStandardMultipleInfo(Integer operatorId,
+			String chargeStandardName,String areaType,String billSeconds,
+			Integer chargeSort,Integer newEnergyDiscount,Boolean distNotWorkDay,Boolean distVehicleType,
+			Object[] dayChargeStandardList) throws Exception;
 
 	public ResponseModel addPeriodRuleItem(Integer operatorId, Integer cityId, int[] parkingRoadIds,
 			Boolean supportMutual, Double price, Integer month, Boolean enable, Integer containParkingLot,

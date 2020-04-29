@@ -61,8 +61,8 @@ public class HomeController {
 			deviceService.reportIn(Integer.valueOf(request.getParameter("deviceNo")), "PREPARE", 12, 25, serialId,
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
-			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, Integer.valueOf(request.getParameter("deviceNo")), serialId,
-					System.currentTimeMillis() / 1000);
+			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, Integer.valueOf(request.getParameter("deviceNo")),
+					serialId, System.currentTimeMillis() / 1000);
 			map.put("message", "入库成功");
 			map.put("serialId", String.valueOf(serialId));
 		} catch (Exception e) {
@@ -97,4 +97,9 @@ public class HomeController {
 		return "index";
 	}
 
+	public static void main(String[] args) {
+			for(int i=0;i<100;i++) {
+				System.out.println(System.currentTimeMillis() / 1000);
+			}
+	}
 }

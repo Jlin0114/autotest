@@ -21,7 +21,7 @@ public interface ParkingRoadService {
 			Boolean enableSelfTestNotify, Boolean enableLowPowerNotify, String deviceVersion, String deviceNewVersion,
 			String deviceMCUVersion, String deviceMCUNewVersion, String deviceDistance) throws Exception;
 	
-	public ResponseModel addParkPlaces(Integer parkingRoadId, String longitude, String latitude, String gradNo,
+	public ResponseModel addParkPlaces(Integer parkingRoadId, String longitude, String latitude, 
 			String gridNo) throws Exception;
 	
 	public void batchBindParkingRoadAndWorker( Object[] workerInfos, int parkingRoadIds[])

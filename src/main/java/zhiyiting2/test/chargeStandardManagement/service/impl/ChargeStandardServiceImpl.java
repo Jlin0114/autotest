@@ -70,13 +70,13 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 
 	}
 	
-	public ResponseModel addChargeStandardMultipleInfo( Integer provinceId,Integer cityId,
-			String chargeStandardName,String areaType,
+	public ResponseModel addChargeStandardMultipleInfo( Integer operatorId,
+			String chargeStandardName,String areaType,String billSeconds,
 			Integer chargeSort,Integer newEnergyDiscount,Boolean distNotWorkDay,Boolean distVehicleType,
 			Object[] dayChargeStandardList) throws Exception {
 		Map map = new HashMap();
-		map.put("provinceId",provinceId );
-		map.put("cityId", cityId);
+		map.put("operatorId",operatorId );
+		map.put("billSeconds", billSeconds);
 		map.put("chargeStandardName", chargeStandardName);
 		map.put("areaType",areaType );
 		map.put("chargeSort", chargeSort);

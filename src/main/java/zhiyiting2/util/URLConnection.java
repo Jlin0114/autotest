@@ -139,9 +139,9 @@ public class URLConnection {
            outputStreamWriter.write(parameter.toString());
            outputStreamWriter.flush();
 
-           if (httpURLConnection.getResponseCode() >= 300) {
-               throw new Exception("HTTP Request is not success, Response code is " + httpURLConnection.getResponseCode());
-           }
+//           if (httpURLConnection.getResponseCode() >= 300) {
+//               throw new Exception("HTTP Request is not success, Response code is " + httpURLConnection.getResponseCode());
+//           }
 
            inputStream = httpURLConnection.getInputStream();
            inputStreamReader = new InputStreamReader(inputStream);

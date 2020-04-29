@@ -190,13 +190,12 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 //			Assert.assertEquals(resp.getMessage(), "OK");
 //		}
 
-	public ResponseModel addParkPlaces(Integer parkingRoadId, String longitude, String latitude, String gradNo,
+	public ResponseModel addParkPlaces(Integer parkingRoadId, String longitude, String latitude,
 			String gridNo) throws Exception {
 		Map<String, Comparable> map = new HashMap<String, Comparable>();
 		map.put("parkingRoadId", parkingRoadId);
 		map.put("longitude", longitude);
 		map.put("latitude", latitude);
-		map.put("gradNo", gradNo);
 		map.put("gridNo", gridNo);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("添加车位");

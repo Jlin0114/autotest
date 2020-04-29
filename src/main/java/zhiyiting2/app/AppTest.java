@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.jdbc.Sql;
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.BeforeSuite;
@@ -107,26 +106,27 @@ public class AppTest extends ZTest {
 			Map m1 = new HashMap();
 			m1.put("startTime", "08:00");
 			m1.put("endTime", "20:00");
-			m1.put("chargeType", 3);	
+			m1.put("chargeType", 3);
+			m1.put("skipNext", false);
 			m1.put("chargeCycleMinutes", 30);
 			m1.put("smallCarRate", "1");
 			dayChargeStandardList[1]=m1;
 			Map m2 = new HashMap();
 			m2.put("startTime","20:00");	
 			m2.put("endTime", "08:00");
+			m1.put("skipNext", false);
 			m2.put("chargeType",0);
 			dayChargeStandardList[2]=m2;
-			resp=chargeStandardService.addChargeStandardMultipleInfo(Integer.valueOf(provinceId), 
-					Integer.valueOf(cityId), "自动化测试收费规则","ONE_LEVEL",20,1,false,false,dayChargeStandardList);
+			resp=chargeStandardService.addChargeStandardMultipleInfo(operatorId, "自动化测试收费规则","ONE_LEVEL","1",20,1,false,false,dayChargeStandardList);
 			chargeStandardId = resp.getId();
 			//创建路段
-			resp=parkingRoadService.creatRoad("108.333866", "22.812051", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y");
+			resp=parkingRoadService.creatRoad("108.333867", "22.812052", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y");
 			roadId = resp.getId();
 			//创建车位
-			parkingRoadService.addParkPlaces(roadId,"108.334009","22.812682","1","1");
+			parkingRoadService.addParkPlaces(roadId,"108.334008","22.812683","1");
 			//查询车位id
 			List<Object> list = jdbconn.query("select p.id from parking_place p where "
-					+ "p.road_id='"+roadId+"' and p.grad_no='1'", SqlModel.class);
+					+ "p.road_id='"+roadId+"' and p.grid_no='1'", SqlModel.class);
 			placeId = SqlModel.class.cast(list.get(0)).getId();
 			//派发工单
 			parkingService.createNewWorkOrder(placeId);
@@ -174,6 +174,101 @@ public class AppTest extends ZTest {
 		}
 		
 	}
+	
+	// 初始化测试数据
+		@Test(testName="testDataInit1",description="数据初始化")
+		public void testDataInit1(){
+			try {
+				//创建运营商
+				String provinceId="450000";//广西省
+				String cityId="450100";//南宁市
+				ResponseModel resp = new ResponseModel();
+				resp = operatorService.maintainOperatorInfo("自动化测试运营商", provinceId, cityId, null, "insert");
+				this.operatorId = resp.getId();
+//				//创建收费规则
+//				Object[] dayChargeStandardList = new Object[3];
+//				Map m0 = new HashMap();
+//				m0.put("freeMinutesMode", 0);
+//				m0.put("smallCarFreeMinutes", 1);
+//				m0.put("chargeCapMode", 0);	
+//				m0.put("smallCarChargeCap", 35);	
+//				dayChargeStandardList[0]=m0;
+//				Map m1 = new HashMap();
+//				m1.put("startTime", "08:00");
+//				m1.put("endTime", "20:00");
+//				m1.put("chargeType", 3);	
+//				m1.put("chargeCycleMinutes", 30);
+//				m1.put("smallCarRate", "1");
+//				dayChargeStandardList[1]=m1;
+//				Map m2 = new HashMap();
+//				m2.put("startTime","20:00");	
+//				m2.put("endTime", "08:00");
+//				m2.put("chargeType",0);
+//				dayChargeStandardList[2]=m2;
+//				resp=chargeStandardService.addChargeStandardMultipleInfo(Integer.valueOf(provinceId), 
+//						Integer.valueOf(cityId), "自动化测试收费规则","ONE_LEVEL",20,1,false,false,dayChargeStandardList);
+//				chargeStandardId = resp.getId();
+				//创建路段
+				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "自动化测试1", "450103001","63","Y","Y");
+				roadId = resp.getId();
+				//创建施工人员
+				resp=workerService.maintainWorkerInfo("自动化测试施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
+				workerId = resp.getId();
+				int[] workerIds = new int[1];
+				workerIds[0]=workerId;
+				//施工人员绑定运营商
+				operatorService.maintainOperatorRelWorkerInfo(workerIds, operatorId);
+//				//施工人员绑定路段
+				int[] parkingRoadIds = new int[1];
+				parkingRoadIds[0]=roadId;
+				Object[] workerInfos = new Object[1];
+				Map<String,Integer> map = new HashMap<String, Integer>();
+				map.put("workerId", workerId);
+				workerInfos[0]=map;
+				parkingRoadService.batchBindParkingRoadAndWorker(workerInfos, parkingRoadIds);
+				//路段上线
+				int roadIds[] = new int[1];
+				roadIds[0]=this.roadId;
+				parkingRoadService.batchChangeParkingRoadStatus(roadIds, "1");
+				parkingRoadService.batchUpdateParkRoadOperationStatus(roadId, "FORMAL");
+				for(int i=2;i<1000;i++) {
+					//创建车位
+					parkingRoadService.addParkPlaces(roadId,"108.334009"+i,"22.812682"+i,String.valueOf(i));
+					//查询车位id
+					List<Object> list = jdbconn.query("select p.id from parking_place p where "
+							+ "p.road_id='"+roadId+"' order by p.id desc", SqlModel.class);
+					placeId = SqlModel.class.cast(list.get(0)).getId();
+					//派发工单
+					parkingService.createNewWorkOrder(placeId);
+					List<Object> activity = jdbconn.query("select woa.id from work_order_activity woa "
+							+ "left join work_order wo on wo.id=woa.work_order_id where "
+							+ "wo.parking_place_id='"+placeId+"' order by woa.id desc", SqlModel.class);
+					String activityId = String.valueOf(SqlModel.class.cast(activity.get(0)).getId());
+//					//工单回填
+					workerService.backfillConstructWorkOrderActivity(activityId,58858800000L+i+"", String.valueOf(workerId));
+					//开启出库审核
+					int[] ids = new int[1];
+					ids[0]=this.placeId;
+					//车位开日出库审核
+					parkingRoadService.auditParkPlaceOut(ids, "PASS");
+					
+				}
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+				//如果初始化数据失败了，后边的case不需要执行 程序停止
+				System.out.println("初始化数据异常,进程终止！");
+				System.exit(0);
+			}
+			
+		}
+	
+	
+	
+	
+	
+	
 
 	// app登录
 	@Test(testName = "appLogin", description = "app登录111", dataProvider = "appLogin", dataProviderClass = AppData.class)
@@ -280,6 +375,7 @@ public class AppTest extends ZTest {
 			appService.bindCar(unbindCarTestPlateNos[i]);
 			// 设备入库
 			Long serialId = System.currentTimeMillis() / 1000;
+				
 			deviceService.reportIn(this.deviceNo, "PREPARE", 12, 25, serialId, System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, this.deviceNo, serialId,
