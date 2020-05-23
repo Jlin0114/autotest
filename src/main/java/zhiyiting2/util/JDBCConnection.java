@@ -24,9 +24,12 @@ public class JDBCConnection {
 	public String executeUpdate(String[] str) throws Exception{
 		Connection con;
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
-		String user = "root";
-		String password = "Sof6CGFGDqAnUsm0755";
+//		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
+//		String user = "root";
+//		String password = "Sof6CGFGDqAnUsm0755";
+		String url = "jdbc:mysql://119.3.55.236:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
+		String user = "zyt";
+		String password = "Sof6CGFGDqAnUsm62k6u@";
 		String id = "";
 		try {
 			Class.forName(driver);
@@ -66,9 +69,13 @@ public class JDBCConnection {
 		List<Object> queryResult = new ArrayList<Object>();
 		// 数据库连接,这段代码应该写出去，这里为了演示，写里面了
 		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
-		String user = "root";
-		String password = "Sof6CGFGDqAnUsm0755";
+//		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
+//		String user = "root";
+//		String password = "Sof6CGFGDqAnUsm0755";
+		//预生产
+		String url = "jdbc:mysql://119.3.55.236:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
+		String user = "zyt";
+		String password = "Sof6CGFGDqAnUsm62k6u@";
 		Class.forName(driver);
 		Connection conn = DriverManager.getConnection(url, user, password);
 		// 执行查询

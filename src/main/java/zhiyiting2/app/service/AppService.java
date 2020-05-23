@@ -1,5 +1,7 @@
 package zhiyiting2.app.service;
 
+import java.util.Map;
+
 import zhiyiting2.model.ResponseModel;
 
 public interface AppService {
@@ -26,4 +28,6 @@ public interface AppService {
 
 	public String loadUserCouponList(Integer flag) throws Exception;
 	public void myCar() throws Exception;
+	
+	public ResponseModel requestPositiveInvoice(int[] payBillIdList,Double totalMoney,Map userInvoiceHead) throws Exception;
 }

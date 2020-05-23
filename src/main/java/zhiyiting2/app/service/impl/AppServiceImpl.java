@@ -226,5 +226,37 @@ public class AppServiceImpl implements AppService {
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
 	}
+	//发票提交
+	public ResponseModel requestPositiveInvoice(int[] payBillIdList,Double totalMoney,Map userInvoiceHead) throws Exception{	
+		Map map = new HashMap();	
+		map.put("payBillIdList", payBillIdList);
+		map.put("totalMoney", totalMoney);
+		map.put("userInvoiceHead", userInvoiceHead);
+		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("开发票提交");
+		Reporter.log("请求参数:" + jsonObject.toString());
+		String result = uRLConnection.doPost(AppTest.cookie, Constant.requestPositiveInvoice_Url, jsonObject.toString());
+		Reporter.log("返回参数:" + result);
+		ResponseModel resp = new ResponseModel();
+		resp = uRLConnection.getResponseModel(result);
+		Assert.assertEquals(resp.getMessage(), "OK");
+		Assert.assertEquals(resp.getCode(), "0");
+		return resp;
+	}
+	public Map getUserInvoiceHead(String addressTelephone,String bankAccount,String cellphoneNumber,String 
+			mail,String name,String taxNumber,String type) {
+		Map map = new HashMap();
+		map.put("addressTelephone", addressTelephone);
+		map.put("bankAccount", bankAccount);
+		map.put("cellphoneNumber", cellphoneNumber);
+		map.put("mail", mail);
+		map.put("name", name);
+		map.put("taxNumber", taxNumber);
+		map.put("type", type);
+		return map;
+	}
+	
+	
+	
 	
 }

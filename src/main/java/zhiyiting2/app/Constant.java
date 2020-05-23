@@ -10,7 +10,9 @@ public class Constant {
 	//注册
 	public static final String  app_register_Url = url+"/api/v1/mobile/user/register.do";
 	
-	
+	//发票提交
+	public static final String  requestPositiveInvoice_Url = url+"/api/v1/mobile/electronicInvoice/requestPositiveInvoice.do";
+
 	
 	
 	

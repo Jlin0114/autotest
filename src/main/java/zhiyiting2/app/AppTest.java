@@ -69,11 +69,11 @@ public class AppTest extends ZTest {
 				"delete b,br from bill b left join bill_record br on b.id=br.bill_id where b.place_code='"
 						+ this.placeId + "'",
 				"delete a from audit a where a.device_no='" + this.deviceNo + "'" ,
-				"delete o from operator o where o.name='自动化测试运营商'",
+				"delete o from operator o where o.name='压测专用运营商'",
 				"delete c from charge_standard c where c.charge_standard_name='自动化测试收费规则' ",
-				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='自动化测试1')",
-				"delete p from parking_road p where p.road_name='自动化测试1'",
-				"delete w from worker w where w.name='自动化测试施工人员' ",
+				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='压测专用路段')",
+				"delete p from parking_road p where p.road_name='压测专用路段'",
+				"delete w from worker w where w.name='压测施工人员' ",
 				"delete s from special_car s where s.plate_no in('"
 						+assertSpecialVehicleTestplateNos[0]+"','"+assertSpecialVehicleTestplateNos[1]+
 						"','"+assertSpecialVehicleTestplateNos[2]+"')"};
@@ -183,7 +183,7 @@ public class AppTest extends ZTest {
 				String provinceId="450000";//广西省
 				String cityId="450100";//南宁市
 				ResponseModel resp = new ResponseModel();
-				resp = operatorService.maintainOperatorInfo("自动化测试运营商", provinceId, cityId, null, "insert");
+				resp = operatorService.maintainOperatorInfo("压测专用运营商", provinceId, cityId, null, "insert");
 				this.operatorId = resp.getId();
 //				//创建收费规则
 //				Object[] dayChargeStandardList = new Object[3];
@@ -209,10 +209,10 @@ public class AppTest extends ZTest {
 //						Integer.valueOf(cityId), "自动化测试收费规则","ONE_LEVEL",20,1,false,false,dayChargeStandardList);
 //				chargeStandardId = resp.getId();
 				//创建路段
-				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "自动化测试1", "450103001","63","Y","Y");
+				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "压测专用路段", "450103001","63","Y","Y");
 				roadId = resp.getId();
 				//创建施工人员
-				resp=workerService.maintainWorkerInfo("自动化测试施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
+				resp=workerService.maintainWorkerInfo("压测施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
 				workerId = resp.getId();
 				int[] workerIds = new int[1];
 				workerIds[0]=workerId;
@@ -231,7 +231,7 @@ public class AppTest extends ZTest {
 				roadIds[0]=this.roadId;
 				parkingRoadService.batchChangeParkingRoadStatus(roadIds, "1");
 				parkingRoadService.batchUpdateParkRoadOperationStatus(roadId, "FORMAL");
-				for(int i=2;i<1000;i++) {
+				for(int i=0;i<1000;i++) {
 					//创建车位
 					parkingRoadService.addParkPlaces(roadId,"108.334009"+i,"22.812682"+i,String.valueOf(i));
 					//查询车位id
