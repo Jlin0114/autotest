@@ -20,7 +20,7 @@ public class DeviceServiceImpl implements DeviceService {
 	@Autowired
 	URLConnection urlConnection;
 
-	public ResponseModel reportIn(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
+	public ResponseModel reportIn(String deviceNo, String type, Integer devicePower, Integer deviceSignal, Long deviceTimestamp,
 			Long serialId) throws Exception {
 		Thread.sleep(2000);
 		Map map = new HashMap();
@@ -43,7 +43,7 @@ public class DeviceServiceImpl implements DeviceService {
 
 	// 设备入库上传图片
 	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
-			Integer total, Integer deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
 		Thread.sleep(2000);
 		Map map = new HashMap();
 		map.put("distance", 35);
@@ -85,7 +85,7 @@ public class DeviceServiceImpl implements DeviceService {
 	
 	
 	// 设备出库
-	public void reportOut(Integer deviceNo, String type, Integer devicePower, Integer deviceSignal,
+	public void reportOut(String deviceNo, String type, Integer devicePower, Integer deviceSignal,
 			boolean lowPowerMode, Long serialId, Long deviceTimestamp) throws Exception {
 		Thread.sleep(2000);
 		Map map = new HashMap();
@@ -109,13 +109,12 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	// 设备出库上传图片
-	public void uploadDeviceOutFile(String testname, Integer distance, Integer deviceSignal, Integer devicePower,
-			Integer serialNo, Integer total, Integer deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
+	public void uploadDeviceOutFile(Integer distance, Integer deviceSignal, Integer devicePower,
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
 		Map map = new HashMap();
 		map.put("distance", distance);
 		map.put("deviceSignal", deviceSignal);
 		map.put("devicePower", devicePower);
-		map.put("serialNo", serialNo);
 		map.put("total", total);
 		map.put("deviceNo", deviceNo);
 		map.put("serialId", serialId);
@@ -155,7 +154,7 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	// 设备取证上传图片
-	public void uploadDeviceEvidenceFile(Integer deviceNo, Long actualDateTime, Long serialId, Long deviceTimestamp)
+	public void uploadDeviceEvidenceFile(String deviceNo, Long actualDateTime, Long serialId, Long deviceTimestamp)
 			throws Exception {
 		Map map = new HashMap();
 		map.put("deviceNo", deviceNo);
@@ -177,7 +176,7 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	// 设备自检
-	public void deviceSelfTest(String testName, Integer deviceNo, Integer distance, Integer deviceSignal,
+	public void deviceSelfTest(String deviceNo, Integer distance, Integer deviceSignal,
 			Integer devicePower, String v, Integer v2, String m) throws Exception {
 		Map map = new HashMap();
 		map.put("deviceNo", deviceNo);

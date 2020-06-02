@@ -6,26 +6,53 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript"
 	src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<link rel="shortcut icon" href="#" />
+
+	
 <title>首页</title>
 </head>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("#submit").click(function() {
-			//序列化表单元素，返回json数据 
-			var params = $("#creatAudit").serializeArray();
-			//console.log(params);
-			//也可以把表单之外的元素按照name value的格式存进来 
-			//params.push({name:"hello",value:"man"}); 
+		$("#reportIn").click(function() {
 			$.ajax({
 				type : "post",
-				url : "creatAudit",
-				data : params,
-				success : function(result) {
-					alert("12345");
-					alert(result.message);
-				}
+				url : "reportIn",
+				data : {"deviceNo":$("#deviceNo").val()},
+				dataType:"json",
+				success : function(data) {
+					var message = data.message;
+					alert(message);
+					$("#serialId").val($("#serialId").val()+","+data.serialId);
+					
+				},
+				error : function(data) {
+					var message = data.message;
+					alert(message);
+					
+				},
 			});
 		});
+		
+		$("#reportOut").click(function() {
+			$.ajax({
+				type : "post",
+				url : "reportOut",
+				data : {"deviceNo":$("#deviceNo").val(),"serialId":$("#serialId1").val()},
+				dataType:"json",
+				success : function(data) {
+					var message = data.message;
+					alert(message);
+					
+				},
+				error : function(data) {
+					var message = data.message;
+					alert(message);
+					
+				},
+			});
+		});
+		
+		
 	});
 </script>
 <style>
@@ -34,9 +61,16 @@ body {
 }
 </style>
 <body>
-	<form id="creatAudit">
-		<span>设备号</span> <input name=deviceNo type="text" />
-		<button id="submit">设备上传出入库信息</button>
+	<form id="report">
+		<span>设备号</span> <input id=deviceNo  type="text" />
+		<select>
+  			<option value ="volvo">测试环境</option>
+  			<option value ="saab">预生产环境</option>
+		</select>
+		<button id="reportIn" type="button">入库</button>
+		<span>serialId</span><textarea id=serialId cols="10" rows="1"></textarea><br/>
+		<span>出库serialId</span><input id=serialId1  type="text" />
+		<button id="reportOut" type="button">出库</button>
 	</form>
 </body>
 </html>

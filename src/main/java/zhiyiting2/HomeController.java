@@ -34,13 +34,13 @@ public class HomeController {
 
 		try {
 			Long serialId = System.currentTimeMillis() / 1000;
-			deviceService.reportIn(Integer.valueOf(request.getParameter("deviceNo")), "PREPARE", 12, 25, serialId,
+			deviceService.reportIn(request.getParameter("deviceNo"), "PREPARE", 12, 25, serialId,
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
-			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, Integer.valueOf(request.getParameter("deviceNo")),
+			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, request.getParameter("deviceNo"),
 					serialId, System.currentTimeMillis() / 1000);
 			// 设备出库
-			deviceService.reportOut(Integer.valueOf(request.getParameter("deviceNo")), "OUT", 62, 21, false, serialId,
+			deviceService.reportOut(request.getParameter("deviceNo"), "OUT", 62, 21, false, serialId,
 					System.currentTimeMillis() / 1000);
 			map.put("message", "出入库成功");
 		} catch (Exception e) {
@@ -58,15 +58,16 @@ public class HomeController {
 		System.out.println(request.getParameter("deviceNo"));
 		try {
 			Long serialId = System.currentTimeMillis() / 1000;
-			deviceService.reportIn(Integer.valueOf(request.getParameter("deviceNo")), "PREPARE", 12, 25, serialId,
+			deviceService.reportIn(request.getParameter("deviceNo"), "PREPARE", 12, 25, serialId,
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
-			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, Integer.valueOf(request.getParameter("deviceNo")),
+			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, request.getParameter("deviceNo"),
 					serialId, System.currentTimeMillis() / 1000);
 			map.put("message", "入库成功");
 			map.put("serialId", String.valueOf(serialId));
 		} catch (Exception e) {
 			map.put("message", "入库失败");
+			e.printStackTrace();
 		}
 		JSONObject result = JSONObject.parseObject(JSON.toJSONString(map));
 
@@ -81,8 +82,9 @@ public class HomeController {
 		try {
 			// 设备出库
 			Long serialId = Long.valueOf(request.getParameter("serialId"));
-			deviceService.reportOut(Integer.valueOf(request.getParameter("deviceNo")), "OUT", 62, 21, false, serialId,
+			deviceService.reportOut(request.getParameter("deviceNo"), "OUT", 62, 21, false, serialId,
 					System.currentTimeMillis() / 1000);
+			deviceService.uploadDeviceOutFile( 35, 20, 61, 8, request.getParameter("deviceNo"), serialId, serialId);
 			map.put("message", "出库成功");
 		} catch (Exception e) {
 			map.put("message", "入库失败");

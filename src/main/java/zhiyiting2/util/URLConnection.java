@@ -120,7 +120,7 @@ public class URLConnection {
        httpURLConnection.setRequestMethod("POST");
        httpURLConnection.setRequestProperty("Cookie", cookie);
 //       httpURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
-       httpURLConnection.setRequestProperty("deviceId", "5555283CB8B84F02866D916B3FFD9909");
+//       httpURLConnection.setRequestProperty("deviceId", "5555283CB8B84F02866D916B3FFD9909");
        httpURLConnection.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
        httpURLConnection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.116 Safari/537.36");
 //       httpURLConnection.setRequestProperty("Content-Length", String.valueOf(parameterBuffer.length()));
