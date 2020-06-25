@@ -7,13 +7,14 @@ public interface DeviceService {
 			Long serialId) throws Exception;
 
 	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
-			Integer total, String deviceNo, Long serialId, Long deviceTimestamp) throws Exception;
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,String fileUrl) throws Exception;
 
 	public void reportOut(String deviceNo, String type, Integer devicePower, Integer deviceSignal,
 			boolean lowPowerMode, Long serialId, Long deviceTimestamp) throws Exception;
 
 	public void uploadDeviceOutFile(Integer distance, Integer deviceSignal, Integer devicePower,
-			Integer total, String deviceNo, Long serialId, Long deviceTimestamp) throws Exception;
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,String evidence
+			,String fileUrl) throws Exception;
 	
 	public void deviceEvidenceStatus(String deviceNo, String evidenceStatus, Long serialId, Long deviceTimestamp)
 			throws Exception ;
@@ -27,7 +28,6 @@ public interface DeviceService {
 	public ResponseModel uploadDeviceFile() throws Exception ;
 	
 	public ResponseModel importDeviceFile(String fileId) throws Exception;
-	
 	
 	
 }

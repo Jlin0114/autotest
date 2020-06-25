@@ -84,7 +84,7 @@ public class Constant {
 		public static final String  reportOut_Url = url+"/api/device/report.do";
 		//设备出库上传图片
 		public static final String  uploadDeviceOutFile_Url = url+"/api/device/uploadDeviceOutFile.do";
-		//入库复核
+		//出库审核 
 		public static final String  manualHandleAudit_Url = url+"/api/background/manualHandleAudit.do";
 		
 		

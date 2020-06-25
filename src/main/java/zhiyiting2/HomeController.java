@@ -10,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.testng.Reporter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
+import zhiyiting2.app.Constant;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.deviceManagement.service.DeviceService;
 import zhiyiting2.util.URLConnection;
@@ -38,7 +40,7 @@ public class HomeController {
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, request.getParameter("deviceNo"),
-					serialId, System.currentTimeMillis() / 1000);
+					serialId, System.currentTimeMillis() / 1000,"C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
 			// 设备出库
 			deviceService.reportOut(request.getParameter("deviceNo"), "OUT", 62, 21, false, serialId,
 					System.currentTimeMillis() / 1000);
@@ -62,7 +64,7 @@ public class HomeController {
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, request.getParameter("deviceNo"),
-					serialId, System.currentTimeMillis() / 1000);
+					serialId, System.currentTimeMillis() / 1000,"C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
 			map.put("message", "入库成功");
 			map.put("serialId", String.valueOf(serialId));
 		} catch (Exception e) {
@@ -84,7 +86,7 @@ public class HomeController {
 			Long serialId = Long.valueOf(request.getParameter("serialId"));
 			deviceService.reportOut(request.getParameter("deviceNo"), "OUT", 62, 21, false, serialId,
 					System.currentTimeMillis() / 1000);
-			deviceService.uploadDeviceOutFile( 35, 20, 61, 8, request.getParameter("deviceNo"), serialId, serialId);
+			deviceService.uploadDeviceOutFile(35, 20, 61, 8, request.getParameter("deviceNo"), serialId, serialId,"0","C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
 			map.put("message", "出库成功");
 		} catch (Exception e) {
 			map.put("message", "入库失败");
@@ -94,6 +96,12 @@ public class HomeController {
 		return result;
 	}
 
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/index")
 	public String index() {
 		return "index";

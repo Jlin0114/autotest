@@ -68,15 +68,12 @@ public class AppTest extends ZTest {
 				+ unbindCarTestPlateNos[0] + "','" + unbindCarTestPlateNos[1] + "','" + unbindCarTestPlateNos[2] + "')",
 				"delete b,br from bill b left join bill_record br on b.id=br.bill_id where b.place_code='"
 						+ this.placeId + "'",
-				"delete a from audit a where a.device_no='" + this.deviceNo + "'" ,
 				"delete o from operator o where o.name='压测专用运营商'",
 				"delete c from charge_standard c where c.charge_standard_name='自动化测试收费规则' ",
 				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='压测专用路段')",
 				"delete p from parking_road p where p.road_name='压测专用路段'",
 				"delete w from worker w where w.name='压测施工人员' ",
-				"delete s from special_car s where s.plate_no in('"
-						+assertSpecialVehicleTestplateNos[0]+"','"+assertSpecialVehicleTestplateNos[1]+
-						"','"+assertSpecialVehicleTestplateNos[2]+"')"};
+				};
 		try {
 			jdbc.executeUpdate(str);
 			
@@ -120,7 +117,7 @@ public class AppTest extends ZTest {
 			resp=chargeStandardService.addChargeStandardMultipleInfo(operatorId, "自动化测试收费规则","ONE_LEVEL","1",20,1,false,false,dayChargeStandardList);
 			chargeStandardId = resp.getId();
 			//创建路段
-			resp=parkingRoadService.creatRoad("108.333867", "22.812052", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y");
+			resp=parkingRoadService.creatRoad("108.333867", "22.812052", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y","");
 			roadId = resp.getId();
 			//创建车位
 			parkingRoadService.addParkPlaces(roadId,"108.334008","22.812683","1");
@@ -209,7 +206,7 @@ public class AppTest extends ZTest {
 //						Integer.valueOf(cityId), "自动化测试收费规则","ONE_LEVEL",20,1,false,false,dayChargeStandardList);
 //				chargeStandardId = resp.getId();
 				//创建路段
-				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "压测专用路段", "450103001","63","Y","Y");
+				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "压测专用路段", "450103001","63","Y","Y","");
 				roadId = resp.getId();
 				//创建施工人员
 				resp=workerService.maintainWorkerInfo("压测施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
@@ -379,7 +376,7 @@ public class AppTest extends ZTest {
 			deviceService.reportIn(this.deviceNo, "PREPARE", 12, 25, serialId, System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, this.deviceNo, serialId,
-					System.currentTimeMillis() / 1000);
+					System.currentTimeMillis() / 1000,"");
 			// 设备出库
 			deviceService.reportOut(this.deviceNo, "OUT", 62, 21, false, serialId, System.currentTimeMillis() / 1000);
 			List<Object> obj = jdbconn.query("select a.id from audit a where a.audit_type='IN' and a.serial_id='"

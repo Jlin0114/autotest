@@ -3,16 +3,13 @@ package zhiyiting2.test;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 import org.testng.Reporter;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.Test;
 
 import net.sf.json.JSONObject;
-import zhiyiting2.app.AppData;
-import zhiyiting2.app.AppTest;
 import zhiyiting2.util.Constant;
-import zhiyiting2.util.JDBCConnection;
 import zhiyiting2.util.ParameterData;
 import zhiyiting2.util.URLConnection;
 
@@ -22,6 +19,8 @@ import zhiyiting2.util.URLConnection;
  * @author zhaoming
  *
  */
+
+@Component
 public class CreatRoad {
 	public static String cookie = "";
 	

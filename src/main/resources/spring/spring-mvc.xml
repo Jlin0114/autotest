@@ -11,6 +11,10 @@
  
  <!-- 静态资源访问 -->
 <mvc:annotation-driven/>
+<context:component-scan
+		base-package="zhiyiting2" use-default-filters="true">
+
+	</context:component-scan>
 <mvc:resources mapping="/static/**/" location="/WEB-INF/static/"/> <!-- 简写形式: 默认会帮我们注册默认处理请求，参数和返回值的类-->
 <!--      <mvc:resources mapping="/static/**" location="/WEB-INF/static/" />
  --> 

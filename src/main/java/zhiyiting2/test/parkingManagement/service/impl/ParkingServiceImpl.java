@@ -3,6 +3,7 @@ package zhiyiting2.test.parkingManagement.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.testng.Assert;
@@ -10,12 +11,14 @@ import org.testng.Reporter;
 
 import net.sf.json.JSONObject;
 import zhiyiting2.model.ResponseModel;
+import zhiyiting2.test.AuditTest;
 import zhiyiting2.test.CreatRoad;
 import zhiyiting2.test.parkingManagement.service.ParkingService;
 import zhiyiting2.util.Constant;
 import zhiyiting2.util.URLConnection;
 @Service
 public class ParkingServiceImpl implements ParkingService{
+	static Logger logger = Logger.getLogger(ParkingServiceImpl.class);
 	@Autowired
 	URLConnection urlConnection;
 	
@@ -144,15 +147,15 @@ public class ParkingServiceImpl implements ParkingService{
 		map.put("appShowImageFileId", appShowImageFileId);
 		map.put("auditHandleType", auditHandleType);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("出入库审核");
-		Reporter.log("请求参数:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ParkingListConstant.manualHandleAudit_Url,
 				jsonObject.toString());
-		Reporter.log("返回参数:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
 
 	}
+	
 }

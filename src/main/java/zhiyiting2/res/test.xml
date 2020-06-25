@@ -6,14 +6,9 @@
 
 	<test name="数据初始化" preserve-order="true" verbose="2">
 		<classes>
-			 <class name="zhiyiting2.test.CreatRoad">
+			<class name="zhiyiting2.test.HomeTest">
 				<methods>
-					<include name="login" />
-				</methods>
-			</class>
-			<class name="zhiyiting2.app.AppTest">
-				<methods>
-					<include name="testDataInit1" />
+					<include name="testDataInit" />
 				</methods>
 			</class>
 		</classes>
@@ -23,11 +18,11 @@
 	
 	
 	
-	<listeners>
-		<!-- class-name的值填写为时间创建的监听器的路径 -->
+	<!-- <listeners>
+		class-name的值填写为时间创建的监听器的路径
 		<listener
 			class-name="zhiyiting2.util.ExtentTestngReporterListener"></listener>
-	</listeners>
+	</listeners> -->
 
 
 </suite>

@@ -10,5 +10,4 @@
 		base-package="zhiyiting2" use-default-filters="true">
 
 	</context:component-scan>
-
 </beans>

@@ -256,7 +256,14 @@ public class AppServiceImpl implements AppService {
 		return map;
 	}
 	
-	
+	public String workerLogin(String mobile,String password) throws Exception{
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("mobile", mobile);
+		map.put("password", password);
+		JSONObject jsonObject = JSONObject.fromObject(map);
+		String cookie = uRLConnection.doPost(Constant.app_login_Url, jsonObject.toString());
+		return cookie;
+	}
 	
 	
 }

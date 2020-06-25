@@ -4,7 +4,7 @@ import zhiyiting2.model.ResponseModel;
 
 public interface ParkingRoadService {
 	public ResponseModel creatRoad(String longitude, String latitude, String roadName, String regionId,
-			String chargeStandardId, String recognizeConfig, String watermarkConfig) throws Exception;
+			String chargeStandardId, String recognizeConfig, String watermarkConfig,String recognitionPlatform) throws Exception;
 
 	public void batchChangeParkingRoadStatus(int[] roadIds, String status) throws Exception;
 

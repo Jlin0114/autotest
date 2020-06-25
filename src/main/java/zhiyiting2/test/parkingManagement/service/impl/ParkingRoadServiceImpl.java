@@ -23,11 +23,12 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 	
 	// 添加路段
 	public ResponseModel creatRoad(String longitude, String latitude, String roadName, String regionId,
-			String chargeStandardId, String recognizeConfig, String watermarkConfig) throws Exception {
+			String chargeStandardId, String recognizeConfig, String watermarkConfig,String recognitionPlatform) throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("longitude", longitude);
 		map.put("latitude", latitude);
 		map.put("roadName", roadName);
+		map.put("recognitionPlatform", recognitionPlatform);
 		map.put("regionId", regionId);
 		map.put("chargeStandardId", chargeStandardId);
 		map.put("recognizeConfig", recognizeConfig);

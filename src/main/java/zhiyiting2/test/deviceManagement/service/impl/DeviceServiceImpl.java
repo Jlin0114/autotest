@@ -3,6 +3,7 @@ package zhiyiting2.test.deviceManagement.service.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.testng.Assert;
@@ -13,10 +14,12 @@ import net.sf.json.JSONObject;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.deviceManagement.service.DeviceService;
 import zhiyiting2.util.Constant;
+import zhiyiting2.util.Log4jDemo;
 import zhiyiting2.util.URLConnection;
 
 @Service
 public class DeviceServiceImpl implements DeviceService {
+	static Logger logger = Logger.getLogger(DeviceServiceImpl.class);
 	@Autowired
 	URLConnection urlConnection;
 
@@ -31,10 +34,9 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("deviceTimestamp", deviceTimestamp);
 		map.put("serialId", serialId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("设备入库");
-		Reporter.log("请求参数:" + jsonObject.toString());
+		logger.info("设备入库  req:"+jsonObject.toString());
 		String result = urlConnection.doPost(null, Constant.ParkingListConstant.reportIn_Url, jsonObject.toString());
-		Reporter.log("返回参数:" + result);
+		logger.info("设备入库  resp:"+result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -43,7 +45,7 @@ public class DeviceServiceImpl implements DeviceService {
 
 	// 设备入库上传图片
 	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
-			Integer total, String deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,String fileUrl) throws Exception {
 		Thread.sleep(2000);
 		Map map = new HashMap();
 		map.put("distance", 35);
@@ -55,12 +57,12 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
 		Map<String, String> fileMap = new HashMap<String, String>();
-		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
+		fileMap.put("file", fileUrl);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("设备上传图片");
-		Reporter.log("请求参数:" + jsonObject.toString());
+		Reporter.log("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceFile_Url, map, fileMap);
-		Reporter.log("返回参数:" + result);
+		Reporter.log("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -73,7 +75,7 @@ public class DeviceServiceImpl implements DeviceService {
 		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\in.txt");
 		Reporter.log("导入设备号");
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceFile_Url, null, fileMap);
-		Reporter.log("返回参数:" + result);
+		Reporter.log("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -97,10 +99,9 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("设备出库");
-		Reporter.log("请求参数:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPost(null, Constant.ParkingListConstant.reportOut_Url, jsonObject.toString());
-		Reporter.log("返回参数:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -110,22 +111,23 @@ public class DeviceServiceImpl implements DeviceService {
 
 	// 设备出库上传图片
 	public void uploadDeviceOutFile(Integer distance, Integer deviceSignal, Integer devicePower,
-			Integer total, String deviceNo, Long serialId, Long deviceTimestamp) throws Exception {
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,String evidence,String fileUrl) throws Exception {
 		Map map = new HashMap();
 		map.put("distance", distance);
 		map.put("deviceSignal", deviceSignal);
 		map.put("devicePower", devicePower);
 		map.put("total", total);
+		map.put("evidence", evidence);
 		map.put("deviceNo", deviceNo);
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
 		Map<String, String> fileMap = new HashMap<String, String>();
-		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p3.jpg");
+		fileMap.put("file", fileUrl);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceOutFile_Url, map,
 				fileMap);
-		Reporter.log("返回参数:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -142,10 +144,10 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
+		Reporter.log("req:" + jsonObject.toString());
 		String result = urlConnection.doPost(null, Constant.ParkingListConstant.deviceEvidenceStatus_Url,
 				jsonObject.toString());
-		Reporter.log("返回参数:" + result);
+		Reporter.log("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -164,10 +166,10 @@ public class DeviceServiceImpl implements DeviceService {
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p3.jpg");
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
+		Reporter.log("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceEvidenceFile_Url, map,
 				fileMap);
-		Reporter.log("返回参数:" + result);
+		Reporter.log("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -189,9 +191,9 @@ public class DeviceServiceImpl implements DeviceService {
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p3.jpg");
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
+		Reporter.log("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.deviceSelfTest_Url, map, fileMap);
-		Reporter.log("返回参数:" + result);
+		Reporter.log("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -203,17 +205,16 @@ public class DeviceServiceImpl implements DeviceService {
 		Map map = new HashMap();
 		map.put("fileId", fileId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
+		Reporter.log("req:" + jsonObject.toString());
 		String result = urlConnection.doPost(null, Constant.ParkingListConstant.importDeviceFile_Url,
 				jsonObject.toString());
-		Reporter.log("返回参数:" + result);
+		Reporter.log("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
 		return resp;
 	}
-	
 	
 	
 	

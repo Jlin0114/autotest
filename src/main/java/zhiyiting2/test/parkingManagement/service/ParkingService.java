@@ -21,5 +21,4 @@ public interface ParkingService {
 
 	public void manualHandleAudit(String plateNo, Boolean newEnergy, Boolean specialCar, String vehicleType,
 			Integer auditId, String auditHandleType, String appShowImageFileId) throws Exception;
-
 }
