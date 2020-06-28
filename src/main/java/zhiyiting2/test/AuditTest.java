@@ -26,6 +26,7 @@ public class AuditTest extends ZTest{
 					System.currentTimeMillis() / 1000);
 			// 设备上传8张图片
 			for(int i=1;i<9;i++) {
+				logger.info("上报入库图片");
 				deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
 						serialId, System.currentTimeMillis() / 1000,"C:\\Users\\Administrator\\Desktop\\停车自造图片\\入库\\p"+i+".png");
 				Thread.sleep(1000);

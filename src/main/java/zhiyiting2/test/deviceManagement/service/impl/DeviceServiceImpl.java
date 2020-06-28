@@ -59,10 +59,9 @@ public class DeviceServiceImpl implements DeviceService {
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", fileUrl);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("设备上传图片");
-		Reporter.log("req:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceFile_Url, map, fileMap);
-		Reporter.log("resp:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
