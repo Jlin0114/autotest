@@ -79,6 +79,8 @@ public class Constant {
 		public static final String  uploadDeviceFile_Url = url+"/api/device/uploadDeviceFile.do";
 		//设备入库导入
 		public static final String  importDeviceFile_Url = url+"/api/background/importDeviceFile.do";
+		//上传定时模式
+		public static final String  uploadDevicePeriodModeFile_Url = url+"/api/device/uploadDevicePeriodModeFile.do";
 
 		//设备出库reportOut  /api/device/report.do
 		public static final String  reportOut_Url = url+"/api/device/report.do";
