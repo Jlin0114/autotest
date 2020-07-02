@@ -83,7 +83,7 @@ public class AuditTest extends ZTest{
 					+ serialId.intValue() + "' order by id desc", SqlModel.class);
 			if(obj != null && obj.size() > 0) {
 				Integer auditId_in = SqlModel.class.cast(obj.get(0)).getId();
-				logger.info("定时入库--auditId_in:"+auditId_in);
+				logger.info("定时审核--auditId_in:"+auditId_in);
 				parkingService.manualHandleAudit(plateNo, false, false, "SMALL", auditId_in, "PERIOD_IN",
 						null);
 				logger.info("定时模式上报");
@@ -93,7 +93,7 @@ public class AuditTest extends ZTest{
 						+ serialId.intValue() + "' order by id desc", SqlModel.class);
 				if(obj1 != null && obj1.size() > 0) {
 					Integer auditId_out = SqlModel.class.cast(obj1.get(0)).getId();
-					logger.info("定时出库--auditId_out:"+auditId_out);
+					logger.info("定时审核--auditId_out:"+auditId_out);
 					parkingService.manualHandleAudit(null, null, null, null, auditId_out, "PERIOD_OUT", null);
 				}
 			}
