@@ -72,9 +72,9 @@ public class DeviceServiceImpl implements DeviceService {
 	public ResponseModel uploadDeviceFile() throws Exception {
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\in.txt");
-		Reporter.log("导入设备号");
+		logger.info("导入设备号");
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceFile_Url, null, fileMap);
-		Reporter.log("resp:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -143,10 +143,10 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("req:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPost(null, Constant.ParkingListConstant.deviceEvidenceStatus_Url,
 				jsonObject.toString());
-		Reporter.log("resp:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -165,10 +165,10 @@ public class DeviceServiceImpl implements DeviceService {
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p3.jpg");
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("req:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDeviceEvidenceFile_Url, map,
 				fileMap);
-		Reporter.log("resp:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -190,9 +190,9 @@ public class DeviceServiceImpl implements DeviceService {
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p3.jpg");
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("req:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.deviceSelfTest_Url, map, fileMap);
-		Reporter.log("resp:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -204,10 +204,10 @@ public class DeviceServiceImpl implements DeviceService {
 		Map map = new HashMap();
 		map.put("fileId", fileId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("req:" + jsonObject.toString());
+		logger.info("req:" + jsonObject.toString());
 		String result = urlConnection.doPost(null, Constant.ParkingListConstant.importDeviceFile_Url,
 				jsonObject.toString());
-		Reporter.log("resp:" + result);
+		logger.info("resp:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
 		Assert.assertEquals(resp.getMessage(), "OK");
@@ -215,7 +215,24 @@ public class DeviceServiceImpl implements DeviceService {
 		return resp;
 	}
 	
-	
+	public  void uploadDevicePeriodModeFile(String deviceNo,String dateTime,Long serialId, Long deviceTimestamp,
+			String fileUrl) throws Exception{
+		Map map = new HashMap();
+		map.put("deviceNo", deviceNo);
+		map.put("dateTime", dateTime);
+		map.put("serialId", serialId);
+		map.put("deviceTimestamp", deviceTimestamp);
+		Map<String, String> fileMap = new HashMap<String, String>();
+		fileMap.put("file",fileUrl);
+		JSONObject jsonObject = JSONObject.fromObject(map);
+		logger.info("req:" + jsonObject.toString());
+		String result = urlConnection.doPostForm(null, Constant.ParkingListConstant.uploadDevicePeriodModeFile_Url, map, fileMap);
+		logger.info("resp:" + result);
+		ResponseModel resp = new ResponseModel();
+		resp = urlConnection.getResponseModel(result);
+		Assert.assertEquals(resp.getMessage(), "OK");
+		Assert.assertEquals(resp.getCode(), "0");
+	}
 	
 
 }

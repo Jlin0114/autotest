@@ -15,11 +15,11 @@ public class HomeTest extends ZTest {
 		//设备绑定完毕  开始模拟设备做出入库
 		
 		AuditTest auditTest = new AuditTest();
-		auditTest.in_out();
+//		auditTest.in_out();
 		
-		
-		
-		
+//		auditTest.periodModeIn_periodModeOut();
+//		auditTest.periodModeIn_periodModeKeep_out();
+		auditTest.periodModeIn_periodModeKeep_periodModeOut();
 	}
 	
 	

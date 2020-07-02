@@ -29,5 +29,8 @@ public interface DeviceService {
 	
 	public ResponseModel importDeviceFile(String fileId) throws Exception;
 	
+	public void uploadDevicePeriodModeFile(String deviceNo,String dateTime,Long serialId, 
+			Long deviceTimestamp,
+			String fileUrl) throws Exception;
 	
 }
