@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import net.sf.json.JSONObject;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.CreatRoad;
+import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.parkingManagement.service.ParkingRoadService;
 import zhiyiting2.util.Constant;
 import zhiyiting2.util.URLConnection;
@@ -36,7 +37,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("添加路段");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.addLoadUrl, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.addLoadUrl, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -51,7 +52,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("status", status);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.batchChangeParkingRoadStatus_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.batchChangeParkingRoadStatus_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -69,7 +70,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("operationStatus", operationStatus);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie,
+		String result = urlConnection.doPost(ManagerLogin.cookie,
 				Constant.ParkingRoadConstant.batchUpdateParkRoadOperationStatus_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -87,7 +88,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("车位开启出入库审核");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ParkingRoadConstant.auditParkPlaceOut_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.ParkingRoadConstant.auditParkPlaceOut_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -104,7 +105,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("enableOutAudit", enableOutAudit);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie,
+		String result = urlConnection.doPost(ManagerLogin.cookie,
 				Constant.ParkingRoadConstant.batchOutAuditByParkingRoadCodes_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -121,7 +122,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("status", status);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.batchAuditParkPlace_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.batchAuditParkPlace_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -152,7 +153,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		map.put("deviceDistance", deviceDistance);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ParkingRoadConstant.deviceConfig_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.ParkingRoadConstant.deviceConfig_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -201,7 +202,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("添加车位");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.addParkPlace_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.addParkPlace_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -219,7 +220,7 @@ public class ParkingRoadServiceImpl implements ParkingRoadService {
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("路段绑定施工人员");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.batchBindParkingRoadAndWorker_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.batchBindParkingRoadAndWorker_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();

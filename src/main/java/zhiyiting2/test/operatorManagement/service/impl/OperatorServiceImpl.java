@@ -11,6 +11,7 @@ import org.testng.Reporter;
 import net.sf.json.JSONObject;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.CreatRoad;
+import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.operatorManagement.service.OperatorService;
 import zhiyiting2.util.Constant;
 import zhiyiting2.util.URLConnection;
@@ -28,7 +29,7 @@ public class OperatorServiceImpl implements OperatorService{
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("添加运营商");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.maintainOperatorInfo_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.maintainOperatorInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -42,7 +43,7 @@ public class OperatorServiceImpl implements OperatorService{
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("运营商绑定施工人员");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.maintainOperatorRelWorkerInfo_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.maintainOperatorRelWorkerInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);

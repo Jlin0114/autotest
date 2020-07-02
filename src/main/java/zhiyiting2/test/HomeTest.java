@@ -3,23 +3,37 @@ package zhiyiting2.test;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
+
+import org.testng.annotations.Test;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.model.SqlModel;
 import zhiyiting2.util.JDBCConnection;
 
 public class HomeTest extends ZTest {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 //		HomeTest homeTest = new HomeTest();
 //		homeTest.deleteTestData();
 //		homeTest.testDataInit();
 		//设备绑定完毕  开始模拟设备做出入库
-		
-		AuditTest auditTest = new AuditTest();
+
+//		AuditTest auditTest = new AuditTest();
+//		AuditType auditType = new AuditType();
+//
+//		ManagerLogin.login("", "zhaoming", "9c5946d01d87b796cff3593166ae327e05c242ac5b3317a843964b789ddcfecb");
+
+
 //		auditTest.in_out();
-		
-//		auditTest.periodModeIn_periodModeOut();
-//		auditTest.periodModeIn_periodModeKeep_out();
-		auditTest.periodModeIn_periodModeKeep_periodModeOut();
+
+
+
+
+//		auditTest.in_in();
+
+
+
+
+
 	}
 	
 	
@@ -47,7 +61,7 @@ public class HomeTest extends ZTest {
 
 	public void testDataInit() {
 		try {
-			creatRoad.login("", "zhaoming", "9c5946d01d87b796cff3593166ae327e05c242ac5b3317a843964b789ddcfecb");
+			ManagerLogin.login("", "zhaoming", "9c5946d01d87b796cff3593166ae327e05c242ac5b3317a843964b789ddcfecb");
 			// 创建运营商
 			String provinceId = "450000";// 广西省
 			String cityId = "450100";// 南宁市

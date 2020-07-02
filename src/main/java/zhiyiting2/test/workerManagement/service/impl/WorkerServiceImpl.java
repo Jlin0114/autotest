@@ -10,6 +10,7 @@ import org.testng.Reporter;
 import net.sf.json.JSONObject;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.CreatRoad;
+import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.workerManagement.service.WorkerService;
 import zhiyiting2.util.Constant;
 import zhiyiting2.util.URLConnection;
@@ -28,7 +29,7 @@ public class WorkerServiceImpl implements WorkerService{
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("添加施工人员");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.WorkingListConstant.maintainWorkerInfo_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.WorkingListConstant.maintainWorkerInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -43,7 +44,7 @@ public class WorkerServiceImpl implements WorkerService{
 		map.put("id", workorderId);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.querySingleWorkOrderDetail_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.querySingleWorkOrderDetail_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -61,7 +62,7 @@ public class WorkerServiceImpl implements WorkerService{
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("工单回填");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.backfillConstructWorkOrderActivity_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.backfillConstructWorkOrderActivity_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);

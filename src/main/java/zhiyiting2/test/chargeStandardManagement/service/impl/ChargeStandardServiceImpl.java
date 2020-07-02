@@ -14,6 +14,7 @@ import net.sf.json.JsonConfig;
 import zhiyiting2.model.MarketingPlan;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.CreatRoad;
+import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.chargeStandardManagement.service.ChargeStandardService;
 import zhiyiting2.util.Constant;
 import zhiyiting2.util.JsonDateValueProcessor;
@@ -29,7 +30,7 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 				new JsonDateValueProcessor());
 		JSONObject jsonObject = JSONObject.fromObject(mp,jsonConfig);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.DiscountsChargeStandard.addMarketingPlan_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.DiscountsChargeStandard.addMarketingPlan_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -46,7 +47,7 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 				new JsonDateValueProcessor());
 		JSONObject jsonObject = JSONObject.fromObject(mp,jsonConfig);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.DiscountsChargeStandard.editMarketingPlan_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.DiscountsChargeStandard.editMarketingPlan_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -61,7 +62,7 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 		map.put("type", type);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.DiscountsChargeStandard.deleteMarketingPlanById_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.DiscountsChargeStandard.deleteMarketingPlanById_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -87,7 +88,7 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("新增收费规则");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ChargeStandardConstant.addChargeStandardMultipleInfo_Url, jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.ChargeStandardConstant.addChargeStandardMultipleInfo_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = urlConnection.getResponseModel(result);
@@ -111,7 +112,7 @@ public class ChargeStandardServiceImpl implements ChargeStandardService{
 		map.put("containParkingRoad", containParkingRoad);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.ChargeStandardConstant.addPeriodRuleItem_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.ChargeStandardConstant.addPeriodRuleItem_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();

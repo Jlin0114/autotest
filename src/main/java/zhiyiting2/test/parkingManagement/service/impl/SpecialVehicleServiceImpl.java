@@ -15,6 +15,7 @@ import net.sf.json.JsonConfig;
 import zhiyiting2.data.SpecialVehicleData;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.test.CreatRoad;
+import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.ZTest;
 import zhiyiting2.test.parkingManagement.service.SpecialVehicleService;
 import zhiyiting2.util.Constant;
@@ -44,7 +45,7 @@ public class SpecialVehicleServiceImpl implements SpecialVehicleService{
 		JSONObject jsonObject = JSONObject.fromObject(map,jsonConfig);
 		Reporter.log("新增路边免费车辆");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.SpecialVehicleConstant.addSpecialCar_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.SpecialVehicleConstant.addSpecialCar_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -66,7 +67,7 @@ public class SpecialVehicleServiceImpl implements SpecialVehicleService{
 				new JsonDateValueProcessor());
 		JSONObject jsonObject = JSONObject.fromObject(map,jsonConfig);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.SpecialVehicleConstant.updateSpecialCar_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.SpecialVehicleConstant.updateSpecialCar_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
@@ -80,7 +81,7 @@ public class SpecialVehicleServiceImpl implements SpecialVehicleService{
 		map.put("id", id);
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = urlConnection.doPost(CreatRoad.cookie, Constant.SpecialVehicleConstant.deleteSpecialCar_Url,
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.SpecialVehicleConstant.deleteSpecialCar_Url,
 				jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();

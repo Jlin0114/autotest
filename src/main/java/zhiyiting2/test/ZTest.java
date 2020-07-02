@@ -35,10 +35,10 @@ public class ZTest {
 	public static Integer workerId=0;
 	public static String deviceNo="112233445566778";
 	public static String plateNo = "云L54321";
+	public static String plateNo1="陕M54321";
 	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-
 	public static Integer placeId=0;
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 	
 	public ZTest() {
 		ApplicationContext application = new ClassPathXmlApplicationContext("spring-config.xml");

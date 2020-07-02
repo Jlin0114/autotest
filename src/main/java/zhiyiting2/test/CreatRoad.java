@@ -22,7 +22,7 @@ import zhiyiting2.util.URLConnection;
 
 @Component
 public class CreatRoad {
-	public static String cookie = "";
+
 	
 	 
 	
@@ -58,16 +58,7 @@ public class CreatRoad {
 //		jdbc.mysqlConnection("", str);
 //	}
 	
-	@Test(testName = "login", description = "登录", dataProvider = "login", dataProviderClass = ParameterData.class)
-	public void login(String testname, String managerCode, String managerPassword) throws Exception {
-		URLConnection conn = new URLConnection();
-		Map<String, String> map = new HashMap<String, String>();
-		map.put("managerCode", managerCode);
-		map.put("managerPassword", managerPassword);
-		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
-		cookie = conn.doPost(Constant.loginUrl, jsonObject.toString());
-	}
+
 
 	
 

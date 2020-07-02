@@ -16,6 +16,7 @@ import zhiyiting2.app.service.AppService;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.model.SqlModel;
 import zhiyiting2.test.CreatRoad;
+import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.TestAssertException;
 import zhiyiting2.test.ZTest;
 import zhiyiting2.test.chargeStandardManagement.service.ChargeStandardService;
@@ -333,7 +334,7 @@ public class AppTest extends ZTest {
 					JSONObject jsonObject = JSONObject.fromObject(map);
 					Reporter.log("后台审核行驶证");
 					Reporter.log("请求参数:" + jsonObject.toString());
-					String r = uRLConnection.doPost(CreatRoad.cookie, Constant.auditBindApply_Url,
+					String r = uRLConnection.doPost(ManagerLogin.cookie, Constant.auditBindApply_Url,
 							jsonObject.toString());
 					Reporter.log("返回参数:" + r);
 					ResponseModel res = new ResponseModel();
