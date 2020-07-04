@@ -16,8 +16,10 @@ public class HomeTest extends ZTest {
 //		homeTest.deleteTestData();
 //		homeTest.testDataInit();
 		//设备绑定完毕  开始模拟设备做出入库
+		ManagerLogin.login("", "zhaoming", "9c5946d01d87b796cff3593166ae327e05c242ac5b3317a843964b789ddcfecb");
 
-//		AuditTest auditTest = new AuditTest();
+		AuditTest auditTest = new AuditTest();
+		auditTest.normal_in_outTest();
 //		AuditType auditType = new AuditType();
 //
 //		ManagerLogin.login("", "zhaoming", "9c5946d01d87b796cff3593166ae327e05c242ac5b3317a843964b789ddcfecb");
