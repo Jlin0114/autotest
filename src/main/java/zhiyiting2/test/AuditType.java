@@ -38,6 +38,8 @@ public class AuditType extends ZTest {
             logger.info("上传取证图");
             deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
                     serialId, System.currentTimeMillis() / 1000,1, "C:\\Users\\DELL\\Desktop\\停车自造图片\\入库取证\\evidence.png");
+            Thread.sleep(5000);
+
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e);
@@ -121,9 +123,9 @@ public class AuditType extends ZTest {
 
             logger.info("上传取证图");
             deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
-                    serialId, System.currentTimeMillis() / 1000,1, "C:\\Users\\DELL\\Desktop\\自动出入库图片\\入库取证\\evidence.png");
+                    serialId, System.currentTimeMillis() / 1000,1, "C:\\Users\\DELL\\Desktop\\自动出入库图片\\入库取证\\evidence1.png");
 
-
+            Thread.sleep(5000);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -229,7 +231,34 @@ public class AuditType extends ZTest {
     }
 
 
+    public void lowPower_out(Long serialId) {
+        try {
+            //入库审核后 传取证图 出库过程图片 出库  出库图片 1为出库过程  0为出库图片
+            //报出库
+            logger.info("上报出库");
+            deviceService.reportOut(deviceNo, "OUT", 63, 21,
+                    true, serialId, System.currentTimeMillis() / 1000);
 
+            logger.info("上报出库图片");
+            deviceService.uploadDeviceOutFile(35, 20, 62,
+                    8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
+                    "C:\\Users\\DELL\\Desktop\\停车自造图片\\出库\\p0.png");
+            for (int i = 0; i < 4; i++) {
+                //出库过程图片
+                logger.info("上报出库过程图片");
+                deviceService.uploadDeviceOutFile(35, 20, 62,
+                        8, deviceNo, serialId, System.currentTimeMillis() / 1000, "1",
+                        "C:\\Users\\DELL\\Desktop\\停车自造图片\\出库过程\\p" + i + ".png");
+                Thread.sleep(1000);
+            }
+
+            logger.info("低功耗自动出库");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e);
+        }
+    }
 
 
 
