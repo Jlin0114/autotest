@@ -45,7 +45,7 @@ public class DeviceServiceImpl implements DeviceService {
 
 	// 设备入库上传图片
 	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
-			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,String fileUrl) throws Exception {
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,Integer evidence,String fileUrl) throws Exception {
 		Thread.sleep(2000);
 		Map map = new HashMap();
 		map.put("distance", 35);
@@ -56,6 +56,9 @@ public class DeviceServiceImpl implements DeviceService {
 		map.put("deviceNo", deviceNo);
 		map.put("serialId", serialId);
 		map.put("deviceTimestamp", deviceTimestamp);
+		if (evidence==1){
+			map.put("evidence",evidence);
+		}
 		Map<String, String> fileMap = new HashMap<String, String>();
 		fileMap.put("file", fileUrl);
 		JSONObject jsonObject = JSONObject.fromObject(map);
@@ -155,7 +158,7 @@ public class DeviceServiceImpl implements DeviceService {
 	}
 
 	// 设备取证上传图片
-	public void uploadDeviceEvidenceFile(String deviceNo, Long actualDateTime, Long serialId, Long deviceTimestamp)
+	public void uploadDeviceEvidenceFile(String deviceNo, String actualDateTime, Long serialId, Long deviceTimestamp)
 			throws Exception {
 		Map map = new HashMap();
 		map.put("deviceNo", deviceNo);

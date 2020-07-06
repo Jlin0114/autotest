@@ -11,6 +11,7 @@ public class AuditType extends ZTest {
 
     static Logger logger = Logger.getLogger(AuditTest.class);
 
+
     public void in(Long serialId, String plateNo, String inHandleType) {
         try {
 //			Long serialId = System.currentTimeMillis() / 1000;
@@ -20,7 +21,7 @@ public class AuditType extends ZTest {
             for (int i = 1; i < 9; i++) {
                 logger.info("上报入库图片");
                 deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
-                        serialId, System.currentTimeMillis() / 1000, "C:\\Users\\DELL\\Desktop\\停车自造图片\\入库\\p" + i + ".png");
+                        serialId, System.currentTimeMillis() / 1000,0, "C:\\Users\\DELL\\Desktop\\停车自造图片\\入库\\p" + i + ".png");
                 //C:\Users\DELL\Desktop
                 Thread.sleep(1000);
             }
@@ -33,8 +34,10 @@ public class AuditType extends ZTest {
                 logger.info("入库审核--auditId:" + auditId);
                 parkingService.manualHandleAudit(plateNo, false, false, "SMALL", auditId, inHandleType,
                         null);
-
             }
+            logger.info("上传取证图");
+            deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
+                    serialId, System.currentTimeMillis() / 1000,1, "C:\\Users\\DELL\\Desktop\\停车自造图片\\入库取证\\evidence.png");
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e);
@@ -70,7 +73,6 @@ public class AuditType extends ZTest {
                 Integer auditIdOut = SqlModel.class.cast(objOut.get(0)).getId();
                 parkingService.manualHandleAudit(null, null, null, null, auditIdOut, outHandleType, null);
             }
-            System.out.println("========================出库审核结束======================");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -111,12 +113,17 @@ public class AuditType extends ZTest {
             for (int i = 1; i < 9; i++) {
                 logger.info("上报入库图片");
                 deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
-                        serialId, System.currentTimeMillis() / 1000, "C:\\Users\\DELL\\Desktop\\自动出入库图片\\入库\\p" + i + ".png");
+                        serialId, System.currentTimeMillis() / 1000, 0,"C:\\Users\\DELL\\Desktop\\自动出入库图片\\入库\\p" + i + ".png");
                 //C:\Users\DELL\Desktop
                 Thread.sleep(1000);
             }
-
             logger.info("自动入库结束");
+
+            logger.info("上传取证图");
+            deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
+                    serialId, System.currentTimeMillis() / 1000,1, "C:\\Users\\DELL\\Desktop\\自动出入库图片\\入库取证\\evidence.png");
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -193,6 +200,11 @@ public class AuditType extends ZTest {
             logger.info("上报出库");
             deviceService.reportOut(deviceNo, "OUT", 63, 21,
                     false, serialId, System.currentTimeMillis() / 1000);
+
+            logger.info("上报出库图片");
+            deviceService.uploadDeviceOutFile(35, 20, 62,
+                    8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
+                    "C:\\Users\\DELL\\Desktop\\自动出入库图片\\出库\\p9.png");  //p9.png为另一张车牌的图片
             for (int i = 0; i < 4; i++) {
                 //出库过程图片
                 logger.info("上报出库过程图片");
@@ -200,11 +212,8 @@ public class AuditType extends ZTest {
                         System.currentTimeMillis() / 1000, "1", "C:\\Users\\DELL\\Desktop\\自动出入库图片\\出库过程\\p" + i + ".png");
                 Thread.sleep(1000);
             }
-            AuditType.logger.info("上报出库图片");
-            deviceService.uploadDeviceOutFile(35, 20, 62,
-                    8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
-                    "C:\\Users\\DELL\\Desktop\\自动出入库图片\\出库\\p9.png");  //p9.png为另一张车牌的图片
-            AuditType.logger.info("确认出库");
+
+            logger.info("确认出库");
             List<Object> objOut = jdbconn
                     .query("select a.id from audit a where a.audit_type='OUT' and a.serial_id='"
                             + serialId.intValue() + "' order by id desc", SqlModel.class);

@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import zhiyiting2.model.SqlModel;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 
@@ -19,7 +20,6 @@ public class AuditTest extends ZTest{
 
 
     AuditType auditType = new AuditType();
-
 
 
 
@@ -40,8 +40,6 @@ public class AuditTest extends ZTest{
     @Test(testName = "正常模式，入库-出库")
 //@Parameters("auditType")
     public void normal_in_outTest(){
-
-
     AuditType.logger.info("正常模式  入库  出库 ");
     long serialId1 = System.currentTimeMillis() / 1000;
     auditType.in(serialId1,plateNo,"IN");

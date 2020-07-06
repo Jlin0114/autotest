@@ -40,7 +40,7 @@ public class HomeController {
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, request.getParameter("deviceNo"),
-					serialId, System.currentTimeMillis() / 1000,"C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
+					serialId, System.currentTimeMillis() / 1000,0,"C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
 			// 设备出库
 			deviceService.reportOut(request.getParameter("deviceNo"), "OUT", 62, 21, false, serialId,
 					System.currentTimeMillis() / 1000);
@@ -64,7 +64,7 @@ public class HomeController {
 					System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, request.getParameter("deviceNo"),
-					serialId, System.currentTimeMillis() / 1000,"C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
+					serialId, System.currentTimeMillis() / 1000,0,"C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p5.jpg");
 			map.put("message", "入库成功");
 			map.put("serialId", String.valueOf(serialId));
 		} catch (Exception e) {

@@ -377,7 +377,7 @@ public class AppTest extends ZTest {
 			deviceService.reportIn(this.deviceNo, "PREPARE", 12, 25, serialId, System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, this.deviceNo, serialId,
-					System.currentTimeMillis() / 1000,"");
+					System.currentTimeMillis() / 1000,0,"");
 			// 设备出库
 			deviceService.reportOut(this.deviceNo, "OUT", 62, 21, false, serialId, System.currentTimeMillis() / 1000);
 			List<Object> obj = jdbconn.query("select a.id from audit a where a.audit_type='IN' and a.serial_id='"
