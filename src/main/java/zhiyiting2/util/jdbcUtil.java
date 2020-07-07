@@ -24,6 +24,7 @@ public class jdbcUtil {
     static {
     InputStream is=null;
       try {
+
 //          读取配置文件，得到数据库连接信息
           Properties properties = new Properties();
           //类名.class.getClassLoader()得到ClassLoader对象。

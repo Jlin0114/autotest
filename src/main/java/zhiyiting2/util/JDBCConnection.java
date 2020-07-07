@@ -29,7 +29,6 @@ public class JDBCConnection {
 		String id = "";
 		try {
 
-
 			//注册驱动，获取连接
 			Connection connection = jdbcUtil.getConnection();
 
