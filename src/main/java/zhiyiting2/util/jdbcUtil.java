@@ -24,7 +24,7 @@ public class jdbcUtil {
           //类名.class.getClassLoader()得到ClassLoader对象。
           //目的是：通过ClassLoader对象提供的一个方法：getResourceAsStream()，可以直接从类加载路径下读取文件，得到输入流对象
           //方法的参数：从src下开始加载文件的路径
-          is = jdbcUtil.class.getClassLoader().getResourceAsStream("jdbc.propertise");
+          is = jdbcUtil.class.getClassLoader().getResourceAsStream("jdbc.properties");
           properties.load(is);
  //     预生产
 //		String url = "jdbc:mysql://119.3.55.236:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
