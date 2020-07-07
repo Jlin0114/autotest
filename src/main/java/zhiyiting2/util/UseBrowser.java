@@ -1,13 +1,14 @@
 package zhiyiting2.util;
 
-import java.util.concurrent.TimeUnit;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UseBrowser {
 	public static WebDriver driver;
-
 	public WebDriver startFirefox(String url){
 
 		try {
@@ -37,8 +38,30 @@ public class UseBrowser {
 		return driver;
 
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception{
 		UseBrowser ub = new UseBrowser();
-		ub.startFirefox("http://www.baidu.com");
+		ub.startFirefox("https://ptest.wisdomep.com/admin-v2/login");
+		WebDriverWait wait = new WebDriverWait(driver, 10);
+		ub.startFirefox("https://ptest.wisdomep.com/admin-v2/login");
+		WebDriverWait wait2 = new WebDriverWait(driver, 10);
+        WebElement element = (wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div/form/div[1]/div/div/input"))));
+        element.findElement(By.xpath("//*[@id=\"app\"]/div/form/div[1]/div/div/input")).sendKeys("zhaoming");
+        element = (wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div/form/div[2]/div/div/input"))));
+        element.findElement(By.xpath("//*[@id=\"app\"]/div/form/div[2]/div/div/input")).sendKeys("zhaoming!");
+        element = (wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div/form/div[2]/div/div/input"))));
+        element.findElement(By.xpath("//*[@id=\"app\"]/div/form/div[3]/div/button")).click();
+        element = (wait.until(ExpectedConditions.presenceOfElementLocated(
+        		By.xpath("//*[@id=\"app\"]/div/div/div/div[1]/section/div[2]/div[1]/div"))));
+        element.findElement(By.xpath("//*[@id=\"app\"]/div/div/div/div[1]/section/div[2]/div[1]/div")).click();
+      
+        
+        
+        WebElement element2 = (wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div/form/div[1]/div/div/input"))));
+        element2.findElement(By.xpath("//*[@id=\"app\"]/div/form/div[1]/div/div/input")).sendKeys("admin");
+        element2 = (wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div/form/div[2]/div/div/input"))));
+        element2.findElement(By.xpath("//*[@id=\"app\"]/div/form/div[2]/div/div/input")).sendKeys("szzytXX789789456");
+        element2 = (wait2.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"app\"]/div/form/div[2]/div/div/input"))));
+        element2.findElement(By.xpath("//*[@id=\"app\"]/div/form/div[3]/div/button")).click();
+      
 	}
 }
