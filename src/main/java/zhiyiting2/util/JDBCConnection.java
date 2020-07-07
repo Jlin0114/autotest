@@ -1,5 +1,8 @@
 package zhiyiting2.util;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -8,11 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import org.aspectj.weaver.ast.Var;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
 
@@ -21,25 +22,24 @@ import zhiyiting2.model.ResponseModel;
 @Component
 public class JDBCConnection {
 
+
+
 	public String executeUpdate(String[] str) throws Exception{
-		Connection con;
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
-		String user = "root";
-		String password = "Sof6CGFGDqAnUsm0755";
-//		String url = "jdbc:mysql://119.3.55.236:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
-//		String user = "zyt";
-//		String password = "Sof6CGFGDqAnUsm62k6u@";
+
 		String id = "";
 		try {
-			Class.forName(driver);
-			con = DriverManager.getConnection(url, user, password);
-			ResultSet resultSet = null;
-			if (!con.isClosed()) {
+
+
+			//注册驱动，获取连接
+			Connection connection = jdbcUtil.getConnection();
+
+			if (!connection.isClosed()) {
 				System.out.println("数据库连接成功");
 			}
+			//创建sql执行平台
+			Statement statement = connection.createStatement();
 
-			Statement statement = con.createStatement();
+			statement = connection.createStatement();
 			String sql = "";
 			int n = 0;
 			for (int i = 0; i < str.length; i++) {
@@ -47,10 +47,12 @@ public class JDBCConnection {
 				n += statement.executeUpdate(sql);
 			}
 			System.out.println("删除测试数据数量:" + n);
+			//获取结果集
+			ResultSet resultSet = null;
 			if (resultSet != null) {
 				resultSet.close();
 			}
-			con.close();
+			connection.close();
 			System.out.println("数据库已关闭连接");
 		} catch (ClassNotFoundException e) {
 			System.out.println("数据库驱动没有安装");
@@ -64,6 +66,7 @@ public class JDBCConnection {
 		return id;
 	}
 
+
 	public static List<Object> query(String querySql, Class objClass) throws Exception {
 		// 查询结果集
 		List<Object> queryResult = new ArrayList<Object>();
@@ -72,14 +75,11 @@ public class JDBCConnection {
 		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
 		String user = "root";
 		String password = "Sof6CGFGDqAnUsm0755";
-		//预生产
-//		String url = "jdbc:mysql://119.3.55.236:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
-//		String user = "zyt";
-//		String password = "Sof6CGFGDqAnUsm62k6u@";
-		Class.forName(driver);
-		Connection conn = DriverManager.getConnection(url, user, password);
-		// 执行查询
-		PreparedStatement preparedStatement = conn.prepareStatement(querySql);
+		//注册驱动，获取连接
+		Connection connection = jdbcUtil.getConnection();
+		//创建sql预处理平台
+		PreparedStatement preparedStatement = connection.prepareStatement(querySql);
+		//执行查询
 		ResultSet result = preparedStatement.executeQuery();
 		// 获取实体对象的方法和私有属性
 		Map<String, Method> objMap = new HashMap<String, Method>();
@@ -126,8 +126,7 @@ public class JDBCConnection {
 			queryResult.add(obj);
 		}
 
-		preparedStatement.close();
-		conn.close();
+		jdbcUtil.close(result,preparedStatement,connection);
 
 		return queryResult;
 	}

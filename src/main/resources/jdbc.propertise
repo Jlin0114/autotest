@@ -1,0 +1,6 @@
+driver=com.mysql.jdbc.Driver
+url=jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+username=root
+password=Sof6CGFGDqAnUsm62k6u@
+
+
