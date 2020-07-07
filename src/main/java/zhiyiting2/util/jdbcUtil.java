@@ -1,13 +1,7 @@
 package zhiyiting2.util;
 
-import netscape.security.PrivilegeTable;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.PortUnreachableException;
-import java.security.Permission;
 import java.sql.*;
 import java.util.Properties;
 

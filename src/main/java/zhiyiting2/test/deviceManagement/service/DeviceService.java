@@ -7,7 +7,7 @@ public interface DeviceService {
 			Long serialId) throws Exception;
 
 	public ResponseModel uploadDeviceFile(Integer distance, Integer deviceSignal, Integer devicePower, Integer serialNo,
-			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,String fileUrl) throws Exception;
+			Integer total, String deviceNo, Long serialId, Long deviceTimestamp,Integer evidence,String fileUrl) throws Exception;
 
 	public void reportOut(String deviceNo, String type, Integer devicePower, Integer deviceSignal,
 			boolean lowPowerMode, Long serialId, Long deviceTimestamp) throws Exception;

@@ -70,10 +70,10 @@ public class JDBCConnection {
 		// 查询结果集
 		List<Object> queryResult = new ArrayList<Object>();
 		// 数据库连接,这段代码应该写出去，这里为了演示，写里面了
-		String driver = "com.mysql.jdbc.Driver";
-		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
-		String user = "root";
-		String password = "Sof6CGFGDqAnUsm0755";
+//		String driver = "com.mysql.jdbc.Driver";
+//		String url = "jdbc:mysql://122.112.153.102:3306/parking?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT";
+//		String user = "root";
+//		String password = "Sof6CGFGDqAnUsm0755";
 		//注册驱动，获取连接
 		Connection connection = jdbcUtil.getConnection();
 		//创建sql预处理平台
