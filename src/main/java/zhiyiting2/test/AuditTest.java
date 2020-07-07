@@ -117,7 +117,6 @@ public class AuditTest extends ZTest{
 
     @Test(testName = "正常模式，入库-不出库-出库")
     public void normal_in_noout_outTest(){
-        System.out.println("正常模式，入库-不出库-出库  开始========================");
 
         AuditType.logger.info("正常模式，入库-不出库-出库");
         long serialId1 = System.currentTimeMillis() / 1000;
@@ -126,38 +125,36 @@ public class AuditTest extends ZTest{
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.out(serialId2,"OUT");
 
-        System.out.println("正常模式，入库-不出库-出库  结束========================");
+
 
     }
 
     @Test(testName = "定时模式, 入库-出库")
     public void period_in_outTest(){
-        System.out.println("定时模式，入库-出库  开始========================");
+
 
         AuditType.logger.info("定时模式，入库-出库");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.period_in(serialId1, plateNo, "PERIOD_IN");
         auditType.period_out(serialId1,"PERIOD_OUT");
 
-        System.out.println("定时模式，入库-出库  结束=====================================");
 
     }
 
     @Test(testName = "定时模式，入库-保持不变-出库")
     public void period_in_keep_in(){
-        System.out.println("定时模式，入库-保持不变-出库  开始==================================");
+
         AuditType.logger.info("定时模式，入库-保持不变-出库");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.period_in(serialId1,plateNo,"PERIOD_IN");
         auditType.period_out(serialId1,"PERIOD_KEEP");
         auditType.period_out(serialId1,"PERIOD_OUT");
-        System.out.println("定时模式，入库-保持不变-出库  结束=================================");
+
 
     }
 
     @Test(testName = "定时模式-入库-保持不变，正常模式-入库")
     public void period_in_keep_normalinTest(){
-        System.out.println("定时模式-入库-保持不变，正常模式-入库  开始==============================");
 
         AuditType.logger.info("定时模式-入库-保持不变，正常模式-入库");
         long serialId1 = System.currentTimeMillis() / 1000;
@@ -165,7 +162,7 @@ public class AuditTest extends ZTest{
         auditType.period_out(serialId1,"PERIOD_KEEP");
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.out(serialId2,"OUT");
-        System.out.println("定时模式-入库-保持不变，正常模式-入库  结束==============================");
+
 
     }
 
