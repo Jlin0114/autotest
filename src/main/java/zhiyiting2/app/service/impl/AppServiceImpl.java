@@ -1,23 +1,19 @@
 package zhiyiting2.app.service.impl;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.Test;
 
 import net.sf.json.JSONObject;
-import zhiyiting2.app.AppData;
+import zhiyiting2.app.AppPushTest;
 import zhiyiting2.app.AppTest;
 import zhiyiting2.app.Constant;
 import zhiyiting2.app.service.AppService;
 import zhiyiting2.model.ResponseModel;
-import zhiyiting2.model.SqlModel;
-import zhiyiting2.util.JDBCConnection;
 import zhiyiting2.util.URLConnection;
 
 @Service
@@ -31,7 +27,7 @@ public class AppServiceImpl implements AppService {
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("绑定车辆");
 		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = uRLConnection.doPost(AppTest.cookie, Constant.bindCar_Url, jsonObject.toString());
+		String result = uRLConnection.doPost(AppPushTest.cookie, Constant.bindCar_Url, jsonObject.toString());
 		Reporter.log("返回参数:" + result);
 		ResponseModel resp = new ResponseModel();
 		resp = uRLConnection.getResponseModel(result);
@@ -67,12 +63,11 @@ public class AppServiceImpl implements AppService {
 		Assert.assertEquals(resp.getMessage(), "支付成功");
 		Assert.assertEquals(resp.getCode(), "0");
 	}
-
 	public Integer uploadFileNew() throws Exception {
 		Map map = new HashMap();
 		map.put("type", "driver_license_front_file");
 		Map<String, String> fileMap = new HashMap<String, String>();
-		fileMap.put("file", "C:\\Users\\Administrator\\Desktop\\出入库测试图片\\p2.jpg");
+		fileMap.put("file", "C:\\Users\\DELL\\Desktop\\出入库测试图片\\p7.jpg");
 		JSONObject jsonObject = JSONObject.fromObject(map);
 		Reporter.log("绑定行驶证上传图片");
 		Reporter.log("请求参数:" + jsonObject.toString());
@@ -103,6 +98,8 @@ public class AppServiceImpl implements AppService {
 		Assert.assertEquals(resp.getCode(), "0");
 
 	}
+
+
 
 	public String myUserOrder(String bindOrderType, Integer currPage, Integer pageSize, String type) throws Exception {
 		Map map = new HashMap();

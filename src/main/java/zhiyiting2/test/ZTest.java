@@ -26,7 +26,7 @@ public class ZTest {
 	OperatorService operatorService;
 	ParkingRoadService parkingRoadService;
 	URLConnection urlConnection;
-	AppService appService;
+	public AppService appService;
 	CreatRoad creatRoad;
 	WorkerService workerService;
 	public static Integer operatorId=0;
