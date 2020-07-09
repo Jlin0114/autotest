@@ -19,9 +19,10 @@ public class AuditType extends ZTest {
                     System.currentTimeMillis() / 1000);
             // 设备上传8张图片
             for (int i = 1; i < 9; i++) {
+            	String url = System.getProperty("user.dir")+"/src/main/resources/image/in/p"+i+".png";
                 logger.info("上报入库图片");
                 deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
-                        serialId, System.currentTimeMillis() / 1000,0, "C:\\Users\\DELL\\Desktop\\停车自造图片\\入库\\p" + i + ".png");
+                        serialId, System.currentTimeMillis() / 1000,0, url);
                 //C:\Users\DELL\Desktop
                 Thread.sleep(1000);
             }
