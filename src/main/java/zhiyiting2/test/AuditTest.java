@@ -1,5 +1,6 @@
 package zhiyiting2.test;
 
+import org.apache.http.auth.AUTH;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -34,7 +35,9 @@ public class AuditTest extends ZTest{
     public void normal_in_outTest(){
         AuditType.logger.info("正常模式  入库  出库 ");
         long serialId1 = System.currentTimeMillis() / 1000;
-        auditType.in(serialId1,plateNo,"IN");
+        auditType.in(serialId1,plateNo ,"IN");
+
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"OUT");
 
 
@@ -57,6 +60,7 @@ public class AuditTest extends ZTest{
         long serialId1 = System.currentTimeMillis() /1000;
 
         auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"OUT");
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.in(serialId2,plateNo1,"IN");
@@ -86,6 +90,7 @@ public class AuditTest extends ZTest{
 
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.in(serialId2,plateNo1,"IN");
+        auditType.evidence(serialId2);
         auditType.out(serialId2, "OUT");
 
     }
@@ -97,6 +102,7 @@ public class AuditTest extends ZTest{
         AuditType.logger.info("正常模式，入库-不出库-入库");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"NO_OUT");
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.in(serialId2,plateNo1,"IN");
@@ -111,8 +117,18 @@ public class AuditTest extends ZTest{
         AuditType.logger.info("正常模式，入库-不出库-出库");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.in(serialId1,plateNo,"IN");
+
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"NO_OUT");
         long serialId2 = System.currentTimeMillis() / 1000;
+
+//        try {
+//            deviceService.reportIn(deviceNo, "PREPARE", 12, 25, serialId2,
+//                    System.currentTimeMillis() / 1000);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+        auditType.evidence(serialId2);
         auditType.out(serialId2,"OUT");
 
 
@@ -126,6 +142,7 @@ public class AuditTest extends ZTest{
         auditType.period(serialId1, plateNo, "PERIOD_IN");
 
         long serialId2 = System.currentTimeMillis() / 1000;
+
         auditType.period(serialId2,null,"PERIOD_OUT");
 
 
@@ -155,6 +172,7 @@ public class AuditTest extends ZTest{
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.period(serialId2,null,"PERIOD_KEEP");
         long serialId3 = System.currentTimeMillis() / 1000;
+        auditType.evidence(serialId3);
         auditType.out(serialId3,"OUT");
 
 
@@ -190,12 +208,14 @@ public class AuditTest extends ZTest{
         AuditType.logger.info("正常模式-入库-确认不出库，定时模式-保持不变，正常模式-确认不出库-合并");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"NO_OUT");
 
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.period(serialId2,null,"PERIOD_KEEP");
 
         long serialId3 = System.currentTimeMillis() / 1000;
+        auditType.evidence(serialId3);
         auditType.out(serialId3,"NO_OUT");
 
         long serialId4 = System.currentTimeMillis() / 1000;
@@ -217,6 +237,8 @@ public class AuditTest extends ZTest{
         AuditType.logger.info("定时模式-入库，正常模式-确认不出库-合并");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.period(serialId1,plateNo,"PERIOD_IN");
+
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"NO_OUT");
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.in(serialId2,null,"IN_MERGE");
@@ -246,6 +268,7 @@ public class AuditTest extends ZTest{
         auditType.period(serialId2,null,"PERIOD_KEEP");
 
         long serialId3 = System.currentTimeMillis() / 1000;
+        auditType.evidence(serialId3);
         auditType.out(serialId3,"NO_OUT");
 
         long serialId4 = System.currentTimeMillis() / 1000;
@@ -258,6 +281,7 @@ public class AuditTest extends ZTest{
 
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"NO_OUT");
 
         long serialId2 = System.currentTimeMillis() / 1000;
@@ -272,9 +296,13 @@ public class AuditTest extends ZTest{
 //
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.auto_in(serialId1);
+
+        auditType.evidence(serialId1);
         auditType.auto_noout(serialId1);
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.auto_in(serialId2);
+
+        auditType.evidence(serialId2);
         auditType.auto_out(serialId2);
     }
 
@@ -289,6 +317,7 @@ public class AuditTest extends ZTest{
 
         //自动入库的时候，只有自动出库失败，也就是识别到的图片无法自动出库，也无法自动不出库，才能手动处理
         //失败情况模拟：自动入库车牌号为A，出库图片识别到的车牌号为B
+        auditType.evidence(serialId1);
         auditType.autoOutHandleFail_mannulHandle(serialId1,"OUT");
 
 
@@ -301,10 +330,13 @@ public class AuditTest extends ZTest{
 
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.auto_in(serialId1);
+
+        auditType.evidence(serialId1);
         auditType.autoOutHandleFail_mannulHandle(serialId1, "NO_OUT");
         Long serialId2 = System.currentTimeMillis() / 1000;
         auditType.in(serialId2, null, "IN_MERGE");
 
+        auditType.evidence(serialId2);
         auditType.auto_out(serialId2);
     }
 
@@ -313,6 +345,7 @@ public class AuditTest extends ZTest{
         AuditType.logger.info("正常模式入库--低功耗出库");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
         auditType.lowPower_out(serialId1);
     }
 
@@ -324,6 +357,7 @@ public class AuditTest extends ZTest{
         auditType.in(serialId1,plateNo,"IN");
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.period(serialId2,plateNo,"PERIOD_KEEP");
+        auditType.evidence(serialId2);
         auditType.lowPower_out(serialId2);
     }
 
@@ -332,15 +366,147 @@ public class AuditTest extends ZTest{
         AuditType.logger.info("正常模式-入库-确认不出库-合并-低功耗出库");
         long serialId1 = System.currentTimeMillis() / 1000;
         auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
         auditType.out(serialId1,"NO_OUT");
         long serialId2 = System.currentTimeMillis() / 1000;
         auditType.in(serialId2,plateNo,"IN_MERGE");
+
+        auditType.evidence(serialId2);
         auditType.lowPower_out(serialId2);
+
     }
 
 
 
+    @Test(testName = "正常模式-入库-入库不处理")
+    public void normal_in_noDo(){
+        AuditType.logger.info("正常模式-入库-入库不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.in(serialId1,plateNo,"IN");
+        Long serialId2 = System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId2);
+    }
 
+    @Test(testName = "正常模式-入库-确认不出库-入库不处理")
+    public void normal_in_noout_noDo(){
+        AuditType.logger.info("正常模式-入库-确认不出库-入库不处理");
+        Long serialId1=System.currentTimeMillis()/1000;
+        auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
+        auditType.out(serialId1,"NO_OUT");
+        Long serialId2=System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId2);
+
+    }
+
+    @Test(testName = "正常模式-入库-合并-不处理")
+    public void normal_in_inMerge_noDo(){
+        AuditType.logger.info("正常模式-入库-合并-不处理");
+        Long serialId1=System.currentTimeMillis()/1000;
+        auditType.in(serialId1,plateNo,"IN");
+        Long serialId2=System.currentTimeMillis()/1000;
+        auditType.in(serialId2,null,"IN_MERGE");
+        Long serialId3=System.currentTimeMillis()/1000;
+
+        auditType.normal_in_no_do(serialId3);
+
+    }
+
+    @Test(testName = "定时模式-入库，正常模式-不处理")
+    public void period_in_normal_noDo(){
+        AuditType.logger.info("定时模式-入库，正常模式-不处理");
+        Long serialId1=System.currentTimeMillis()/1000;
+        auditType.period(serialId1,plateNo,"PERIOD_IN");
+        Long serialId2=System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId2);
+
+    }
+
+    @Test(testName = "定时模式-入库-保持不变，正常模式-不处理")
+    public void period_in_keep_normal_noDo(){
+        AuditType.logger.info("定时模式-入库-保持不变，正常模式-不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.period(serialId1,plateNo,"PERIOD_IN");
+        Long serialId2 = System.currentTimeMillis() / 1000;
+        auditType.period(serialId2,null,"PERIOD_KEEP");
+        Long serialId3 = System.currentTimeMillis() / 1000;
+        auditType.evidence(serialId3);
+        auditType.normal_in_no_do(serialId3);
+
+
+    }   @Test(testName = "正常模式-入库，定时模式-保持不变，正常模式-不处理")
+    public void normalIn_PeriodKeep_normalNoDo(){
+        AuditType.logger.info("正常模式-入库，定时模式-保持不变，正常模式-不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.in(serialId1,plateNo,"IN");
+        long serialId2 = System.currentTimeMillis()/1000;
+        auditType.period(serialId2,null,"PERIOD_KEEP");
+        Long serialId3 = System.currentTimeMillis() / 1000;
+        auditType.evidence(serialId3);
+        auditType.normal_in_no_do(serialId3);
+
+    }
+
+    @Test(testName = "自动入库-自动确认不出库-自动合并-入库不处理")
+    public void auto_in_noOut_inMerge_noDo(){
+        AuditType.logger.info("自动入库-自动确认不出库-自动合并-入库不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.auto_in(serialId1);
+
+        auditType.evidence(serialId1);
+        auditType.auto_noout(serialId1);
+        Long serialId2 = System.currentTimeMillis()/1000;
+        auditType.auto_in(serialId2);
+
+        Long serialId3 = System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId3);
+    }
+
+    //自动入库-定时保持-不处理
+    @Test(testName ="自动入库-定时保持-不处理")
+    public void auto_in_keep_normal_in(){
+        AuditType.logger.info("自动入库-定时保持-不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.auto_in(serialId1);
+        Long serialId2 = System.currentTimeMillis()/1000;
+        auditType.auto_in(serialId2);
+        Long serialId3 = System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId3);
+    }
+
+
+    @Test(testName ="正常模式-入库，定时模式-保持不变，正常模式-不出库-不处理")
+    public void normalIn_periodKeep_normal_noOut_noDo(){
+        AuditType.logger.info("正常模式-入库，定时模式-保持不变，正常模式-不出库-不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.in(serialId1,plateNo,"IN");
+
+        Long serialId2 = System.currentTimeMillis()/1000;
+        auditType.period(serialId2,plateNo,"PERIOD_KEEP");
+
+        Long serialId3 = System.currentTimeMillis()/1000;
+        auditType.evidence(serialId3);
+        auditType.out(serialId3,"NO_OUT");
+
+        Long serialId4 = System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId4);
+    }
+
+
+    @Test(testName ="正常模式-入库-不出库，定时模式-保持不变，正常模式-不处理")
+    public void normal_in_noOut_periodKeep_normalNoDo(){
+        AuditType.logger.info("正常模式-入库-不出库，定时模式-保持不变，正常模式-不处理");
+        Long serialId1 = System.currentTimeMillis()/1000;
+        auditType.in(serialId1,plateNo,"IN");
+        auditType.evidence(serialId1);
+        auditType.out(serialId1,"NO_OUT");
+
+        Long serialId2 = System.currentTimeMillis()/1000;
+        auditType.period(serialId2,plateNo,"PERIOD_KEEP");
+        Long serialId3 = System.currentTimeMillis()/1000;
+        auditType.normal_in_no_do(serialId3);
+
+    }
 
 
 

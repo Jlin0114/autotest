@@ -2,6 +2,11 @@ package zhiyiting2.test.parkingManagement.service;
 
 import zhiyiting2.model.ResponseModel;
 
+import javax.persistence.criteria.CriteriaBuilder;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public interface ParkingService {
 	public ResponseModel createNewWorkOrder(Integer placeId) throws Exception;
 
@@ -21,4 +26,8 @@ public interface ParkingService {
 
 	public void manualHandleAudit(String plateNo, Boolean newEnergy, Boolean specialCar, String vehicleType,
 			Integer auditId, String auditHandleType, String appShowImageFileId) throws Exception;
+	public void manualHandleAudit2(String auditHandleType, Integer auditId, Boolean distributeWorkOrder,Integer inNoDoType,
+			String inNoDoTypeRemark,Integer inNoDoUseable)throws Exception;
 }
+
+

@@ -34,6 +34,12 @@ public class ZTest {
 	public static Integer roadId=0;
 	public static Integer workerId=0;
 	public static String deviceNo="112233445566778";
+//	public static String deviceNo="999046";
+
+// 预生产环境
+//	public static String deviceNo="999007";
+//	public static String deviceNo="706509078678531";
+
 	public static String plateNo = "云L54321";
 	public static String plateNo1="陕M54321";
 	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

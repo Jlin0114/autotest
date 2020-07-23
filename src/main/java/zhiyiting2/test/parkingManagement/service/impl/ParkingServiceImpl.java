@@ -1,8 +1,10 @@
 package zhiyiting2.test.parkingManagement.service.impl;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import net.sf.json.JSON;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,9 @@ import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.parkingManagement.service.ParkingService;
 import zhiyiting2.util.Constant;
 import zhiyiting2.util.URLConnection;
+
+import javax.xml.transform.Result;
+
 @Service
 public class ParkingServiceImpl implements ParkingService{
 	static Logger logger = Logger.getLogger(ParkingServiceImpl.class);
@@ -158,5 +163,28 @@ public class ParkingServiceImpl implements ParkingService{
 		Assert.assertEquals(resp.getCode(), "0");
 
 	}
-	
+
+	public void manualHandleAudit2(String auditHandleType, Integer auditId,Boolean distributeWorkOrder,Integer inNoDoType,
+								   String inNoDoTypeRemark,Integer inNoDoUseable) throws Exception {
+		Map inNoDoRecordVo = new HashMap();
+		inNoDoRecordVo.put("distributeWorkOrder",distributeWorkOrder);
+		inNoDoRecordVo.put("inNoDoType",inNoDoType);
+		inNoDoRecordVo.put("inNoDoTypeRemark",inNoDoTypeRemark);
+		inNoDoRecordVo.put("inNoDoUseable",inNoDoUseable);
+
+		Map map = new HashMap();
+		map.put("auditHandleType",auditHandleType);
+		map.put("auditId",auditId);
+		map.put("inNoDoRecordVo",inNoDoRecordVo);
+		JSONObject jsonObject = JSONObject.fromObject(map);
+		logger.info("req:"+jsonObject.toString());
+		String result=urlConnection.doPost(ManagerLogin.cookie,Constant.ParkingListConstant.manualHandleAudit_Url,jsonObject.toString());
+		logger.info("resp:"+ result);
+		ResponseModel resp = new ResponseModel();
+		resp=urlConnection.getResponseModel(result);
+		Assert.assertEquals(resp.getMessage(),"OK");
+		Assert.assertEquals(resp.getCode(),"0");
+
+	}
+
 }

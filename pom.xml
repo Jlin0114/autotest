@@ -32,7 +32,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>4.0.0-alpha-4</version>
+			<version>3.14.0</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-io</groupId>
@@ -196,10 +196,35 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.14.0</version>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>c3p0</groupId>-->
+<!--			<artifactId>c3p0</artifactId>-->
+<!--			<version>0.9.1</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>mysql</groupId>-->
+<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--			<version>5.1.47</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 
 	<build>
 		<finalName>zhiyiting</finalName>
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.xml</include>
+					<!--					<include>**/*.properties</include>-->
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
 	</build>
 </project>
