@@ -23,7 +23,7 @@ public class ZTest {
 	ParkingService parkingService;
 	JDBCConnection jdbconn;
 	ChargeStandardService chargeStandardService;
-	OperatorService operatorService;
+	public OperatorService operatorService;
 	ParkingRoadService parkingRoadService;
 	URLConnection urlConnection;
 	public AppService appService;
@@ -33,14 +33,19 @@ public class ZTest {
 	public static Integer chargeStandardId=0;
 	public static Integer roadId=0;
 	public static Integer workerId=0;
-	public static String deviceNo="112233445566778";
+	public static String deviceNo="777778888899999";    //998877665544332
+	                                                    //685756689675456
 //	public static String deviceNo="999046";
 
 // 预生产环境
 //	public static String deviceNo="999007";
 //	public static String deviceNo="706509078678531";
 
-	public static String plateNo = "云L54321";
+
+//	public static String plateNo = "津N83024";     //分隔
+
+	public static String plateNo = "沪B12389";   //
+
 	public static String plateNo1="陕M54321";
 	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	public static Integer placeId=0;

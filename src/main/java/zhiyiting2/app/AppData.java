@@ -81,18 +81,19 @@ public class AppData {
 //	public Object[][] uploadFileNew() {
 //	       return new Object[][]{
 //	               {"绑定驾驶证上传图片:"},
-//	               
+//
 //	       };
 //	   }
-	
+//
 //	@DataProvider(name = "updateBindApply")
 //	public Object[][] updateBindApply() {
+//
 //	       return new Object[][]{
 //	               {"修改驾驶证提交:",AppTest.fileId,"1234567"},
-//	               
+//
 //	       };
 //	   }
-	
+//
 	@DataProvider(name = "myCar")
 	public Object[][] myCar() {
 	       return new Object[][]{

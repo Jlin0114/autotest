@@ -35,7 +35,32 @@ public class OperatorServiceImpl implements OperatorService{
 		resp = urlConnection.getResponseModel(result);
 		return resp;
 	}
-	
+
+	public ResponseModel insertOperatorInfo(String cityId, String districtId, String name, String operatorPlatform, Integer payeeAccountId, String provinceId, String[] pcas, String streetIds, String type) throws Exception {
+
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("cityId",cityId);
+		map.put("districtId",districtId);
+		map.put("name",name);
+		map.put("operatorPlatform",operatorPlatform);
+		map.put("payeeAccountId",payeeAccountId.toString());
+		map.put("provinceId",provinceId);
+		map.put("provinceId",provinceId);
+		map.put("pcas",pcas.toString());
+		map.put("streetIds",streetIds);
+		map.put("type",type);
+		JSONObject jsonObject = JSONObject.fromObject(map);
+		Reporter.log("添加运营商");
+		Reporter.log("请求参数:" + jsonObject.toString());
+		String result = urlConnection.doPost(ManagerLogin.cookie, Constant.maintainOperatorInfo_Url, jsonObject.toString());
+		Reporter.log("返回参数:" + result);
+		ResponseModel resp = new ResponseModel();
+		resp = urlConnection.getResponseModel(result);
+
+		return resp;
+	}
+
+
 	public void maintainOperatorRelWorkerInfo(int[] workerIds,Integer operatorId) throws Exception {
 		Map map = new HashMap();
 		map.put("id", operatorId);

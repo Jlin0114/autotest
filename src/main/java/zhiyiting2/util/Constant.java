@@ -138,8 +138,11 @@ public class Constant {
 	//获取施工人员列表
 	public static final String  loadWorkerInfo_Url=url+"/api/background/loadWorkerInfo.do";
 	//新增运营商
-	public static final String  maintainOperatorInfo_Url=url+"/api/background/maintainOperatorInfo.do";
-	
+//	public static final String  maintainOperatorInfo_Url=url+"/api/background/maintainOperatorInfo.do";
+
+ 	public static final String  maintainOperatorInfo_Url=url+"/api/background/insertOperatorInfo.do";//新接口
+
+
 	//运营商绑定施工人员
 	public static final String  maintainOperatorRelWorkerInfo_Url=url+"/api/background/maintainOperatorRelWorkerInfo.do";
 	//路段绑定施工人员

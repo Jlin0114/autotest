@@ -20,7 +20,7 @@ public class AuditType extends ZTest {
             deviceService.reportIn(deviceNo, "PREPARE", 12, 25, serialId,
                     System.currentTimeMillis() / 1000);
             // 设备上传8张图片
-            for (int i = 1; i < 9; i++) {
+            for (int i = 1; i < 9; i++) {   //9
             	String url = System.getProperty("user.dir")+"/src/main/resources/image/in/p"+i+".png";
                 logger.info("上报入库图片");
                 deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
@@ -58,7 +58,7 @@ public class AuditType extends ZTest {
             deviceService.uploadDeviceOutFile(35, 20, 62,
                     8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
                     System.getProperty("user.dir")+"/src/main/resources/image/out/p0.png");
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++) {    //4
                 //出库过程图片
                 String url = System.getProperty("user.dir")+"/src/main/resources/image/outProcess/p"+i+".png";
                 logger.info("上报出库过程图片");
@@ -116,7 +116,7 @@ public class AuditType extends ZTest {
             deviceService.reportIn(deviceNo, "PREPARE", 12, 25, serialId,
                     System.currentTimeMillis() / 1000);
             // 设备上传8张图片
-            for (int i = 1; i < 9; i++) {
+            for (int i = 1; i <9; i++) {    //9
                 String url = System.getProperty("user.dir")+"/src/main/resources/image/auto_in/p"+i+".png";
                 logger.info("上报入库图片");
                 deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
@@ -148,7 +148,7 @@ public class AuditType extends ZTest {
                     8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
                     System.getProperty("user.dir")+"/src/main/resources/image/auto_noout/p1.png");
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++) {   //4
                 //出库过程图片
                 String url = System.getProperty("user.dir")+"/src/main/resources/image/auto_outProcess/p"+i+".png";
                 logger.info("上报出库过程图片");
@@ -175,7 +175,7 @@ public class AuditType extends ZTest {
             deviceService.uploadDeviceOutFile(35, 20, 62,
                     8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
                     System.getProperty("user.dir")+"/src/main/resources/image/auto_out/p1.png");
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++) {  //4
                 //出库过程图片
                 String url = System.getProperty("user.dir")+"/src/main/resources/image/auto_outProcess/p"+i+".png";
                 logger.info("上报出库过程图片");
@@ -207,11 +207,11 @@ public class AuditType extends ZTest {
             deviceService.uploadDeviceOutFile(35, 20, 62,
                     8, deviceNo, serialId, System.currentTimeMillis() / 1000, "0",
                     System.getProperty("user.dir")+"/src/main/resources/image/auto_out/p9.png");  //p9.png为另一张车牌的图片
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 4; i++) {   //4
                 //出库过程图片
                 logger.info("上报出库过程图片");
                 deviceService.uploadDeviceOutFile(35, 20, 62, 8, deviceNo, serialId,
-                        System.currentTimeMillis() / 1000, "1", "C:\\Users\\DELL\\Desktop\\自动出入库图片\\出库过程\\p" + i + ".png");
+                        System.currentTimeMillis() / 1000, "1", System.getProperty("user.dir")+"/src/main/resources/image/auto_outProcess/p"+i+".png");
                 Thread.sleep(1000);
             }
 
@@ -257,7 +257,7 @@ public class AuditType extends ZTest {
             deviceService.reportIn(deviceNo,"PREPARE", 12, 25, serialId,
                     System.currentTimeMillis() / 1000);
             logger.info("上传入库图片");
-            for (int i = 1; i < 9; i++) {
+            for (int i = 1; i < 9; i++) {   //9
                 String url = System.getProperty("user.dir")+"/src/main/resources/image/in/p"+i+".png";
                 logger.info("上报入库图片");
                 deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
@@ -286,7 +286,7 @@ public class AuditType extends ZTest {
     public void evidence(Long serialId){
         try {
             logger.info("上传取证图");
-            String url = System.getProperty("user.dir")+"/src/main/resources/image/evidence/evidence.png";
+            String url = System.getProperty("user.dir")+"/src/main/resources/image/evidence/evidence1.png";
             deviceService.uploadDeviceFile(35, 20, 61, 1, 8, deviceNo,
                     serialId, System.currentTimeMillis() / 1000,1, url);
             Thread.sleep(5000);

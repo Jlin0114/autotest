@@ -35,7 +35,7 @@ public class AppPushTest extends ZTest {
     public void bindCarTest() {
         try {
             //绑定车辆
-            appService.bindCar(plateNo);
+            Integer carId = appService.bindCar(plateNo).getCarId();
             //上传行驶证图片
             appService.uploadFileNew();
             //行驶证提交审核
@@ -56,6 +56,8 @@ public class AppPushTest extends ZTest {
             long serialId = System.currentTimeMillis() / 1000;
             auditType.in(serialId,plateNo,"IN");
             auditType.out(serialId,"OUT");
+
+            //支付账单
 
 
 

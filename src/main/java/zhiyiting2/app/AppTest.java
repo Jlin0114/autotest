@@ -1,5 +1,6 @@
 package zhiyiting2.app;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,14 +9,12 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 import net.sf.json.JSONObject;
 import zhiyiting2.app.service.AppService;
 import zhiyiting2.model.ResponseModel;
 import zhiyiting2.model.SqlModel;
-import zhiyiting2.test.CreatRoad;
 import zhiyiting2.test.ManagerLogin;
 import zhiyiting2.test.TestAssertException;
 import zhiyiting2.test.ZTest;
@@ -35,8 +34,8 @@ public class AppTest extends ZTest {
 	ChargeStandardService chargeStandardService;
 	@Autowired
 	DeviceService deviceService;
-	@Autowired
-	OperatorService operatorService;
+//	@Autowired
+//	OperatorService operatorService;
 	@Autowired
 	ParkingRoadService parkingRoadService;
 	@Autowired
@@ -62,117 +61,117 @@ public class AppTest extends ZTest {
 	public static Integer chargeStandardId=0;
 	public static Integer roadId=0;
 	public static Integer workerId=0;
-	@BeforeSuite
-	public void deleteTestData() {
-		JDBCConnection jdbc = new JDBCConnection();
-		String[] str = { "delete c from car c where c.plate_no in('" + plateNos[0] + "','" + plateNos[1] + "'," + "'"
-				+ unbindCarTestPlateNos[0] + "','" + unbindCarTestPlateNos[1] + "','" + unbindCarTestPlateNos[2] + "')",
-				"delete b,br from bill b left join bill_record br on b.id=br.bill_id where b.place_code='"
-						+ this.placeId + "'",
-				"delete o from operator o where o.name='压测专用运营商'",
-				"delete c from charge_standard c where c.charge_standard_name='自动化测试收费规则' ",
-				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='压测专用路段')",
-				"delete p from parking_road p where p.road_name='压测专用路段'",
-				"delete w from worker w where w.name='压测施工人员' ",
-				};
-		try {
-			jdbc.executeUpdate(str);
-			
-		} catch (Exception e) {
-			//不处理
-		}
-	}
+//	@BeforeSuite
+//	public void deleteTestData() {
+//		JDBCConnection jdbc = new JDBCConnection();
+//		String[] str = { "delete c from car c where c.plate_no in('" + plateNos[0] + "','" + plateNos[1] + "'," + "'"
+//				+ unbindCarTestPlateNos[0] + "','" + unbindCarTestPlateNos[1] + "','" + unbindCarTestPlateNos[2] + "')",
+//				"delete b,br from bill b left join bill_record br on b.id=br.bill_id where b.place_code='"
+//						+ this.placeId + "'",
+//				"delete o from operator o where o.name='压测专用运营商'",
+//				"delete c from charge_standard c where c.charge_standard_name='自动化测试收费规则' ",
+//				"delete pp from parking_place pp where pp.road_id=(select id from parking_road where road_name='压测专用路段')",
+//				"delete p from parking_road p where p.road_name='压测专用路段'",
+//				"delete w from worker w where w.name='压测施工人员' ",
+//				};
+//		try {
+//			jdbc.executeUpdate(str);
+//
+//		} catch (Exception e) {
+//			//不处理
+//		}
+//	}
 
-	// 初始化测试数据
-	@Test(testName="testDataInit",description="数据初始化")
-	public void testDataInit(){
-		try {
-			//创建运营商
-			String provinceId="450000";//广西省
-			String cityId="450100";//南宁市
-			ResponseModel resp = new ResponseModel();
-			resp = operatorService.maintainOperatorInfo("自动化测试运营商", provinceId, cityId, null, "insert");
-			this.operatorId = resp.getId();
-			//创建收费规则
-			Object[] dayChargeStandardList = new Object[3];
-			Map m0 = new HashMap();
-			m0.put("freeMinutesMode", 0);
-			m0.put("smallCarFreeMinutes", 1);
-			m0.put("chargeCapMode", 0);	
-			m0.put("smallCarChargeCap", 35);	
-			dayChargeStandardList[0]=m0;
-			Map m1 = new HashMap();
-			m1.put("startTime", "08:00");
-			m1.put("endTime", "20:00");
-			m1.put("chargeType", 3);
-			m1.put("skipNext", false);
-			m1.put("chargeCycleMinutes", 30);
-			m1.put("smallCarRate", "1");
-			dayChargeStandardList[1]=m1;
-			Map m2 = new HashMap();
-			m2.put("startTime","20:00");	
-			m2.put("endTime", "08:00");
-			m1.put("skipNext", false);
-			m2.put("chargeType",0);
-			dayChargeStandardList[2]=m2;
-			resp=chargeStandardService.addChargeStandardMultipleInfo(operatorId, "自动化测试收费规则","ONE_LEVEL","1",20,1,false,false,dayChargeStandardList);
-			chargeStandardId = resp.getId();
-			//创建路段
-			resp=parkingRoadService.creatRoad("108.333867", "22.812052", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y","");
-			roadId = resp.getId();
-			//创建车位
-			parkingRoadService.addParkPlaces(roadId,"108.334008","22.812683","1");
-			//查询车位id
-			List<Object> list = jdbconn.query("select p.id from parking_place p where "
-					+ "p.road_id='"+roadId+"' and p.grid_no='1'", SqlModel.class);
-			placeId = SqlModel.class.cast(list.get(0)).getId();
-			//派发工单
-			parkingService.createNewWorkOrder(placeId);
-			//创建施工人员
-			resp=workerService.maintainWorkerInfo("自动化测试施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
-			workerId = resp.getId();
-			int[] workerIds = new int[1];
-			workerIds[0]=workerId;
-			//施工人员绑定运营商
-			operatorService.maintainOperatorRelWorkerInfo(workerIds, operatorId);
-//			//施工人员绑定路段
-			int[] parkingRoadIds = new int[1];
-			parkingRoadIds[0]=roadId;
-			Object[] workerInfos = new Object[1];
-			Map<String,Integer> map = new HashMap<String, Integer>();
-			map.put("workerId", workerId);
-			workerInfos[0]=map;
-			parkingRoadService.batchBindParkingRoadAndWorker(workerInfos, parkingRoadIds);
-			List<Object> activity = jdbconn.query("select woa.id from work_order_activity woa "
-					+ "left join work_order wo on wo.id=woa.work_order_id where "
-					+ "wo.parking_place_id='"+placeId+"' order by woa.id desc", SqlModel.class);
-			String activityId = String.valueOf(SqlModel.class.cast(activity.get(0)).getId());
-//			//设备入库
-//			resp = deviceService.uploadDeviceFile();
-//			String fileId = resp.getFileId();
-//			deviceService.importDeviceFile(fileId);
-//			//工单回填
-			workerService.backfillConstructWorkOrderActivity(activityId, "987654321", String.valueOf(workerId));
-			//路段上线
-			int roadIds[] = new int[1];
-			roadIds[0]=this.roadId;
-			parkingRoadService.batchChangeParkingRoadStatus(roadIds, "0");
-			
-			parkingRoadService.batchUpdateParkRoadOperationStatus(roadId, "FORMAL");
-			//开启出库审核
-			int[] ids = new int[1];
-			ids[0]=this.placeId;
-			//车位上线
-			parkingRoadService.auditParkPlaceOut(ids, "PASS");
-		} catch (Exception e) {
-			e.printStackTrace();
-			//如果初始化数据失败了，后边的case不需要执行 程序停止
-			System.out.println("初始化数据异常,进程终止！");
-			System.exit(0);
-		}
-		
-	}
-	
+//	// 初始化测试数据
+//	@Test(testName="testDataInit",description="数据初始化")
+//	public void testDataInit(){
+//		try {
+//			//创建运营商
+//			String provinceId="450000";//广西省
+//			String cityId="450100";//南宁市
+//			ResponseModel resp = new ResponseModel();
+//			resp = operatorService.maintainOperatorInfo("自动化测试运营商", provinceId, cityId, null, "insert");
+//			this.operatorId = resp.getId();
+//			//创建收费规则
+//			Object[] dayChargeStandardList = new Object[3];
+//			Map m0 = new HashMap();
+//			m0.put("freeMinutesMode", 0);
+//			m0.put("smallCarFreeMinutes", 1);
+//			m0.put("chargeCapMode", 0);
+//			m0.put("smallCarChargeCap", 35);
+//			dayChargeStandardList[0]=m0;
+//			Map m1 = new HashMap();
+//			m1.put("startTime", "08:00");
+//			m1.put("endTime", "20:00");
+//			m1.put("chargeType", 3);
+//			m1.put("skipNext", false);
+//			m1.put("chargeCycleMinutes", 30);
+//			m1.put("smallCarRate", "1");
+//			dayChargeStandardList[1]=m1;
+//			Map m2 = new HashMap();
+//			m2.put("startTime","20:00");
+//			m2.put("endTime", "08:00");
+//			m1.put("skipNext", false);
+//			m2.put("chargeType",0);
+//			dayChargeStandardList[2]=m2;
+//			resp=chargeStandardService.addChargeStandardMultipleInfo(operatorId, "自动化测试收费规则","ONE_LEVEL","1",20,1,false,false,dayChargeStandardList);
+//			chargeStandardId = resp.getId();
+//			//创建路段
+//			resp=parkingRoadService.creatRoad("108.333867", "22.812052", "自动化测试1", "450103001",String.valueOf(chargeStandardId),"Y","Y","");
+//			roadId = resp.getId();
+//			//创建车位
+//			parkingRoadService.addParkPlaces(roadId,"108.334008","22.812683","1");
+//			//查询车位id
+//			List<Object> list = jdbconn.query("select p.id from parking_place p where "
+//					+ "p.road_id='"+roadId+"' and p.grid_no='1'", SqlModel.class);
+//			placeId = SqlModel.class.cast(list.get(0)).getId();
+//			//派发工单
+//			parkingService.createNewWorkOrder(placeId);
+//			//创建施工人员
+//			resp=workerService.maintainWorkerInfo("自动化测试施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
+//			workerId = resp.getId();
+//			int[] workerIds = new int[1];
+//			workerIds[0]=workerId;
+//			//施工人员绑定运营商
+//			operatorService.maintainOperatorRelWorkerInfo(workerIds, operatorId);
+////			//施工人员绑定路段
+//			int[] parkingRoadIds = new int[1];
+//			parkingRoadIds[0]=roadId;
+//			Object[] workerInfos = new Object[1];
+//			Map<String,Integer> map = new HashMap<String, Integer>();
+//			map.put("workerId", workerId);
+//			workerInfos[0]=map;
+//			parkingRoadService.batchBindParkingRoadAndWorker(workerInfos, parkingRoadIds);
+//			List<Object> activity = jdbconn.query("select woa.id from work_order_activity woa "
+//					+ "left join work_order wo on wo.id=woa.work_order_id where "
+//					+ "wo.parking_place_id='"+placeId+"' order by woa.id desc", SqlModel.class);
+//			String activityId = String.valueOf(SqlModel.class.cast(activity.get(0)).getId());
+////			//设备入库
+////			resp = deviceService.uploadDeviceFile();
+////			String fileId = resp.getFileId();
+////			deviceService.importDeviceFile(fileId);
+////			//工单回填
+//			workerService.backfillConstructWorkOrderActivity(activityId, "987654321", String.valueOf(workerId));
+//			//路段上线
+//			int roadIds[] = new int[1];
+//			roadIds[0]=this.roadId;
+//			parkingRoadService.batchChangeParkingRoadStatus(roadIds, "0");
+//
+//			parkingRoadService.batchUpdateParkRoadOperationStatus(roadId, "FORMAL");
+//			//开启出库审核
+//			int[] ids = new int[1];
+//			ids[0]=this.placeId;
+//			//车位上线
+//			parkingRoadService.auditParkPlaceOut(ids, "PASS");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			//如果初始化数据失败了，后边的case不需要执行 程序停止
+//			System.out.println("初始化数据异常,进程终止！");
+//			System.exit(0);
+//		}
+//
+//	}
+//
 	// 初始化测试数据
 		@Test(testName="testDataInit1",description="数据初始化")
 		public void testDataInit1(){
@@ -180,34 +179,38 @@ public class AppTest extends ZTest {
 				//创建运营商
 				String provinceId="450000";//广西省
 				String cityId="450100";//南宁市
+				String[] pcas = new String[2];
+				pcas[0]=provinceId;
+				pcas[1]=cityId;
 				ResponseModel resp = new ResponseModel();
-				resp = operatorService.maintainOperatorInfo("压测专用运营商", provinceId, cityId, null, "insert");
+//				resp = operatorService.maintainOperatorInfo("压测专用运营商", provinceId, cityId, null, "insert");
+				resp=operatorService.insertOperatorInfo(cityId,null,"压测专用运营商","ZYT",1,provinceId,pcas,null,"insert");
 				this.operatorId = resp.getId();
-//				//创建收费规则
+				//创建收费规则
 //				Object[] dayChargeStandardList = new Object[3];
 //				Map m0 = new HashMap();
 //				m0.put("freeMinutesMode", 0);
 //				m0.put("smallCarFreeMinutes", 1);
-//				m0.put("chargeCapMode", 0);	
-//				m0.put("smallCarChargeCap", 35);	
+//				m0.put("chargeCapMode", 0);
+//				m0.put("smallCarChargeCap", 35);
 //				dayChargeStandardList[0]=m0;
 //				Map m1 = new HashMap();
 //				m1.put("startTime", "08:00");
 //				m1.put("endTime", "20:00");
-//				m1.put("chargeType", 3);	
+//				m1.put("chargeType", 3);
 //				m1.put("chargeCycleMinutes", 30);
 //				m1.put("smallCarRate", "1");
 //				dayChargeStandardList[1]=m1;
 //				Map m2 = new HashMap();
-//				m2.put("startTime","20:00");	
+//				m2.put("startTime","20:00");
 //				m2.put("endTime", "08:00");
 //				m2.put("chargeType",0);
 //				dayChargeStandardList[2]=m2;
-//				resp=chargeStandardService.addChargeStandardMultipleInfo(Integer.valueOf(provinceId), 
+//				resp=chargeStandardService.addChargeStandardMultipleInfo(Integer.valueOf(provinceId),
 //						Integer.valueOf(cityId), "自动化测试收费规则","ONE_LEVEL",20,1,false,false,dayChargeStandardList);
 //				chargeStandardId = resp.getId();
 				//创建路段
-				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "压测专用路段", "450103001","63","Y","Y","");
+				resp=parkingRoadService.creatRoad("108.333866", "22.812051", "测专用路段压", "450103001","63","Y","Y","");
 				roadId = resp.getId();
 				//创建施工人员
 				resp=workerService.maintainWorkerInfo("压测施工人员","18834563456", "123456", "insert","8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92");
@@ -243,32 +246,38 @@ public class AppTest extends ZTest {
 							+ "wo.parking_place_id='"+placeId+"' order by woa.id desc", SqlModel.class);
 					String activityId = String.valueOf(SqlModel.class.cast(activity.get(0)).getId());
 //					//工单回填
-					workerService.backfillConstructWorkOrderActivity(activityId,58858800000L+i+"", String.valueOf(workerId));
+					workerService.backfillConstructWorkOrderActivity(activityId,588885888800000L+i+"", String.valueOf(workerId));
 					//开启出库审核
 					int[] ids = new int[1];
 					ids[0]=this.placeId;
 					//车位开日出库审核
 					parkingRoadService.auditParkPlaceOut(ids, "PASS");
-					
+
 				}
-				
-				
+
+
 			} catch (Exception e) {
 				e.printStackTrace();
 				//如果初始化数据失败了，后边的case不需要执行 程序停止
 				System.out.println("初始化数据异常,进程终止！");
 				System.exit(0);
 			}
-			
+
 		}
 	
-	
-	
-	
-	
-	
+//
+//	@BeforeTest
+//	public void login(){
+//		try {
+//
+//			ManagerLogin.login("", "zhaoming", "9c5946d01d87b796cff3593166ae327e05c242ac5b3317a843964b789ddcfecb");
+////			Applogin.login("","45A3B0FD8F88841DEDC0A5BC04325D938BB3F16D68A561F34BEB43C530B4F115","16620992099","IOS","");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
-	// app登录
+//	}
+//	 app登录
 	@Test(testName = "appLogin", description = "app登录111", dataProvider = "appLogin", dataProviderClass = AppData.class)
 	public void appLogin(String testname, String password, String mobile, String deviceTokenType, String deviceToken)
 			throws Exception {
@@ -285,21 +294,21 @@ public class AppTest extends ZTest {
 	}
 
 	// 修改驾驶证提交
-	@Test(testName = "updateBindApply", description = "绑定驾驶证提交", dataProvider = "updateBindApply", dataProviderClass = AppData.class)
-	public void updateBindApply(String testname, Integer driverLicenseFileId, String driverLicenseNo) throws Exception {
-		Map map = new HashMap();
-		map.put("driverLicenseFileId", driverLicenseFileId);
-		map.put("driverLicenseNo", driverLicenseNo);
-		JSONObject jsonObject = JSONObject.fromObject(map);
-		Reporter.log("请求参数:" + jsonObject.toString());
-		String result = uRLConnection.doPost(this.cookie, Constant.updateBindApply_Url, jsonObject.toString());
-		Reporter.log("返回参数:" + result);
-		ResponseModel resp = new ResponseModel();
-		resp = uRLConnection.getResponseModel(result);
-		Assert.assertEquals(resp.getMessage(), "OK");
-		Assert.assertEquals(resp.getCode(), "0");
-
-	}
+//	@Test(testName = "updateBindApply", description = "绑定驾驶证提交", dataProvider = "updateBindApply", dataProviderClass = AppData.class)
+//	public void updateBindApply(String testname, Integer driverLicenseFileId, String driverLicenseNo) throws Exception {
+//		Map map = new HashMap();
+//		map.put("driverLicenseFileId", driverLicenseFileId);
+//		map.put("driverLicenseNo", driverLicenseNo);
+//		JSONObject jsonObject = JSONObject.fromObject(map);
+//		Reporter.log("请求参数:" + jsonObject.toString());
+//		String result = uRLConnection.doPost(this.cookie, Constant.updateBindApply_Url, jsonObject.toString());
+//		Reporter.log("返回参数:" + result);
+//		ResponseModel resp = new ResponseModel();
+//		resp = uRLConnection.getResponseModel(result);
+//		Assert.assertEquals(resp.getMessage(), "OK");
+//		Assert.assertEquals(resp.getCode(), "0");
+//
+//	}
 
 	// 行驶证审核 创建两辆车 一个审核 一个驳回
 	@Test(testName = "auditBindApply", description = "行驶证审核", dataProvider = "auditBindApply", dataProviderClass = AppData.class)
@@ -377,7 +386,7 @@ public class AppTest extends ZTest {
 			deviceService.reportIn(this.deviceNo, "PREPARE", 12, 25, serialId, System.currentTimeMillis() / 1000);
 			// 设备上传图片
 			deviceService.uploadDeviceFile(35, 20, 61, 1, 8, this.deviceNo, serialId,
-					System.currentTimeMillis() / 1000,"");
+					System.currentTimeMillis() / 1000,0,"");
 			// 设备出库
 			deviceService.reportOut(this.deviceNo, "OUT", 62, 21, false, serialId, System.currentTimeMillis() / 1000);
 			List<Object> obj = jdbconn.query("select a.id from audit a where a.audit_type='IN' and a.serial_id='"
@@ -533,5 +542,15 @@ public class AppTest extends ZTest {
 		Assert.assertEquals(resp.getMessage(), "OK");
 		Assert.assertEquals(resp.getCode(), "0");
 	}
+
+
+	//tuisong
+
+
+
+
+
+
+
 
 }
