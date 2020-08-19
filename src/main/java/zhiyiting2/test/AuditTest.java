@@ -38,7 +38,7 @@ public class AuditTest extends ZTest{
 
 
 
-            for (int i=0;i<1;i++) {
+            for (int i=0;i<5;i++) {
                 AuditType.logger.info("正常模式  入库  出库 ");
                 long serialId1 = System.currentTimeMillis() / 1000;
                 auditType.in(serialId1,plateNo ,"IN");

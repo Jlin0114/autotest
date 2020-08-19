@@ -110,8 +110,8 @@ public class Constant {
 	
 	
 	
-	public static final String url = "http://ptestadmin.wisdomep.com";//测试
-//	public static final String url = "http://preprodadmin.wisdomep.com";//预生产
+//	public static final String url = "http://ptestadmin.wisdomep.com";//测试
+	public static final String url = "http://preprodadmin.wisdomep.com";//预生产
 	public static final String  loginUrl = url+"/api/background/manager/login.do";
 	public static final String  addLoadUrl = url+"/api/background/addParkRoad.do";
 	public static final String  getRoadListUrl=url+"/api/background/manager/loadParkingRoad.do";
